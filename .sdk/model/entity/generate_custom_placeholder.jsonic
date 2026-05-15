@@ -1,0 +1,87 @@
+# Entity: generate_custom_placeholder
+
+main: kit: entity: generate_custom_placeholder: {
+
+  alias: field: {}
+
+  name: "generate_custom_placeholder"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "2C3E50"
+                kind: "param"
+                name: "background"
+                orig: "background"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 300
+                kind: "param"
+                name: "height"
+                orig: "height"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                example: "ECF0F1"
+                kind: "param"
+                name: "text_color"
+                orig: "text_color"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 600
+                kind: "param"
+                name: "width"
+                orig: "width"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: "BiFindr+Placeholder+Image"
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/{width}/{height}/{background}/{text_color}"
+          parts: [
+            "{width}"
+            "{height}"
+            "{background}"
+            "{text_color}"
+          ]
+          select: {
+            exist: [
+              "background"
+              "height"
+              "text"
+              "text_color"
+              "width"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

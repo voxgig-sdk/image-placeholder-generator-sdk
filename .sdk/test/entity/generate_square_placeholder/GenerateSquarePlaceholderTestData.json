@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "generate_square_placeholder": {
+      "GENERATE_SQUARE_PLACEHOLDER00": {},
+      "GENERATE_SQUARE_PLACEHOLDER01": {},
+      "GENERATE_SQUARE_PLACEHOLDER02": {}
+    }
+  },
+  "new": {
+    "generate_square_placeholder": {
+      "generate_square_placeholder_ref01": {}
+    }
+  }
+}

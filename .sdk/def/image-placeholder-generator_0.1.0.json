@@ -1,0 +1,216 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Image Placeholder Generator",
+    "description": "This API allows developers to create customizable SVG placeholder images for their web projects. Users can specify dimensions, background and text colors, and custom text, making it an efficient tool for rapid prototyping. Generates lightweight, resolution-independent SVG images instantly with no dependencies or tracking.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "BiFindr Placeholder API",
+      "url": "https://bifindr.com/placeholder/"
+    },
+    "license": {
+      "name": "Free for Commercial Use",
+      "url": "https://bifindr.com/placeholder/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://bifindr.com/placeholder",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/{width}": {
+      "get": {
+        "summary": "Generate square placeholder image",
+        "description": "Creates a square SVG placeholder image with the specified width. Height will equal width automatically.",
+        "operationId": "generateSquarePlaceholder",
+        "parameters": [
+          {
+            "name": "width",
+            "in": "path",
+            "required": true,
+            "description": "The width (and height) of the square image in pixels",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 400
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": false,
+            "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)",
+            "schema": {
+              "type": "string",
+              "example": "BiFindr+Placeholder+Image"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully generated SVG placeholder image",
+            "content": {
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Placeholder Generation"
+        ]
+      }
+    },
+    "/{width}/{height}": {
+      "get": {
+        "summary": "Generate rectangular placeholder image",
+        "description": "Creates a rectangular SVG placeholder image with specified width and height dimensions.",
+        "operationId": "generateRectangularPlaceholder",
+        "parameters": [
+          {
+            "name": "width",
+            "in": "path",
+            "required": true,
+            "description": "The width of the image in pixels",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 600
+            }
+          },
+          {
+            "name": "height",
+            "in": "path",
+            "required": true,
+            "description": "The height of the image in pixels",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 300
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": false,
+            "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)",
+            "schema": {
+              "type": "string",
+              "example": "BiFindr+Placeholder+Image"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully generated SVG placeholder image",
+            "content": {
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Placeholder Generation"
+        ]
+      }
+    },
+    "/{width}/{height}/{background}/{text_color}": {
+      "get": {
+        "summary": "Generate customized placeholder image with colors",
+        "description": "Creates a rectangular SVG placeholder image with custom dimensions, background color, and text color. Colors should be specified as HEX codes without the # symbol.",
+        "operationId": "generateCustomPlaceholder",
+        "parameters": [
+          {
+            "name": "width",
+            "in": "path",
+            "required": true,
+            "description": "The width of the image in pixels",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 600
+            }
+          },
+          {
+            "name": "height",
+            "in": "path",
+            "required": true,
+            "description": "The height of the image in pixels",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 300
+            }
+          },
+          {
+            "name": "background",
+            "in": "path",
+            "required": true,
+            "description": "Background color as HEX code without the # symbol",
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{6}$",
+              "example": "2C3E50"
+            }
+          },
+          {
+            "name": "text_color",
+            "in": "path",
+            "required": true,
+            "description": "Text color as HEX code without the # symbol",
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{6}$",
+              "example": "ECF0F1"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": false,
+            "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)",
+            "schema": {
+              "type": "string",
+              "example": "BiFindr+Placeholder+Image"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully generated SVG placeholder image",
+            "content": {
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Placeholder Generation"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Placeholder Generation",
+      "description": "Generate customizable SVG placeholder images with various dimensions and colors"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API Documentation",
+    "url": "https://bifindr.com/placeholder/"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "generate_custom_placeholder": {
+      "GENERATE_CUSTOM_PLACEHOLDER00": {
+        "background": "BACKGROUND01",
+        "height": "HEIGHT01",
+        "text_color": "TEXT_COLOR01",
+        "width": "WIDTH01"
+      },
+      "GENERATE_CUSTOM_PLACEHOLDER01": {
+        "background": "BACKGROUND01",
+        "height": "HEIGHT01",
+        "text_color": "TEXT_COLOR01",
+        "width": "WIDTH01"
+      },
+      "GENERATE_CUSTOM_PLACEHOLDER02": {
+        "background": "BACKGROUND01",
+        "height": "HEIGHT01",
+        "text_color": "TEXT_COLOR01",
+        "width": "WIDTH01"
+      }
+    }
+  },
+  "new": {
+    "generate_custom_placeholder": {
+      "generate_custom_placeholder_ref01": {}
+    }
+  }
+}

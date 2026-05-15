@@ -1,0 +1,62 @@
+# Entity: generate_square_placeholder
+
+main: kit: entity: generate_square_placeholder: {
+
+  alias: field: {}
+
+  name: "generate_square_placeholder"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 400
+                kind: "param"
+                name: "id"
+                orig: "width"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: "BiFindr+Placeholder+Image"
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/{width}"
+          parts: [
+            "{id}"
+          ]
+          rename: {
+            param: {
+              width: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "text"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

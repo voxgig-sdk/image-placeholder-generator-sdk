@@ -1,0 +1,27 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: generate_custom_placeholder: {
+    path: "/{width}/{height}/{background}/{text_color}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: generate_rectangular_placeholder: {
+    path: "/{width}/{height}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: generate_square_placeholder: {
+    path: "/{width}": {
+      rename: param: "width": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}

@@ -1,0 +1,33 @@
+# BasicGenerateRectangularPlaceholderFlow
+
+main: kit: flow: BasicGenerateRectangularPlaceholderFlow:
+{
+  entity: "generate_rectangular_placeholder",
+  kind: "basic",
+  name: "BasicGenerateRectangularPlaceholderFlow",
+  step: [
+    {
+      input: {
+        ref: "generate_rectangular_placeholder_ref01",
+        srcdatavar: "generate_rectangular_placeholder_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "generate_rectangular_placeholder01",
+        width: "width01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-generate_rectangular_placeholder_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGenerateRectangularPlaceholderFlow"
+}

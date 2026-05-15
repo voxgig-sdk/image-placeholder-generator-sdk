@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "generate_rectangular_placeholder": {
+      "GENERATE_RECTANGULAR_PLACEHOLDER00": {
+        "height": "HEIGHT01",
+        "width": "WIDTH01"
+      },
+      "GENERATE_RECTANGULAR_PLACEHOLDER01": {
+        "height": "HEIGHT01",
+        "width": "WIDTH01"
+      },
+      "GENERATE_RECTANGULAR_PLACEHOLDER02": {
+        "height": "HEIGHT01",
+        "width": "WIDTH01"
+      }
+    }
+  },
+  "new": {
+    "generate_rectangular_placeholder": {
+      "generate_rectangular_placeholder_ref01": {}
+    }
+  }
+}

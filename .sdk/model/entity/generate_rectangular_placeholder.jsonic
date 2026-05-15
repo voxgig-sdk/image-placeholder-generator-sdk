@@ -1,0 +1,67 @@
+# Entity: generate_rectangular_placeholder
+
+main: kit: entity: generate_rectangular_placeholder: {
+
+  alias: field: {}
+
+  name: "generate_rectangular_placeholder"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 300
+                kind: "param"
+                name: "height"
+                orig: "height"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                example: 600
+                kind: "param"
+                name: "width"
+                orig: "width"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: "BiFindr+Placeholder+Image"
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/{width}/{height}"
+          parts: [
+            "{width}"
+            "{height}"
+          ]
+          select: {
+            exist: [
+              "height"
+              "text"
+              "width"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

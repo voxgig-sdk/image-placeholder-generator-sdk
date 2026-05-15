@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "BiFindr Placeholder API"
+        url: "https://bifindr.com/placeholder/"
+      }
+      description: "This API allows developers to create customizable SVG placeholder images for their web projects. Users can specify dimensions, background and text colors, and custom text, making it an efficient tool for rapid prototyping. Generates lightweight, resolution-independent SVG images instantly with no dependencies or tracking."
+      license: {
+        name: "Free for Commercial Use"
+        url: "https://bifindr.com/placeholder/"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://bifindr.com/placeholder"
+        }
+      ]
+      title: "Image Placeholder Generator"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
