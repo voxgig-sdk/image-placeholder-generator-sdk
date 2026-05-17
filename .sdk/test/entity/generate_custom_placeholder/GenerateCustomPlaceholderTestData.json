@@ -5,19 +5,22 @@
         "background": "BACKGROUND01",
         "height": "HEIGHT01",
         "text_color": "TEXT_COLOR01",
-        "width": "WIDTH01"
+        "width": "WIDTH01",
+        "id": "GENERATE_CUSTOM_PLACEHOLDER00"
       },
       "GENERATE_CUSTOM_PLACEHOLDER01": {
         "background": "BACKGROUND01",
         "height": "HEIGHT01",
         "text_color": "TEXT_COLOR01",
-        "width": "WIDTH01"
+        "width": "WIDTH01",
+        "id": "GENERATE_CUSTOM_PLACEHOLDER01"
       },
       "GENERATE_CUSTOM_PLACEHOLDER02": {
         "background": "BACKGROUND01",
         "height": "HEIGHT01",
         "text_color": "TEXT_COLOR01",
-        "width": "WIDTH01"
+        "width": "WIDTH01",
+        "id": "GENERATE_CUSTOM_PLACEHOLDER02"
       }
     }
   },

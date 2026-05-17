@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/image-placeholder-generator-sdk"
-	"github.com/voxgig-sdk/image-placeholder-generator-sdk/core"
+	sdk "github.com/voxgig-sdk/image-placeholder-generator-sdk/go"
+	"github.com/voxgig-sdk/image-placeholder-generator-sdk/go/core"
 )
 
 func TestGenerateRectangularPlaceholderDirect(t *testing.T) {

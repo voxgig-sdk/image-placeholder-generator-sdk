@@ -3,15 +3,18 @@
     "generate_rectangular_placeholder": {
       "GENERATE_RECTANGULAR_PLACEHOLDER00": {
         "height": "HEIGHT01",
-        "width": "WIDTH01"
+        "width": "WIDTH01",
+        "id": "GENERATE_RECTANGULAR_PLACEHOLDER00"
       },
       "GENERATE_RECTANGULAR_PLACEHOLDER01": {
         "height": "HEIGHT01",
-        "width": "WIDTH01"
+        "width": "WIDTH01",
+        "id": "GENERATE_RECTANGULAR_PLACEHOLDER01"
       },
       "GENERATE_RECTANGULAR_PLACEHOLDER02": {
         "height": "HEIGHT01",
-        "width": "WIDTH01"
+        "width": "WIDTH01",
+        "id": "GENERATE_RECTANGULAR_PLACEHOLDER02"
       }
     }
   },

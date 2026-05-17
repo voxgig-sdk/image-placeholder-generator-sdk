@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/image-placeholder-generator-sdk"
+	sdk "github.com/voxgig-sdk/image-placeholder-generator-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/image-placeholder-generator-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {

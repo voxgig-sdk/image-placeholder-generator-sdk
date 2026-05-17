@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/image-placeholder-generator-sdk/core"
+import "github.com/voxgig-sdk/image-placeholder-generator-sdk/go/core"
 
 func makeResponseUtil(ctx *core.Context) (*core.Response, error) {
 	if ctx.Out["response"] != nil {
