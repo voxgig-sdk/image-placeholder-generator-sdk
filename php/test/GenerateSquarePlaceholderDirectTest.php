@@ -75,14 +75,12 @@ function generate_square_placeholder_direct_setup($mockres)
     $env = Runner::env_override([
         "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID" => [],
         "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE" => "FALSE",
-        "IMAGEPLACEHOLDERGENERATOR_APIKEY" => "NONE",
     ]);
 
     $live = $env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["IMAGEPLACEHOLDERGENERATOR_APIKEY"],
         ];
         $client = new ImagePlaceholderGeneratorSDK($merged_opts);
         return [

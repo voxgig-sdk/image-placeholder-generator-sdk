@@ -15,9 +15,6 @@ module ImagePlaceholderGeneratorConfig
       },
       "options" => {
         "base" => "https://bifindr.com/placeholder",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

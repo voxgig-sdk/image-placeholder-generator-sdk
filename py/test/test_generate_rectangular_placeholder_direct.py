@@ -68,14 +68,12 @@ def _generate_rectangular_placeholder_direct_setup(mockres):
     env = runner.env_override({
         "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_RECTANGULAR_PLACEHOLDER_ENTID": {},
         "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE": "FALSE",
-        "IMAGEPLACEHOLDERGENERATOR_APIKEY": "NONE",
     })
 
     live = env.get("IMAGEPLACEHOLDERGENERATOR_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("IMAGEPLACEHOLDERGENERATOR_APIKEY"),
         }
         client = ImagePlaceholderGeneratorSDK(merged_opts)
         return {

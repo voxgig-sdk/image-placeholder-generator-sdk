@@ -82,7 +82,6 @@ def generate_custom_placeholder_basic_setup(extra)
     "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID" => idmap,
     "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE" => "FALSE",
     "IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN" => "FALSE",
-    "IMAGEPLACEHOLDERGENERATOR_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +93,6 @@ def generate_custom_placeholder_basic_setup(extra)
   if env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IMAGEPLACEHOLDERGENERATOR_APIKEY"],
       },
       extra || {},
     ])
