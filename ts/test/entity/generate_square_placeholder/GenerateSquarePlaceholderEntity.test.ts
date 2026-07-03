@@ -111,6 +111,7 @@ function basicSetup(extra?: any) {
     'IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID': idmap,
     'IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE': 'FALSE',
     'IMAGE_PLACEHOLDER_GENERATOR_TEST_EXPLAIN': 'FALSE',
+    'IMAGE_PLACEHOLDER_GENERATOR_APIKEY': 'NONE',
   })
 
   idmap = env['IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID']
@@ -120,6 +121,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ImagePlaceholderGeneratorSDK(merge([
       {
+        apikey: env.IMAGE_PLACEHOLDER_GENERATOR_APIKEY,
       },
       extra
     ]))

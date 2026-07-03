@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://bifindr.com/placeholder",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -30,57 +33,59 @@ def make_config():
         "name": "generate_custom_placeholder",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": "2C3E50",
                       "kind": "param",
                       "name": "background",
                       "orig": "background",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": 300,
                       "kind": "param",
                       "name": "height",
                       "orig": "height",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": "ECF0F1",
                       "kind": "param",
                       "name": "text_color",
                       "orig": "text_color",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": 600,
                       "kind": "param",
                       "name": "width",
                       "orig": "width",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                   "query": [
                     {
+                      "active": True,
                       "example": "BiFindr+Placeholder+Image",
                       "kind": "query",
                       "name": "text",
                       "orig": "text",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -105,11 +110,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },
@@ -122,39 +125,41 @@ def make_config():
         "name": "generate_rectangular_placeholder",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": 300,
                       "kind": "param",
                       "name": "height",
                       "orig": "height",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": 600,
                       "kind": "param",
                       "name": "width",
                       "orig": "width",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                   "query": [
                     {
+                      "active": True,
                       "example": "BiFindr+Placeholder+Image",
                       "kind": "query",
                       "name": "text",
                       "orig": "text",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -175,11 +180,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },
@@ -192,30 +195,32 @@ def make_config():
         "name": "generate_square_placeholder",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": 400,
                       "kind": "param",
                       "name": "id",
                       "orig": "width",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                   "query": [
                     {
+                      "active": True,
                       "example": "BiFindr+Placeholder+Image",
                       "kind": "query",
                       "name": "text",
                       "orig": "text",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -239,11 +244,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

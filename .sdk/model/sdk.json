@@ -1,45 +1,13 @@
 {
-  "name": "image-placeholder-generator",
-  "origin": "voxgig-sdk",
   "def": "image-placeholder-generator_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
-      "info": {
-        "contact": {
-          "name": "BiFindr Placeholder API",
-          "url": "https://bifindr.com/placeholder/"
-        },
-        "description": "This API allows developers to create customizable SVG placeholder images for their web projects. Users can specify dimensions, background and text colors, and custom text, making it an efficient tool for rapid prototyping. Generates lightweight, resolution-independent SVG images instantly with no dependencies or tracking.",
-        "license": {
-          "name": "Free for Commercial Use",
-          "url": "https://bifindr.com/placeholder/"
-        },
-        "servers": [
-          {
-            "description": "Production server",
-            "url": "https://bifindr.com/placeholder"
-          }
-        ],
-        "title": "Image Placeholder Generator",
-        "version": "1.0.0",
-        "tagline": "Generate customizable SVG placeholder images with configurable size, colors, and text for web prototypes",
-        "homepage": "https://bifindr.com/placeholder",
-        "license_short": "Free for commercial use; no authentication required",
-        "license_md": "- Free for commercial use\n- No authentication or API key required\n- CORS is disabled on all endpoints, so requests must be made server-side or via `<img>` tags rather than client-side `fetch`",
-        "about_md": "The Image Placeholder Generator is a small HTTP service operated by [BiFindr](https://bifindr.com/placeholder) that returns SVG placeholder images. It is intended for design mockups, wireframes, and rapid prototyping where you need filler imagery at a known size.\n\nWhat you get from the API:\n\n- SVG placeholders at arbitrary dimensions\n- Convenience endpoints for square and rectangular placeholders\n- Custom text overlay and background / foreground colors specified as hex values\n\nOperational notes: no API key is required and the API is reported as highly reliable, but CORS is disabled, so embed the URL directly in an `<img>` tag (or call it from your backend) rather than fetching it via JavaScript. Responses are SVG, so they scale crisply at any size.",
-        "entity_desc": {
-          "generate_custom_placeholder": "Returns an SVG placeholder with caller-specified width, height, background colour, text colour, and label text.",
-          "generate_rectangular_placeholder": "Returns a pre-sized rectangular SVG placeholder (e.g. 600x300) with optional custom text.",
-          "generate_square_placeholder": "Returns a pre-sized square SVG placeholder (e.g. 400x400) suitable for thumbnails and avatars."
-        },
-        "auth": false
-      },
       "config": {
         "auth": {
           "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
         },
         "docs_order": [
           "ts",
@@ -48,67 +16,74 @@
           "go",
           "rb",
           "lua"
-        ]
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
       },
       "entity": {
         "generate_custom_placeholder": {
+          "active": true,
           "alias": {
             "field": {}
           },
+          "fields": [],
           "name": "generate_custom_placeholder",
           "op": {
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "params": [
                       {
+                        "active": true,
                         "example": "2C3E50",
                         "kind": "param",
                         "name": "background",
                         "orig": "background",
                         "reqd": true,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": 300,
                         "kind": "param",
                         "name": "height",
                         "orig": "height",
                         "reqd": true,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": "ECF0F1",
                         "kind": "param",
                         "name": "text_color",
                         "orig": "text_color",
                         "reqd": true,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": 600,
                         "kind": "param",
                         "name": "width",
                         "orig": "width",
                         "reqd": true,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       }
                     ],
                     "query": [
                       {
+                        "active": true,
                         "example": "BiFindr+Placeholder+Image",
                         "kind": "query",
                         "name": "text",
                         "orig": "text",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       }
                     ]
                   },
@@ -132,59 +107,59 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
-          "fields": [],
           "relations": {
             "ancestors": []
           }
         },
         "generate_rectangular_placeholder": {
+          "active": true,
           "alias": {
             "field": {}
           },
+          "fields": [],
           "name": "generate_rectangular_placeholder",
           "op": {
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "params": [
                       {
+                        "active": true,
                         "example": 300,
                         "kind": "param",
                         "name": "height",
                         "orig": "height",
                         "reqd": true,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": 600,
                         "kind": "param",
                         "name": "width",
                         "orig": "width",
                         "reqd": true,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       }
                     ],
                     "query": [
                       {
+                        "active": true,
                         "example": "BiFindr+Placeholder+Image",
                         "kind": "query",
                         "name": "text",
                         "orig": "text",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       }
                     ]
                   },
@@ -204,50 +179,50 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
-          "fields": [],
           "relations": {
             "ancestors": []
           }
         },
         "generate_square_placeholder": {
+          "active": true,
           "alias": {
             "field": {}
           },
+          "fields": [],
           "name": "generate_square_placeholder",
           "op": {
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "params": [
                       {
+                        "active": true,
                         "example": 400,
                         "kind": "param",
                         "name": "id",
                         "orig": "width",
                         "reqd": true,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       }
                     ],
                     "query": [
                       {
+                        "active": true,
                         "example": "BiFindr+Placeholder+Image",
                         "kind": "query",
                         "name": "text",
                         "orig": "text",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       }
                     ]
                   },
@@ -270,15 +245,11 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
-          "fields": [],
           "relations": {
             "ancestors": []
           }
@@ -286,9 +257,6 @@
       },
       "feature": {
         "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
           "active": true,
           "config": {
             "options": {
@@ -296,6 +264,14 @@
             }
           },
           "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
             "PostConstruct": {
               "active": true,
               "await": false
@@ -304,25 +280,11 @@
               "active": true,
               "await": false
             },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
+            "PostOperation": {
+              "active": false,
               "await": false
             },
             "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
               "active": true,
               "await": false
             },
@@ -338,20 +300,32 @@
               "active": true,
               "await": false
             },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
             "PreTarget": {
               "active": false,
               "await": false
             },
-            "PostOperation": {
-              "active": false,
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
               "await": false
             }
           },
+          "name": "test",
           "target": {
-            "ts": {
+            "go": {
               "deps": {}
             },
-            "go": {
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
               "deps": {}
             },
             "lua": {
@@ -366,22 +340,26 @@
             "rb": {
               "deps": {}
             },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
+            "ts": {
               "deps": {}
             }
-          }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
         }
       },
       "flow": {
         "BasicGenerateCustomPlaceholderFlow": {
+          "active": true,
           "entity": "generate_custom_placeholder",
+          "key$": "BasicGenerateCustomPlaceholderFlow",
           "kind": "basic",
           "name": "BasicGenerateCustomPlaceholderFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "generate_custom_placeholder_ref01",
                 "srcdatavar": "generate_custom_placeholder_ref01_data",
@@ -394,6 +372,7 @@
                 "width": "width01"
               },
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -401,22 +380,21 @@
                     "mark": "Mark01-generate_custom_placeholder_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicGenerateCustomPlaceholderFlow",
-          "active": true,
-          "param": {}
+          ]
         },
         "BasicGenerateRectangularPlaceholderFlow": {
+          "active": true,
           "entity": "generate_rectangular_placeholder",
+          "key$": "BasicGenerateRectangularPlaceholderFlow",
           "kind": "basic",
           "name": "BasicGenerateRectangularPlaceholderFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "generate_rectangular_placeholder_ref01",
                 "srcdatavar": "generate_rectangular_placeholder_ref01_data",
@@ -427,6 +405,7 @@
                 "width": "width01"
               },
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -434,22 +413,21 @@
                     "mark": "Mark01-generate_rectangular_placeholder_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicGenerateRectangularPlaceholderFlow",
-          "active": true,
-          "param": {}
+          ]
         },
         "BasicGenerateSquarePlaceholderFlow": {
+          "active": true,
           "entity": "generate_square_placeholder",
+          "key$": "BasicGenerateSquarePlaceholderFlow",
           "kind": "basic",
           "name": "BasicGenerateSquarePlaceholderFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "generate_square_placeholder_ref01",
                 "srcdatavar": "generate_square_placeholder_ref01_data",
@@ -459,6 +437,7 @@
                 "id": "generate_square_placeholder01"
               },
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -466,27 +445,57 @@
                     "mark": "Mark01-generate_square_placeholder_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicGenerateSquarePlaceholderFlow",
-          "active": true,
-          "param": {}
+          ]
         }
       },
+      "info": {
+        "contact": {
+          "name": "BiFindr Placeholder API",
+          "url": "https://bifindr.com/placeholder/"
+        },
+        "description": "This API allows developers to create customizable SVG placeholder images for their web projects. Users can specify dimensions, background and text colors, and custom text, making it an efficient tool for rapid prototyping. Generates lightweight, resolution-independent SVG images instantly with no dependencies or tracking.",
+        "license": {
+          "name": "Free for Commercial Use",
+          "url": "https://bifindr.com/placeholder/"
+        },
+        "servers": [
+          {
+            "description": "Production server",
+            "url": "https://bifindr.com/placeholder"
+          }
+        ],
+        "title": "Image Placeholder Generator",
+        "version": "1.0.0"
+      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "image-placeholder-generator"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "image-placeholder-generator"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -501,19 +510,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "image-placeholder-generator"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -528,138 +537,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "image-placeholder-generator"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "image-placeholder-generator"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "image-placeholder-generator"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "image-placeholder-generator"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "image-placeholder-generator"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "image-placeholder-generator"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "image-placeholder-generator"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "image-placeholder-generator"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "image-placeholder-generator"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "image-placeholder-generator",
+  "origin": "voxgig-sdk"
 }

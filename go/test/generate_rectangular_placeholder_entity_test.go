@@ -117,6 +117,7 @@ func generate_rectangular_placeholderBasicSetup(extra map[string]any) *entityTes
 		"IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_RECTANGULAR_PLACEHOLDER_ENTID": idmap,
 		"IMAGEPLACEHOLDERGENERATOR_TEST_LIVE":      "FALSE",
 		"IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN":   "FALSE",
+		"IMAGEPLACEHOLDERGENERATOR_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_RECTANGULAR_PLACEHOLDER_ENTID"])
@@ -127,6 +128,7 @@ func generate_rectangular_placeholderBasicSetup(extra map[string]any) *entityTes
 	if env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["IMAGEPLACEHOLDERGENERATOR_APIKEY"],
 			},
 			extra,
 		})

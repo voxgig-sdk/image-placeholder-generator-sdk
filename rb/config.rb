@@ -15,6 +15,9 @@ module ImagePlaceholderGeneratorConfig
       },
       "options" => {
         "base" => "https://bifindr.com/placeholder",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -30,57 +33,59 @@ module ImagePlaceholderGeneratorConfig
           "name" => "generate_custom_placeholder",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "params" => [
                       {
+                        "active" => true,
                         "example" => "2C3E50",
                         "kind" => "param",
                         "name" => "background",
                         "orig" => "background",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => 300,
                         "kind" => "param",
                         "name" => "height",
                         "orig" => "height",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => "ECF0F1",
                         "kind" => "param",
                         "name" => "text_color",
                         "orig" => "text_color",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => 600,
                         "kind" => "param",
                         "name" => "width",
                         "orig" => "width",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                     ],
                     "query" => [
                       {
+                        "active" => true,
                         "example" => "BiFindr+Placeholder+Image",
                         "kind" => "query",
                         "name" => "text",
                         "orig" => "text",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -105,11 +110,9 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },
@@ -122,39 +125,41 @@ module ImagePlaceholderGeneratorConfig
           "name" => "generate_rectangular_placeholder",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "params" => [
                       {
+                        "active" => true,
                         "example" => 300,
                         "kind" => "param",
                         "name" => "height",
                         "orig" => "height",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => 600,
                         "kind" => "param",
                         "name" => "width",
                         "orig" => "width",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                     ],
                     "query" => [
                       {
+                        "active" => true,
                         "example" => "BiFindr+Placeholder+Image",
                         "kind" => "query",
                         "name" => "text",
                         "orig" => "text",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -175,11 +180,9 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },
@@ -192,30 +195,32 @@ module ImagePlaceholderGeneratorConfig
           "name" => "generate_square_placeholder",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "params" => [
                       {
+                        "active" => true,
                         "example" => 400,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "width",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                     ],
                     "query" => [
                       {
+                        "active" => true,
                         "example" => "BiFindr+Placeholder+Image",
                         "kind" => "query",
                         "name" => "text",
                         "orig" => "text",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -239,11 +244,9 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },

@@ -88,12 +88,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID': {},
     'IMAGEPLACEHOLDERGENERATOR_TEST_LIVE': 'FALSE',
+    'IMAGEPLACEHOLDERGENERATOR_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.IMAGEPLACEHOLDERGENERATOR_TEST_LIVE
 
   if (live) {
     const client = new ImagePlaceholderGeneratorSDK({
+      apikey: env.IMAGEPLACEHOLDERGENERATOR_APIKEY,
     })
 
     let idmap: any = env['IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID']

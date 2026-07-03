@@ -21,27 +21,7 @@ main: {
       ]
       title: "Image Placeholder Generator"
       version: "1.0.0"
-      tagline: "Generate customizable SVG placeholder images with configurable size, colors, and text for web prototypes"
-      homepage: "https://bifindr.com/placeholder"
-      license_short: "Free for commercial use; no authentication required"
-      license_md: `- Free for commercial use
-- No authentication or API key required
-- CORS is disabled on all endpoints, so requests must be made server-side or via \`<img>\` tags rather than client-side \`fetch\``
-      about_md: `The Image Placeholder Generator is a small HTTP service operated by [BiFindr](https://bifindr.com/placeholder) that returns SVG placeholder images. It is intended for design mockups, wireframes, and rapid prototyping where you need filler imagery at a known size.
-
-What you get from the API:
-
-- SVG placeholders at arbitrary dimensions
-- Convenience endpoints for square and rectangular placeholders
-- Custom text overlay and background / foreground colors specified as hex values
-
-Operational notes: no API key is required and the API is reported as highly reliable, but CORS is disabled, so embed the URL directly in an \`<img>\` tag (or call it from your backend) rather than fetching it via JavaScript. Responses are SVG, so they scale crisply at any size.`
-      entity_desc: {
-        generate_custom_placeholder: "Returns an SVG placeholder with caller-specified width, height, background colour, text colour, and label text."
-        generate_rectangular_placeholder: "Returns a pre-sized rectangular SVG placeholder (e.g. 600x300) with optional custom text."
-        generate_square_placeholder: "Returns a pre-sized square SVG placeholder (e.g. 400x400) suitable for thumbnails and avatars."
-      }
-      auth: false
     }
   }
 }
+

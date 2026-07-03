@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://bifindr.com/placeholder",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -29,57 +32,59 @@ func MakeConfig() map[string]any {
 				"name": "generate_custom_placeholder",
 				"op": map[string]any{
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
+											"active": true,
 											"example": "2C3E50",
 											"kind": "param",
 											"name": "background",
 											"orig": "background",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": 300,
 											"kind": "param",
 											"name": "height",
 											"orig": "height",
 											"reqd": true,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": "ECF0F1",
 											"kind": "param",
 											"name": "text_color",
 											"orig": "text_color",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": 600,
 											"kind": "param",
 											"name": "width",
 											"orig": "width",
 											"reqd": true,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 									},
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "BiFindr+Placeholder+Image",
 											"kind": "query",
 											"name": "text",
 											"orig": "text",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -104,11 +109,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},
@@ -121,39 +124,41 @@ func MakeConfig() map[string]any {
 				"name": "generate_rectangular_placeholder",
 				"op": map[string]any{
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
+											"active": true,
 											"example": 300,
 											"kind": "param",
 											"name": "height",
 											"orig": "height",
 											"reqd": true,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": 600,
 											"kind": "param",
 											"name": "width",
 											"orig": "width",
 											"reqd": true,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 									},
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "BiFindr+Placeholder+Image",
 											"kind": "query",
 											"name": "text",
 											"orig": "text",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -174,11 +179,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},
@@ -191,30 +194,32 @@ func MakeConfig() map[string]any {
 				"name": "generate_square_placeholder",
 				"op": map[string]any{
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
+											"active": true,
 											"example": 400,
 											"kind": "param",
 											"name": "id",
 											"orig": "width",
 											"reqd": true,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 									},
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "BiFindr+Placeholder+Image",
 											"kind": "query",
 											"name": "text",
 											"orig": "text",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -238,11 +243,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},

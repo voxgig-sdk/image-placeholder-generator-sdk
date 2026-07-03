@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -102,7 +102,7 @@ local generate_custom_placeholder = client:GenerateCustomPlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GenerateCustomPlaceholder(nil):load({ id = "generate_custom_placeholder_id" }, nil)
+local result, err = client:GenerateCustomPlaceholder():load({ id = "generate_custom_placeholder_id" })
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ local generate_rectangular_placeholder = client:GenerateRectangularPlaceholder(n
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GenerateRectangularPlaceholder(nil):load({ id = "generate_rectangular_placeholder_id" }, nil)
+local result, err = client:GenerateRectangularPlaceholder():load({ id = "generate_rectangular_placeholder_id" })
 ```
 
 ### Common Methods
@@ -194,7 +194,7 @@ local generate_square_placeholder = client:GenerateSquarePlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GenerateSquarePlaceholder(nil):load({ id = "generate_square_placeholder_id" }, nil)
+local result, err = client:GenerateSquarePlaceholder():load({ id = "generate_square_placeholder_id" })
 ```
 
 ### Common Methods
