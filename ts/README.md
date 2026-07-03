@@ -10,7 +10,7 @@ The TypeScript SDK for the ImagePlaceholderGenerator API — a type-safe, entity
 
 ## Install
 ```bash
-npm install image-placeholder-generator
+npm install @voxgig-sdk/image-placeholder-generator
 ```
 ## Tutorial: your first API call
 

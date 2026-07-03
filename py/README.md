@@ -10,7 +10,7 @@ The Python SDK for the ImagePlaceholderGenerator API — an entity-oriented clie
 
 ## Install
 ```bash
-pip install image-placeholder-generator-sdk
+pip install voxgig-sdk-image-placeholder-generator
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The PHP SDK for the ImagePlaceholderGenerator API — an entity-oriented client 
 
 ## Install
 ```bash
-composer require voxgig/image-placeholder-generator-sdk
+composer require voxgig-sdk/image-placeholder-generator
 ```
 
 

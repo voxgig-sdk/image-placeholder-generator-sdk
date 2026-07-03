@@ -2,9 +2,17 @@ Gem::Specification.new do |spec|
   spec.name          = "voxgig-sdk-image-placeholder-generator"
   spec.version       = "0.0.1"
   spec.authors       = ["Voxgig"]
-  spec.summary       = "ImagePlaceholderGenerator SDK for Ruby"
+  spec.summary       = "Unofficial generated Ruby SDK for the Image Placeholder Generator public API. Not affiliated with or endorsed by the upstream API provider."
+  spec.description   = "Unofficial generated Ruby SDK for the Image Placeholder Generator public API. Not affiliated with or endorsed by the upstream API provider."
   spec.license       = "MIT"
   spec.homepage      = "https://github.com/voxgig-sdk/image-placeholder-generator-sdk"
+  spec.metadata      = {
+    "homepage_uri"          => "https://github.com/voxgig-sdk/image-placeholder-generator-sdk",
+    "source_code_uri"       => "https://github.com/voxgig-sdk/image-placeholder-generator-sdk",
+    "bug_tracker_uri"       => "https://github.com/voxgig-sdk/image-placeholder-generator-sdk/issues",
+    "changelog_uri"         => "https://github.com/voxgig-sdk/image-placeholder-generator-sdk/blob/main/CHANGELOG.md",
+    "rubygems_mfa_required" => "true"
+  }
 
   spec.files         = Dir["lib/**/*.rb", "*.rb"]
   spec.require_paths = ["."]

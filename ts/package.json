@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/image-placeholder-generator",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Image Placeholder Generator public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "image-placeholder-generator"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/image-placeholder-generator-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/image-placeholder-generator-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/image-placeholder-generator-sdk/issues"
+  },
   "main": "dist/ImagePlaceholderGeneratorSDK.js",
   "type": "commonjs",
   "types": "dist/ImagePlaceholderGeneratorSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "ImagePlaceholderGenerator",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

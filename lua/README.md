@@ -10,7 +10,7 @@ The Lua SDK for the ImagePlaceholderGenerator API — an entity-oriented client 
 
 ## Install
 ```bash
-luarocks install image-placeholder-generator-sdk
+luarocks install voxgig-sdk-image-placeholder-generator
 ```
 
 If the module is not yet published, add the source directory to

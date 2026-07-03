@@ -10,13 +10,13 @@ The Ruby SDK for the ImagePlaceholderGenerator API — an entity-oriented client
 
 ## Install
 ```bash
-gem install image-placeholder-generator-sdk
+gem install voxgig-sdk-image-placeholder-generator
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "image-placeholder-generator-sdk"
+gem "voxgig-sdk-image-placeholder-generator"
 ```
 
 Then run:
