@@ -133,7 +133,7 @@ Alias for `ImagePlaceholderGeneratorSDK.test()`.
 ## GenerateCustomPlaceholderEntity
 
 ```ts
-const generate_custom_placeholder = client.generate_custom_placeholder
+const generate_custom_placeholder = client.GenerateCustomPlaceholder()
 ```
 
 ### Operations
@@ -143,7 +143,7 @@ const generate_custom_placeholder = client.generate_custom_placeholder
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.generate_custom_placeholder.load({ id: 'generate_custom_placeholder_id' })
+const result = await client.GenerateCustomPlaceholder().load({ id: 'generate_custom_placeholder_id' })
 ```
 
 ### Common Methods
@@ -177,7 +177,7 @@ Return a copy of the entity options.
 ## GenerateRectangularPlaceholderEntity
 
 ```ts
-const generate_rectangular_placeholder = client.generate_rectangular_placeholder
+const generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 ```
 
 ### Operations
@@ -187,7 +187,7 @@ const generate_rectangular_placeholder = client.generate_rectangular_placeholder
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.generate_rectangular_placeholder.load({ id: 'generate_rectangular_placeholder_id' })
+const result = await client.GenerateRectangularPlaceholder().load({ id: 'generate_rectangular_placeholder_id' })
 ```
 
 ### Common Methods
@@ -221,7 +221,7 @@ Return a copy of the entity options.
 ## GenerateSquarePlaceholderEntity
 
 ```ts
-const generate_square_placeholder = client.generate_square_placeholder
+const generate_square_placeholder = client.GenerateSquarePlaceholder()
 ```
 
 ### Operations
@@ -231,7 +231,7 @@ const generate_square_placeholder = client.generate_square_placeholder
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.generate_square_placeholder.load({ id: 'generate_square_placeholder_id' })
+const result = await client.GenerateSquarePlaceholder().load({ id: 'generate_square_placeholder_id' })
 ```
 
 ### Common Methods

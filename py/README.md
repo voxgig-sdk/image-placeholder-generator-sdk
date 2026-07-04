@@ -33,10 +33,12 @@ client = ImagePlaceholderGeneratorSDK()
 
 ### 3. Load a generatecustomplaceholder
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.generatecustomplaceholder.load({"id": "example_id"})
-    print(result)
+    generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"id": "example_id"})
+    print(generatecustomplaceholder)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ImagePlaceholderGeneratorSDK.test()
 
-result = client.generatecustomplaceholder.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"id": "test01"})
+# generatecustomplaceholder contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -237,7 +240,7 @@ API path: `/{width}`
 
 ### GenerateCustomPlaceholder
 
-Create an instance: `const generate_custom_placeholder = client.generate_custom_placeholder`
+Create an instance: `generate_custom_placeholder = client.GenerateCustomPlaceholder()`
 
 #### Operations
 
@@ -247,14 +250,14 @@ Create an instance: `const generate_custom_placeholder = client.generate_custom_
 
 #### Example: Load
 
-```ts
-const generate_custom_placeholder = await client.generate_custom_placeholder.load({ id: 'generate_custom_placeholder_id' })
+```python
+generate_custom_placeholder = client.GenerateCustomPlaceholder().load({"id": "generate_custom_placeholder_id"})
 ```
 
 
 ### GenerateRectangularPlaceholder
 
-Create an instance: `const generate_rectangular_placeholder = client.generate_rectangular_placeholder`
+Create an instance: `generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()`
 
 #### Operations
 
@@ -264,14 +267,14 @@ Create an instance: `const generate_rectangular_placeholder = client.generate_re
 
 #### Example: Load
 
-```ts
-const generate_rectangular_placeholder = await client.generate_rectangular_placeholder.load({ id: 'generate_rectangular_placeholder_id' })
+```python
+generate_rectangular_placeholder = client.GenerateRectangularPlaceholder().load({"id": "generate_rectangular_placeholder_id"})
 ```
 
 
 ### GenerateSquarePlaceholder
 
-Create an instance: `const generate_square_placeholder = client.generate_square_placeholder`
+Create an instance: `generate_square_placeholder = client.GenerateSquarePlaceholder()`
 
 #### Operations
 
@@ -281,8 +284,8 @@ Create an instance: `const generate_square_placeholder = client.generate_square_
 
 #### Example: Load
 
-```ts
-const generate_square_placeholder = await client.generate_square_placeholder.load({ id: 'generate_square_placeholder_id' })
+```python
+generate_square_placeholder = client.GenerateSquarePlaceholder().load({"id": "generate_square_placeholder_id"})
 ```
 
 
@@ -356,7 +359,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-generatecustomplaceholder = client.generatecustomplaceholder
+generatecustomplaceholder = client.GenerateCustomPlaceholder()
 generatecustomplaceholder.load({"id": "example_id"})
 
 # generatecustomplaceholder.data_get() now returns the loaded generatecustomplaceholder data

@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a generatecustomplaceholder
 
 ```lua
-local result, err = client:generatecustomplaceholder():load({ id = "example_id" })
+local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(generatecustomplaceholder)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:generatecustomplaceholder():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:GenerateCustomPlaceholder():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -185,17 +185,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local generate_custom_placeholder, err = client:GenerateCustomPlaceholder():load({ id = "example_id" })
+    if err then error(err) end
+    -- generate_custom_placeholder is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -233,7 +238,7 @@ API path: `/{width}`
 
 ### GenerateCustomPlaceholder
 
-Create an instance: `const generate_custom_placeholder = client.generate_custom_placeholder`
+Create an instance: `local generate_custom_placeholder = client:GenerateCustomPlaceholder(nil)`
 
 #### Operations
 
@@ -243,14 +248,14 @@ Create an instance: `const generate_custom_placeholder = client.generate_custom_
 
 #### Example: Load
 
-```ts
-const generate_custom_placeholder = await client.generate_custom_placeholder.load({ id: 'generate_custom_placeholder_id' })
+```lua
+local generate_custom_placeholder, err = client:GenerateCustomPlaceholder():load({ id = "generate_custom_placeholder_id" })
 ```
 
 
 ### GenerateRectangularPlaceholder
 
-Create an instance: `const generate_rectangular_placeholder = client.generate_rectangular_placeholder`
+Create an instance: `local generate_rectangular_placeholder = client:GenerateRectangularPlaceholder(nil)`
 
 #### Operations
 
@@ -260,14 +265,14 @@ Create an instance: `const generate_rectangular_placeholder = client.generate_re
 
 #### Example: Load
 
-```ts
-const generate_rectangular_placeholder = await client.generate_rectangular_placeholder.load({ id: 'generate_rectangular_placeholder_id' })
+```lua
+local generate_rectangular_placeholder, err = client:GenerateRectangularPlaceholder():load({ id = "generate_rectangular_placeholder_id" })
 ```
 
 
 ### GenerateSquarePlaceholder
 
-Create an instance: `const generate_square_placeholder = client.generate_square_placeholder`
+Create an instance: `local generate_square_placeholder = client:GenerateSquarePlaceholder(nil)`
 
 #### Operations
 
@@ -277,8 +282,8 @@ Create an instance: `const generate_square_placeholder = client.generate_square_
 
 #### Example: Load
 
-```ts
-const generate_square_placeholder = await client.generate_square_placeholder.load({ id: 'generate_square_placeholder_id' })
+```lua
+local generate_square_placeholder, err = client:GenerateSquarePlaceholder():load({ id = "generate_square_placeholder_id" })
 ```
 
 
@@ -353,7 +358,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local generatecustomplaceholder = client:generatecustomplaceholder()
+local generatecustomplaceholder = client:GenerateCustomPlaceholder()
 generatecustomplaceholder:load({ id = "example_id" })
 
 -- generatecustomplaceholder:data_get() now returns the loaded generatecustomplaceholder data

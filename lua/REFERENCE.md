@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## GenerateCustomPlaceholderEntity
 
 ```lua
-local generate_custom_placeholder = client:generate_custom_placeholder(nil)
+local generate_custom_placeholder = client:GenerateCustomPlaceholder(nil)
 ```
 
 ### Operations
@@ -101,7 +101,7 @@ local generate_custom_placeholder = client:generate_custom_placeholder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:generate_custom_placeholder():load({ id = "generate_custom_placeholder_id" })
+local result, err = client:GenerateCustomPlaceholder():load({ id = "generate_custom_placeholder_id" })
 ```
 
 ### Common Methods
@@ -137,7 +137,7 @@ Return the entity name.
 ## GenerateRectangularPlaceholderEntity
 
 ```lua
-local generate_rectangular_placeholder = client:generate_rectangular_placeholder(nil)
+local generate_rectangular_placeholder = client:GenerateRectangularPlaceholder(nil)
 ```
 
 ### Operations
@@ -147,7 +147,7 @@ local generate_rectangular_placeholder = client:generate_rectangular_placeholder
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:generate_rectangular_placeholder():load({ id = "generate_rectangular_placeholder_id" })
+local result, err = client:GenerateRectangularPlaceholder():load({ id = "generate_rectangular_placeholder_id" })
 ```
 
 ### Common Methods
@@ -183,7 +183,7 @@ Return the entity name.
 ## GenerateSquarePlaceholderEntity
 
 ```lua
-local generate_square_placeholder = client:generate_square_placeholder(nil)
+local generate_square_placeholder = client:GenerateSquarePlaceholder(nil)
 ```
 
 ### Operations
@@ -193,7 +193,7 @@ local generate_square_placeholder = client:generate_square_placeholder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:generate_square_placeholder():load({ id = "generate_square_placeholder_id" })
+local result, err = client:GenerateSquarePlaceholder():load({ id = "generate_square_placeholder_id" })
 ```
 
 ### Common Methods

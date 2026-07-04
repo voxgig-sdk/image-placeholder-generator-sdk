@@ -88,7 +88,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## GenerateCustomPlaceholderEntity
 
 ```python
-generate_custom_placeholder = client.generate_custom_placeholder
+generate_custom_placeholder = client.GenerateCustomPlaceholder()
 ```
 
 ### Operations
@@ -98,7 +98,7 @@ generate_custom_placeholder = client.generate_custom_placeholder
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.generate_custom_placeholder.load({"id": "generate_custom_placeholder_id"})
+result = client.GenerateCustomPlaceholder().load({"id": "generate_custom_placeholder_id"})
 ```
 
 ### Common Methods
@@ -133,7 +133,7 @@ Return the entity name.
 ## GenerateRectangularPlaceholderEntity
 
 ```python
-generate_rectangular_placeholder = client.generate_rectangular_placeholder
+generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 ```
 
 ### Operations
@@ -143,7 +143,7 @@ generate_rectangular_placeholder = client.generate_rectangular_placeholder
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.generate_rectangular_placeholder.load({"id": "generate_rectangular_placeholder_id"})
+result = client.GenerateRectangularPlaceholder().load({"id": "generate_rectangular_placeholder_id"})
 ```
 
 ### Common Methods
@@ -178,7 +178,7 @@ Return the entity name.
 ## GenerateSquarePlaceholderEntity
 
 ```python
-generate_square_placeholder = client.generate_square_placeholder
+generate_square_placeholder = client.GenerateSquarePlaceholder()
 ```
 
 ### Operations
@@ -188,7 +188,7 @@ generate_square_placeholder = client.generate_square_placeholder
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.generate_square_placeholder.load({"id": "generate_square_placeholder_id"})
+result = client.GenerateSquarePlaceholder().load({"id": "generate_square_placeholder_id"})
 ```
 
 ### Common Methods

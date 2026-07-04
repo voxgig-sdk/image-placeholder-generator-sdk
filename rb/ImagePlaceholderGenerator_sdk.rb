@@ -208,39 +208,21 @@ class ImagePlaceholderGeneratorSDK
   end
 
 
-  # Idiomatic facade: client.generate_custom_placeholder.list / client.generate_custom_placeholder.load({ "id" => ... })
-  def generate_custom_placeholder
-    require_relative 'entity/generate_custom_placeholder_entity'
-    @generate_custom_placeholder ||= GenerateCustomPlaceholderEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.generate_custom_placeholder instead.
+  # Canonical facade: client.GenerateCustomPlaceholder.list / client.GenerateCustomPlaceholder.load({ "id" => ... })
   def GenerateCustomPlaceholder(data = nil)
     require_relative 'entity/generate_custom_placeholder_entity'
     GenerateCustomPlaceholderEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.generate_rectangular_placeholder.list / client.generate_rectangular_placeholder.load({ "id" => ... })
-  def generate_rectangular_placeholder
-    require_relative 'entity/generate_rectangular_placeholder_entity'
-    @generate_rectangular_placeholder ||= GenerateRectangularPlaceholderEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.generate_rectangular_placeholder instead.
+  # Canonical facade: client.GenerateRectangularPlaceholder.list / client.GenerateRectangularPlaceholder.load({ "id" => ... })
   def GenerateRectangularPlaceholder(data = nil)
     require_relative 'entity/generate_rectangular_placeholder_entity'
     GenerateRectangularPlaceholderEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.generate_square_placeholder.list / client.generate_square_placeholder.load({ "id" => ... })
-  def generate_square_placeholder
-    require_relative 'entity/generate_square_placeholder_entity'
-    @generate_square_placeholder ||= GenerateSquarePlaceholderEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.generate_square_placeholder instead.
+  # Canonical facade: client.GenerateSquarePlaceholder.list / client.GenerateSquarePlaceholder.load({ "id" => ... })
   def GenerateSquarePlaceholder(data = nil)
     require_relative 'entity/generate_square_placeholder_entity'
     GenerateSquarePlaceholderEntity.new(self, data)

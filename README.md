@@ -26,9 +26,9 @@ import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-gene
 
 const client = new ImagePlaceholderGeneratorSDK()
 
-// Load generatecustomplaceholder data
-const generatecustomplaceholder = await client.generatecustomplaceholder.load({})
-console.log(generatecustomplaceholder.data)
+// Load generatecustomplaceholder data (returns a GenerateCustomPlaceholder)
+const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load()
+console.log(generatecustomplaceholder)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -86,8 +86,8 @@ from imageplaceholdergenerator_sdk import ImagePlaceholderGeneratorSDK
 client = ImagePlaceholderGeneratorSDK()
 
 
-# Load a specific generatecustomplaceholder
-generatecustomplaceholder = client.generatecustomplaceholder.load({"id": "example_id"})
+# Load a specific generatecustomplaceholder (returns the record, raises on error)
+generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"id": "example_id"})
 print(generatecustomplaceholder)
 ```
 
@@ -100,8 +100,8 @@ require_once 'imageplaceholdergenerator_sdk.php';
 $client = new ImagePlaceholderGeneratorSDK();
 
 
-// Load a specific generatecustomplaceholder
-$generatecustomplaceholder = $client->generatecustomplaceholder()->load(["id" => "example_id"]);
+// Load a specific generatecustomplaceholder (returns the bare record; throws on error)
+$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["id" => "example_id"]);
 print_r($generatecustomplaceholder);
 ```
 
@@ -125,8 +125,8 @@ require_relative "ImagePlaceholderGenerator_sdk"
 client = ImagePlaceholderGeneratorSDK.new
 
 
-# Load a specific generatecustomplaceholder
-generatecustomplaceholder = client.generatecustomplaceholder.load({ "id" => "example_id" })
+# Load a specific generatecustomplaceholder (returns the bare record; raises on error)
+generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "id" => "example_id" })
 puts generatecustomplaceholder
 ```
 
@@ -139,7 +139,7 @@ local client = sdk.new()
 
 
 -- Load a specific generatecustomplaceholder
-local generatecustomplaceholder, err = client:generatecustomplaceholder():load({ id = "example_id" })
+local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load({ id = "example_id" })
 print(generatecustomplaceholder)
 ```
 
@@ -152,22 +152,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ImagePlaceholderGeneratorSDK.test()
-const result = await client.generatecustomplaceholder.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({ id: 'test01' })
+// generatecustomplaceholder is a bare GenerateCustomPlaceholder populated with mock data
+console.log(generatecustomplaceholder)
 ```
 
 ### Python
 
 ```python
 client = ImagePlaceholderGeneratorSDK.test()
-result = client.generatecustomplaceholder.load({"id": "test01"})
+generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"id": "test01"})
+print(generatecustomplaceholder)
 ```
 
 ### PHP
 
 ```php
-$client = ImagePlaceholderGeneratorSDK::test();
-$result = $client->generatecustomplaceholder()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ImagePlaceholderGeneratorSDK::test([
+    "entity" => ["generatecustomplaceholder" => ["test01" => ["id" => "test01"]]],
+]);
+$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -182,15 +187,18 @@ result, err := client.GenerateCustomPlaceholder(nil).Load(
 ### Ruby
 
 ```ruby
-client = ImagePlaceholderGeneratorSDK.test
-result = client.generatecustomplaceholder.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ImagePlaceholderGeneratorSDK.test({
+  "entity" => { "generatecustomplaceholder" => { "test01" => { "id" => "test01" } } },
+})
+generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:generatecustomplaceholder():load({ id = "test01" })
+local result, err = client:GenerateCustomPlaceholder():load({ id = "test01" })
 ```
 
 ## How it works
@@ -238,6 +246,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

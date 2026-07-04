@@ -206,42 +206,21 @@ class ImagePlaceholderGeneratorSDK {
 
 
 
-  _generate_custom_placeholder?: GenerateCustomPlaceholderEntity
-
-  // Idiomatic facade: `client.generate_custom_placeholder.list()` / `client.generate_custom_placeholder.load({ id })`.
-  get generate_custom_placeholder(): GenerateCustomPlaceholderEntity {
-    return (this._generate_custom_placeholder ??= new GenerateCustomPlaceholderEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.generate_custom_placeholder` instead. */
+  // Entity access: `client.GenerateCustomPlaceholder().list()` / `client.GenerateCustomPlaceholder().load({ id })`.
   GenerateCustomPlaceholder(data?: any) {
     const self = this
     return new GenerateCustomPlaceholderEntity(self,data)
   }
 
 
-  _generate_rectangular_placeholder?: GenerateRectangularPlaceholderEntity
-
-  // Idiomatic facade: `client.generate_rectangular_placeholder.list()` / `client.generate_rectangular_placeholder.load({ id })`.
-  get generate_rectangular_placeholder(): GenerateRectangularPlaceholderEntity {
-    return (this._generate_rectangular_placeholder ??= new GenerateRectangularPlaceholderEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.generate_rectangular_placeholder` instead. */
+  // Entity access: `client.GenerateRectangularPlaceholder().list()` / `client.GenerateRectangularPlaceholder().load({ id })`.
   GenerateRectangularPlaceholder(data?: any) {
     const self = this
     return new GenerateRectangularPlaceholderEntity(self,data)
   }
 
 
-  _generate_square_placeholder?: GenerateSquarePlaceholderEntity
-
-  // Idiomatic facade: `client.generate_square_placeholder.list()` / `client.generate_square_placeholder.load({ id })`.
-  get generate_square_placeholder(): GenerateSquarePlaceholderEntity {
-    return (this._generate_square_placeholder ??= new GenerateSquarePlaceholderEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.generate_square_placeholder` instead. */
+  // Entity access: `client.GenerateSquarePlaceholder().list()` / `client.GenerateSquarePlaceholder().load({ id })`.
   GenerateSquarePlaceholder(data?: any) {
     const self = this
     return new GenerateSquarePlaceholderEntity(self,data)

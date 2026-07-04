@@ -233,10 +233,10 @@ class ImagePlaceholderGeneratorSDK
 
     private $_generate_custom_placeholder = null;
 
-    // Idiomatic facade: $client->generate_custom_placeholder()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GenerateCustomPlaceholder() (PHP method
-    // names are case-insensitive).
-    public function generate_custom_placeholder($data = null)
+    // Canonical facade: $client->GenerateCustomPlaceholder()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->generate_custom_placeholder()
+    // resolves here too.
+    public function GenerateCustomPlaceholder($data = null)
     {
         require_once __DIR__ . '/entity/generate_custom_placeholder_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class ImagePlaceholderGeneratorSDK
 
     private $_generate_rectangular_placeholder = null;
 
-    // Idiomatic facade: $client->generate_rectangular_placeholder()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GenerateRectangularPlaceholder() (PHP method
-    // names are case-insensitive).
-    public function generate_rectangular_placeholder($data = null)
+    // Canonical facade: $client->GenerateRectangularPlaceholder()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->generate_rectangular_placeholder()
+    // resolves here too.
+    public function GenerateRectangularPlaceholder($data = null)
     {
         require_once __DIR__ . '/entity/generate_rectangular_placeholder_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class ImagePlaceholderGeneratorSDK
 
     private $_generate_square_placeholder = null;
 
-    // Idiomatic facade: $client->generate_square_placeholder()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GenerateSquarePlaceholder() (PHP method
-    // names are case-insensitive).
-    public function generate_square_placeholder($data = null)
+    // Canonical facade: $client->GenerateSquarePlaceholder()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->generate_square_placeholder()
+    // resolves here too.
+    public function GenerateSquarePlaceholder($data = null)
     {
         require_once __DIR__ . '/entity/generate_square_placeholder_entity.php';
         if ($data === null) {

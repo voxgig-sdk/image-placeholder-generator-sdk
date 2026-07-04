@@ -220,57 +220,27 @@ class ImagePlaceholderGeneratorSDK:
         }
 
 
-    @property
-    def generate_custom_placeholder(self):
-        """Idiomatic facade: client.generate_custom_placeholder.list() / client.generate_custom_placeholder.load({"id": ...})."""
-        from entity.generate_custom_placeholder_entity import GenerateCustomPlaceholderEntity
-        cached = getattr(self, "_generate_custom_placeholder", None)
-        if cached is None:
-            cached = GenerateCustomPlaceholderEntity(self, None)
-            self._generate_custom_placeholder = cached
-        return cached
-
-    def GenerateCustomPlaceholder(self, data=None):
-        # Deprecated: use client.generate_custom_placeholder instead.
+    def GenerateCustomPlaceholder(self, data=None) -> "GenerateCustomPlaceholderEntity":
+        """Entity factory: client.GenerateCustomPlaceholder().list({}) / client.GenerateCustomPlaceholder().load({"id": ...})."""
         from entity.generate_custom_placeholder_entity import GenerateCustomPlaceholderEntity
         return GenerateCustomPlaceholderEntity(self, data)
 
 
-    @property
-    def generate_rectangular_placeholder(self):
-        """Idiomatic facade: client.generate_rectangular_placeholder.list() / client.generate_rectangular_placeholder.load({"id": ...})."""
-        from entity.generate_rectangular_placeholder_entity import GenerateRectangularPlaceholderEntity
-        cached = getattr(self, "_generate_rectangular_placeholder", None)
-        if cached is None:
-            cached = GenerateRectangularPlaceholderEntity(self, None)
-            self._generate_rectangular_placeholder = cached
-        return cached
-
-    def GenerateRectangularPlaceholder(self, data=None):
-        # Deprecated: use client.generate_rectangular_placeholder instead.
+    def GenerateRectangularPlaceholder(self, data=None) -> "GenerateRectangularPlaceholderEntity":
+        """Entity factory: client.GenerateRectangularPlaceholder().list({}) / client.GenerateRectangularPlaceholder().load({"id": ...})."""
         from entity.generate_rectangular_placeholder_entity import GenerateRectangularPlaceholderEntity
         return GenerateRectangularPlaceholderEntity(self, data)
 
 
-    @property
-    def generate_square_placeholder(self):
-        """Idiomatic facade: client.generate_square_placeholder.list() / client.generate_square_placeholder.load({"id": ...})."""
-        from entity.generate_square_placeholder_entity import GenerateSquarePlaceholderEntity
-        cached = getattr(self, "_generate_square_placeholder", None)
-        if cached is None:
-            cached = GenerateSquarePlaceholderEntity(self, None)
-            self._generate_square_placeholder = cached
-        return cached
-
-    def GenerateSquarePlaceholder(self, data=None):
-        # Deprecated: use client.generate_square_placeholder instead.
+    def GenerateSquarePlaceholder(self, data=None) -> "GenerateSquarePlaceholderEntity":
+        """Entity factory: client.GenerateSquarePlaceholder().list({}) / client.GenerateSquarePlaceholder().load({"id": ...})."""
         from entity.generate_square_placeholder_entity import GenerateSquarePlaceholderEntity
         return GenerateSquarePlaceholderEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ImagePlaceholderGeneratorSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class ImagePlaceholderGeneratorSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.generate_custom_placeholder_entity import GenerateCustomPlaceholderEntity
+    from entity.generate_rectangular_placeholder_entity import GenerateRectangularPlaceholderEntity
+    from entity.generate_square_placeholder_entity import GenerateSquarePlaceholderEntity

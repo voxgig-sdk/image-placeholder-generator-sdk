@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:generate_custom_placeholder():list() / client:generate_custom_placeholder():load({ id = ... })
-function ImagePlaceholderGeneratorSDK:generate_custom_placeholder(data)
+-- Idiomatic facade: client:GenerateCustomPlaceholder():list() / client:GenerateCustomPlaceholder():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ImagePlaceholderGeneratorSDK:GenerateCustomPlaceholder(data)
   local EntityMod = require("entity.generate_custom_placeholder_entity")
   if data == nil then
     if self._generate_custom_placeholder == nil then
@@ -256,15 +257,10 @@ function ImagePlaceholderGeneratorSDK:generate_custom_placeholder(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:generate_custom_placeholder() instead.
-function ImagePlaceholderGeneratorSDK:GenerateCustomPlaceholder(data)
-  local EntityMod = require("entity.generate_custom_placeholder_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:generate_rectangular_placeholder():list() / client:generate_rectangular_placeholder():load({ id = ... })
-function ImagePlaceholderGeneratorSDK:generate_rectangular_placeholder(data)
+-- Idiomatic facade: client:GenerateRectangularPlaceholder():list() / client:GenerateRectangularPlaceholder():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ImagePlaceholderGeneratorSDK:GenerateRectangularPlaceholder(data)
   local EntityMod = require("entity.generate_rectangular_placeholder_entity")
   if data == nil then
     if self._generate_rectangular_placeholder == nil then
@@ -275,15 +271,10 @@ function ImagePlaceholderGeneratorSDK:generate_rectangular_placeholder(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:generate_rectangular_placeholder() instead.
-function ImagePlaceholderGeneratorSDK:GenerateRectangularPlaceholder(data)
-  local EntityMod = require("entity.generate_rectangular_placeholder_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:generate_square_placeholder():list() / client:generate_square_placeholder():load({ id = ... })
-function ImagePlaceholderGeneratorSDK:generate_square_placeholder(data)
+-- Idiomatic facade: client:GenerateSquarePlaceholder():list() / client:GenerateSquarePlaceholder():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ImagePlaceholderGeneratorSDK:GenerateSquarePlaceholder(data)
   local EntityMod = require("entity.generate_square_placeholder_entity")
   if data == nil then
     if self._generate_square_placeholder == nil then
@@ -291,12 +282,6 @@ function ImagePlaceholderGeneratorSDK:generate_square_placeholder(data)
     end
     return self._generate_square_placeholder
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:generate_square_placeholder() instead.
-function ImagePlaceholderGeneratorSDK:GenerateSquarePlaceholder(data)
-  local EntityMod = require("entity.generate_square_placeholder_entity")
   return EntityMod.new(self, data)
 end
 
