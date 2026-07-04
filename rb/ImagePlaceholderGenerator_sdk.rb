@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'ImagePlaceholderGenerator_types'
+
 
 class ImagePlaceholderGeneratorSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class ImagePlaceholderGeneratorSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class ImagePlaceholderGeneratorSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue ImagePlaceholderGeneratorError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = ImagePlaceholderGeneratorHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class ImagePlaceholderGeneratorSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,28 +198,49 @@ class ImagePlaceholderGeneratorSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.generate_custom_placeholder.list / client.generate_custom_placeholder.load({ "id" => ... })
+  def generate_custom_placeholder
+    require_relative 'entity/generate_custom_placeholder_entity'
+    @generate_custom_placeholder ||= GenerateCustomPlaceholderEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.generate_custom_placeholder instead.
   def GenerateCustomPlaceholder(data = nil)
     require_relative 'entity/generate_custom_placeholder_entity'
     GenerateCustomPlaceholderEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.generate_rectangular_placeholder.list / client.generate_rectangular_placeholder.load({ "id" => ... })
+  def generate_rectangular_placeholder
+    require_relative 'entity/generate_rectangular_placeholder_entity'
+    @generate_rectangular_placeholder ||= GenerateRectangularPlaceholderEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.generate_rectangular_placeholder instead.
   def GenerateRectangularPlaceholder(data = nil)
     require_relative 'entity/generate_rectangular_placeholder_entity'
     GenerateRectangularPlaceholderEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.generate_square_placeholder.list / client.generate_square_placeholder.load({ "id" => ... })
+  def generate_square_placeholder
+    require_relative 'entity/generate_square_placeholder_entity'
+    @generate_square_placeholder ||= GenerateSquarePlaceholderEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.generate_square_placeholder instead.
   def GenerateSquarePlaceholder(data = nil)
     require_relative 'entity/generate_square_placeholder_entity'
     GenerateSquarePlaceholderEntity.new(self, data)

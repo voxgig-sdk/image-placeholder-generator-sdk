@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://bifindr.com/placeholder',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -81,7 +77,8 @@ class Config {
                     "name": "background",
                     "orig": "background",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   },
                   {
                     "active": true,
@@ -90,7 +87,8 @@ class Config {
                     "name": "height",
                     "orig": "height",
                     "reqd": true,
-                    "type": "`$INTEGER`"
+                    "type": "`$INTEGER`",
+                    "index$": 1
                   },
                   {
                     "active": true,
@@ -99,7 +97,8 @@ class Config {
                     "name": "text_color",
                     "orig": "text_color",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 2
                   },
                   {
                     "active": true,
@@ -108,7 +107,8 @@ class Config {
                     "name": "width",
                     "orig": "width",
                     "reqd": true,
-                    "type": "`$INTEGER`"
+                    "type": "`$INTEGER`",
+                    "index$": 3
                   }
                 ],
                 "query": [
@@ -173,7 +173,8 @@ class Config {
                     "name": "height",
                     "orig": "height",
                     "reqd": true,
-                    "type": "`$INTEGER`"
+                    "type": "`$INTEGER`",
+                    "index$": 0
                   },
                   {
                     "active": true,
@@ -182,7 +183,8 @@ class Config {
                     "name": "width",
                     "orig": "width",
                     "reqd": true,
-                    "type": "`$INTEGER`"
+                    "type": "`$INTEGER`",
+                    "index$": 1
                   }
                 ],
                 "query": [
@@ -243,7 +245,8 @@ class Config {
                     "name": "id",
                     "orig": "width",
                     "reqd": true,
-                    "type": "`$INTEGER`"
+                    "type": "`$INTEGER`",
+                    "index$": 0
                   }
                 ],
                 "query": [

@@ -20,9 +20,6 @@ class ImagePlaceholderGeneratorConfig
             ],
             "options" => [
                 "base" => "https://bifindr.com/placeholder",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -53,6 +50,7 @@ class ImagePlaceholderGeneratorConfig
                         'orig' => 'background',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -62,6 +60,7 @@ class ImagePlaceholderGeneratorConfig
                         'orig' => 'height',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -71,6 +70,7 @@ class ImagePlaceholderGeneratorConfig
                         'orig' => 'text_color',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 2,
                       ],
                       [
                         'active' => true,
@@ -80,6 +80,7 @@ class ImagePlaceholderGeneratorConfig
                         'orig' => 'width',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 3,
                       ],
                     ],
                     'query' => [
@@ -145,6 +146,7 @@ class ImagePlaceholderGeneratorConfig
                         'orig' => 'height',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -154,6 +156,7 @@ class ImagePlaceholderGeneratorConfig
                         'orig' => 'width',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 1,
                       ],
                     ],
                     'query' => [
@@ -215,6 +218,7 @@ class ImagePlaceholderGeneratorConfig
                         'orig' => 'width',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [

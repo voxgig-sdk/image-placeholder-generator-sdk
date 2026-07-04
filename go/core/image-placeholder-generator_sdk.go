@@ -245,16 +245,25 @@ func (sdk *ImagePlaceholderGeneratorSDK) Direct(fetchargs map[string]any) (map[s
 }
 
 
+// GenerateCustomPlaceholder returns a GenerateCustomPlaceholder entity bound to this client.
+// Idiomatic usage: client.GenerateCustomPlaceholder(nil).List(nil, nil) or
+// client.GenerateCustomPlaceholder(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ImagePlaceholderGeneratorSDK) GenerateCustomPlaceholder(data map[string]any) ImagePlaceholderGeneratorEntity {
 	return NewGenerateCustomPlaceholderEntityFunc(sdk, data)
 }
 
 
+// GenerateRectangularPlaceholder returns a GenerateRectangularPlaceholder entity bound to this client.
+// Idiomatic usage: client.GenerateRectangularPlaceholder(nil).List(nil, nil) or
+// client.GenerateRectangularPlaceholder(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ImagePlaceholderGeneratorSDK) GenerateRectangularPlaceholder(data map[string]any) ImagePlaceholderGeneratorEntity {
 	return NewGenerateRectangularPlaceholderEntityFunc(sdk, data)
 }
 
 
+// GenerateSquarePlaceholder returns a GenerateSquarePlaceholder entity bound to this client.
+// Idiomatic usage: client.GenerateSquarePlaceholder(nil).List(nil, nil) or
+// client.GenerateSquarePlaceholder(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ImagePlaceholderGeneratorSDK) GenerateSquarePlaceholder(data map[string]any) ImagePlaceholderGeneratorEntity {
 	return NewGenerateSquarePlaceholderEntityFunc(sdk, data)
 }

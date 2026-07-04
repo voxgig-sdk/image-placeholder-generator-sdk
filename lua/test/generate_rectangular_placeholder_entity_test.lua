@@ -91,7 +91,6 @@ function generate_rectangular_placeholder_basic_setup(extra)
     ["IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_RECTANGULAR_PLACEHOLDER_ENTID"] = idmap,
     ["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] = "FALSE",
     ["IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN"] = "FALSE",
-    ["IMAGEPLACEHOLDERGENERATOR_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function generate_rectangular_placeholder_basic_setup(extra)
   if env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["IMAGEPLACEHOLDERGENERATOR_APIKEY"],
       },
       extra or {},
     })

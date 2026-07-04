@@ -85,6 +85,27 @@ func (e *GenerateRectangularPlaceholderEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GenerateRectangularPlaceholder; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GenerateRectangularPlaceholderEntity) DataTyped(data ...GenerateRectangularPlaceholder) GenerateRectangularPlaceholder {
+	if len(data) > 0 {
+		return typedFrom[GenerateRectangularPlaceholder](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GenerateRectangularPlaceholder](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GenerateRectangularPlaceholder (all fields
+// optional at the wire level).
+func (e *GenerateRectangularPlaceholderEntity) MatchTyped(match ...GenerateRectangularPlaceholder) GenerateRectangularPlaceholder {
+	if len(match) > 0 {
+		return typedFrom[GenerateRectangularPlaceholder](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GenerateRectangularPlaceholder](e.Match())
+}
+
 
 func (e *GenerateRectangularPlaceholderEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *GenerateRectangularPlaceholderEntity) Load(reqmatch map[string]any, ctr
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// GenerateRectangularPlaceholderLoadMatch and returns an GenerateRectangularPlaceholder. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *GenerateRectangularPlaceholderEntity) LoadTyped(reqmatch GenerateRectangularPlaceholderLoadMatch, ctrl map[string]any) (GenerateRectangularPlaceholder, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return GenerateRectangularPlaceholder{}, err
+	}
+	return typedFrom[GenerateRectangularPlaceholder](res), nil
 }
 
 

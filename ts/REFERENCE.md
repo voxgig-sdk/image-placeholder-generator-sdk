@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `ImagePlaceholderGeneratorSDK.test()`.
 ## GenerateCustomPlaceholderEntity
 
 ```ts
-const generate_custom_placeholder = client.GenerateCustomPlaceholder()
+const generate_custom_placeholder = client.generate_custom_placeholder
 ```
 
 ### Operations
@@ -144,7 +143,7 @@ const generate_custom_placeholder = client.GenerateCustomPlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateCustomPlaceholder().load({ id: 'generate_custom_placeholder_id' })
+const result = await client.generate_custom_placeholder.load({ id: 'generate_custom_placeholder_id' })
 ```
 
 ### Common Methods
@@ -178,7 +177,7 @@ Return a copy of the entity options.
 ## GenerateRectangularPlaceholderEntity
 
 ```ts
-const generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
+const generate_rectangular_placeholder = client.generate_rectangular_placeholder
 ```
 
 ### Operations
@@ -188,7 +187,7 @@ const generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateRectangularPlaceholder().load({ id: 'generate_rectangular_placeholder_id' })
+const result = await client.generate_rectangular_placeholder.load({ id: 'generate_rectangular_placeholder_id' })
 ```
 
 ### Common Methods
@@ -222,7 +221,7 @@ Return a copy of the entity options.
 ## GenerateSquarePlaceholderEntity
 
 ```ts
-const generate_square_placeholder = client.GenerateSquarePlaceholder()
+const generate_square_placeholder = client.generate_square_placeholder
 ```
 
 ### Operations
@@ -232,7 +231,7 @@ const generate_square_placeholder = client.GenerateSquarePlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateSquarePlaceholder().load({ id: 'generate_square_placeholder_id' })
+const result = await client.generate_square_placeholder.load({ id: 'generate_square_placeholder_id' })
 ```
 
 ### Common Methods

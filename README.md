@@ -10,26 +10,24 @@ This is an unofficial SDK for the Image Placeholder Generator public API, genera
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/image-placeholder-generator` | `npm install @voxgig-sdk/image-placeholder-generator` |
-| Python | `voxgig-sdk-image-placeholder-generator` | `pip install voxgig-sdk-image-placeholder-generator` |
-| PHP | `voxgig-sdk/image-placeholder-generator` | `composer require voxgig-sdk/image-placeholder-generator` |
-| Golang | `github.com/voxgig-sdk/image-placeholder-generator-sdk/go` | `go get github.com/voxgig-sdk/image-placeholder-generator-sdk/go` |
-| Ruby | `voxgig-sdk-image-placeholder-generator` | `gem install voxgig-sdk-image-placeholder-generator` |
-| Lua | `voxgig-sdk-image-placeholder-generator` | `luarocks install voxgig-sdk-image-placeholder-generator` |
+| TypeScript | `@voxgig-sdk/image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
+| Python | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
+| PHP | `voxgig-sdk/image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/image-placeholder-generator-sdk/go` | `go get github.com/voxgig-sdk/image-placeholder-generator-sdk/go@latest` |
+| Ruby | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
+| Lua | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { ImagePlaceholderGeneratorSDK } from 'image-placeholder-generator'
+import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator'
 
-const client = new ImagePlaceholderGeneratorSDK({
-  apikey: process.env.IMAGE-PLACEHOLDER-GENERATOR_APIKEY,
-})
+const client = new ImagePlaceholderGeneratorSDK()
 
 // Load generatecustomplaceholder data
-const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({})
+const generatecustomplaceholder = await client.generatecustomplaceholder.load({})
 console.log(generatecustomplaceholder.data)
 ```
 
@@ -71,9 +69,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GenerateCustomPlaceholder** |  | `/{width}/{height}/{background}/{text_color}` |
-| **GenerateRectangularPlaceholder** |  | `/{width}/{height}` |
-| **GenerateSquarePlaceholder** |  | `/{width}` |
+| **GenerateCustomPlaceholder** | The GenerateCustomPlaceholder entity (load). | `/{width}/{height}/{background}/{text_color}` |
+| **GenerateRectangularPlaceholder** | The GenerateRectangularPlaceholder entity (load). | `/{width}/{height}` |
+| **GenerateSquarePlaceholder** | The GenerateSquarePlaceholder entity (load). | `/{width}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -83,16 +81,13 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from imageplaceholdergenerator_sdk import ImagePlaceholderGeneratorSDK
 
-client = ImagePlaceholderGeneratorSDK({
-    "apikey": os.environ.get("IMAGE-PLACEHOLDER-GENERATOR_APIKEY"),
-})
+client = ImagePlaceholderGeneratorSDK()
 
 
 # Load a specific generatecustomplaceholder
-generatecustomplaceholder, err = client.GenerateCustomPlaceholder().load({"id": "example_id"})
+generatecustomplaceholder = client.generatecustomplaceholder.load({"id": "example_id"})
 print(generatecustomplaceholder)
 ```
 
@@ -102,13 +97,11 @@ print(generatecustomplaceholder)
 <?php
 require_once 'imageplaceholdergenerator_sdk.php';
 
-$client = new ImagePlaceholderGeneratorSDK([
-    "apikey" => getenv("IMAGE-PLACEHOLDER-GENERATOR_APIKEY"),
-]);
+$client = new ImagePlaceholderGeneratorSDK();
 
 
 // Load a specific generatecustomplaceholder
-[$generatecustomplaceholder, $err] = $client->GenerateCustomPlaceholder()->load(["id" => "example_id"]);
+$generatecustomplaceholder = $client->generatecustomplaceholder()->load(["id" => "example_id"]);
 print_r($generatecustomplaceholder);
 ```
 
@@ -117,9 +110,7 @@ print_r($generatecustomplaceholder);
 ```go
 import sdk "github.com/voxgig-sdk/image-placeholder-generator-sdk/go"
 
-client := sdk.NewImagePlaceholderGeneratorSDK(map[string]any{
-    "apikey": os.Getenv("IMAGE-PLACEHOLDER-GENERATOR_APIKEY"),
-})
+client := sdk.New()
 
 // Load generatecustomplaceholder data
 generatecustomplaceholder, err := client.GenerateCustomPlaceholder(nil).Load(map[string]any{}, nil)
@@ -131,13 +122,11 @@ fmt.Println(generatecustomplaceholder)
 ```ruby
 require_relative "ImagePlaceholderGenerator_sdk"
 
-client = ImagePlaceholderGeneratorSDK.new({
-  "apikey" => ENV["IMAGE-PLACEHOLDER-GENERATOR_APIKEY"],
-})
+client = ImagePlaceholderGeneratorSDK.new
 
 
 # Load a specific generatecustomplaceholder
-generatecustomplaceholder, err = client.GenerateCustomPlaceholder().load({ "id" => "example_id" })
+generatecustomplaceholder = client.generatecustomplaceholder.load({ "id" => "example_id" })
 puts generatecustomplaceholder
 ```
 
@@ -146,13 +135,11 @@ puts generatecustomplaceholder
 ```lua
 local sdk = require("image-placeholder-generator_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("IMAGE-PLACEHOLDER-GENERATOR_APIKEY"),
-})
+local client = sdk.new()
 
 
 -- Load a specific generatecustomplaceholder
-local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load({ id = "example_id" })
+local generatecustomplaceholder, err = client:generatecustomplaceholder():load({ id = "example_id" })
 print(generatecustomplaceholder)
 ```
 
@@ -165,7 +152,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ImagePlaceholderGeneratorSDK.test()
-const result = await client.GenerateCustomPlaceholder().load({ id: 'test01' })
+const result = await client.generatecustomplaceholder.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -173,14 +160,14 @@ const result = await client.GenerateCustomPlaceholder().load({ id: 'test01' })
 
 ```python
 client = ImagePlaceholderGeneratorSDK.test()
-result, err = client.GenerateCustomPlaceholder().load({"id": "test01"})
+result = client.generatecustomplaceholder.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = ImagePlaceholderGeneratorSDK::test();
-[$result, $err] = $client->GenerateCustomPlaceholder()->load(["id" => "test01"]);
+$result = $client->generatecustomplaceholder()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -196,14 +183,14 @@ result, err := client.GenerateCustomPlaceholder(nil).Load(
 
 ```ruby
 client = ImagePlaceholderGeneratorSDK.test
-result, err = client.GenerateCustomPlaceholder().load({ "id" => "test01" })
+result = client.generatecustomplaceholder.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:GenerateCustomPlaceholder():load({ id = "test01" })
+local result, err = client:generatecustomplaceholder():load({ id = "test01" })
 ```
 
 ## How it works
@@ -256,7 +243,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -265,7 +252,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -283,7 +270,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

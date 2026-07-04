@@ -49,8 +49,7 @@ class TestGenerateRectangularPlaceholderEntity:
         # LOAD
         generate_rectangular_placeholder_ref01_ent = client.GenerateRectangularPlaceholder(None)
         generate_rectangular_placeholder_ref01_match_dt0 = {}
-        generate_rectangular_placeholder_ref01_data_dt0_loaded, err = generate_rectangular_placeholder_ref01_ent.load(generate_rectangular_placeholder_ref01_match_dt0, None)
-        assert err is None
+        generate_rectangular_placeholder_ref01_data_dt0_loaded = generate_rectangular_placeholder_ref01_ent.load(generate_rectangular_placeholder_ref01_match_dt0, None)
         assert generate_rectangular_placeholder_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _generate_rectangular_placeholder_basic_setup(extra):
         "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_RECTANGULAR_PLACEHOLDER_ENTID": idmap,
         "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE": "FALSE",
         "IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN": "FALSE",
-        "IMAGEPLACEHOLDERGENERATOR_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _generate_rectangular_placeholder_basic_setup(extra):
     if env.get("IMAGEPLACEHOLDERGENERATOR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IMAGEPLACEHOLDERGENERATOR_APIKEY"),
             },
             extra or {},
         ])

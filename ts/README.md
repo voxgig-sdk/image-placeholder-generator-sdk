@@ -9,9 +9,12 @@ The TypeScript SDK for the ImagePlaceholderGenerator API — a type-safe, entity
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/image-placeholder-generator
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ImagePlaceholderGeneratorSDK } from 'image-placeholder-generator'
+import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator'
 
-const client = new ImagePlaceholderGeneratorSDK({
-  apikey: process.env.IMAGE-PLACEHOLDER-GENERATOR_APIKEY,
-})
+const client = new ImagePlaceholderGeneratorSDK()
 ```
 
 ### 3. Load a generatecustomplaceholder
 
 ```ts
-const result = await client.GenerateCustomPlaceholder().load({ id: 'example_id' })
+const result = await client.generatecustomplaceholder.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ImagePlaceholderGeneratorSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.generatecustomplaceholder.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ImagePlaceholderGeneratorSDK({ apikey: '...' })
+const client = new ImagePlaceholderGeneratorSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.generatecustomplaceholder
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new ImagePlaceholderGeneratorSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new ImagePlaceholderGeneratorSDK({
 Create a `.env.local` file at the project root:
 
 ```
-IMAGE-PLACEHOLDER-GENERATOR_TEST_LIVE=TRUE
-IMAGE-PLACEHOLDER-GENERATOR_APIKEY=<your-key>
+IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new ImagePlaceholderGeneratorSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new ImagePlaceholderGeneratorSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -285,7 +282,7 @@ API path: `/{width}`
 
 ### GenerateCustomPlaceholder
 
-Create an instance: `const generate_custom_placeholder = client.GenerateCustomPlaceholder()`
+Create an instance: `const generate_custom_placeholder = client.generate_custom_placeholder`
 
 #### Operations
 
@@ -296,13 +293,13 @@ Create an instance: `const generate_custom_placeholder = client.GenerateCustomPl
 #### Example: Load
 
 ```ts
-const generate_custom_placeholder = await client.GenerateCustomPlaceholder().load({ id: 'generate_custom_placeholder_id' })
+const generate_custom_placeholder = await client.generate_custom_placeholder.load({ id: 'generate_custom_placeholder_id' })
 ```
 
 
 ### GenerateRectangularPlaceholder
 
-Create an instance: `const generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()`
+Create an instance: `const generate_rectangular_placeholder = client.generate_rectangular_placeholder`
 
 #### Operations
 
@@ -313,13 +310,13 @@ Create an instance: `const generate_rectangular_placeholder = client.GenerateRec
 #### Example: Load
 
 ```ts
-const generate_rectangular_placeholder = await client.GenerateRectangularPlaceholder().load({ id: 'generate_rectangular_placeholder_id' })
+const generate_rectangular_placeholder = await client.generate_rectangular_placeholder.load({ id: 'generate_rectangular_placeholder_id' })
 ```
 
 
 ### GenerateSquarePlaceholder
 
-Create an instance: `const generate_square_placeholder = client.GenerateSquarePlaceholder()`
+Create an instance: `const generate_square_placeholder = client.generate_square_placeholder`
 
 #### Operations
 
@@ -330,7 +327,7 @@ Create an instance: `const generate_square_placeholder = client.GenerateSquarePl
 #### Example: Load
 
 ```ts
-const generate_square_placeholder = await client.GenerateSquarePlaceholder().load({ id: 'generate_square_placeholder_id' })
+const generate_square_placeholder = await client.generate_square_placeholder.load({ id: 'generate_square_placeholder_id' })
 ```
 
 
@@ -391,7 +388,7 @@ image-placeholder-generator/
 Import the SDK from the package root:
 
 ```ts
-import { ImagePlaceholderGeneratorSDK } from 'image-placeholder-generator'
+import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator'
 ```
 
 ### Entity state
@@ -401,11 +398,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const generatecustomplaceholder = client.generatecustomplaceholder
+await generatecustomplaceholder.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// generatecustomplaceholder.data() now returns the loaded generatecustomplaceholder data
+// generatecustomplaceholder.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

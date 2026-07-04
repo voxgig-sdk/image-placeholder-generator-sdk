@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "BiFindr Placeholder API"
         url: "https://bifindr.com/placeholder/"

@@ -49,8 +49,7 @@ class GenerateSquarePlaceholderEntityTest extends TestCase
         // LOAD
         $generate_square_placeholder_ref01_ent = $client->GenerateSquarePlaceholder(null);
         $generate_square_placeholder_ref01_match_dt0 = [];
-        [$generate_square_placeholder_ref01_data_dt0_loaded, $err] = $generate_square_placeholder_ref01_ent->load($generate_square_placeholder_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $generate_square_placeholder_ref01_data_dt0_loaded = $generate_square_placeholder_ref01_ent->load($generate_square_placeholder_ref01_match_dt0, null);
         $this->assertNotNull($generate_square_placeholder_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function generate_square_placeholder_basic_setup($extra)
         "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID" => $idmap,
         "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE" => "FALSE",
         "IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN" => "FALSE",
-        "IMAGEPLACEHOLDERGENERATOR_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function generate_square_placeholder_basic_setup($extra)
     if ($env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["IMAGEPLACEHOLDERGENERATOR_APIKEY"],
             ],
             $extra ?? [],
         ]);

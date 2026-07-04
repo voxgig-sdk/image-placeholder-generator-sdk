@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://bifindr.com/placeholder",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -48,6 +45,7 @@ def make_config():
                       "orig": "background",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                     {
                       "active": True,
@@ -57,6 +55,7 @@ def make_config():
                       "orig": "height",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 1,
                     },
                     {
                       "active": True,
@@ -66,6 +65,7 @@ def make_config():
                       "orig": "text_color",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 2,
                     },
                     {
                       "active": True,
@@ -75,6 +75,7 @@ def make_config():
                       "orig": "width",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 3,
                     },
                   ],
                   "query": [
@@ -140,6 +141,7 @@ def make_config():
                       "orig": "height",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 0,
                     },
                     {
                       "active": True,
@@ -149,6 +151,7 @@ def make_config():
                       "orig": "width",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 1,
                     },
                   ],
                   "query": [
@@ -210,6 +213,7 @@ def make_config():
                       "orig": "width",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 0,
                     },
                   ],
                   "query": [

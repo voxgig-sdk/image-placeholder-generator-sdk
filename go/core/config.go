@@ -14,9 +14,6 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://bifindr.com/placeholder",
-			"auth": map[string]any{
-				"prefix": "Bearer",
-			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -47,6 +44,7 @@ func MakeConfig() map[string]any {
 											"orig": "background",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -56,6 +54,7 @@ func MakeConfig() map[string]any {
 											"orig": "height",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -65,6 +64,7 @@ func MakeConfig() map[string]any {
 											"orig": "text_color",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -74,6 +74,7 @@ func MakeConfig() map[string]any {
 											"orig": "width",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -139,6 +140,7 @@ func MakeConfig() map[string]any {
 											"orig": "height",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -148,6 +150,7 @@ func MakeConfig() map[string]any {
 											"orig": "width",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -209,6 +212,7 @@ func MakeConfig() map[string]any {
 											"orig": "width",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 									},
 									"query": []any{

@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GenerateSquarePlaceholderLoadMatch
+---@param ctrl? table
+---@return GenerateSquarePlaceholder
+---@return string? err
 function GenerateSquarePlaceholderEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

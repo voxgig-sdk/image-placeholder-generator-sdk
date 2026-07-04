@@ -49,8 +49,7 @@ class TestGenerateCustomPlaceholderEntity:
         # LOAD
         generate_custom_placeholder_ref01_ent = client.GenerateCustomPlaceholder(None)
         generate_custom_placeholder_ref01_match_dt0 = {}
-        generate_custom_placeholder_ref01_data_dt0_loaded, err = generate_custom_placeholder_ref01_ent.load(generate_custom_placeholder_ref01_match_dt0, None)
-        assert err is None
+        generate_custom_placeholder_ref01_data_dt0_loaded = generate_custom_placeholder_ref01_ent.load(generate_custom_placeholder_ref01_match_dt0, None)
         assert generate_custom_placeholder_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _generate_custom_placeholder_basic_setup(extra):
         "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID": idmap,
         "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE": "FALSE",
         "IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN": "FALSE",
-        "IMAGEPLACEHOLDERGENERATOR_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _generate_custom_placeholder_basic_setup(extra):
     if env.get("IMAGEPLACEHOLDERGENERATOR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IMAGEPLACEHOLDERGENERATOR_APIKEY"),
             },
             extra or {},
         ])

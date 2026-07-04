@@ -110,14 +110,12 @@ func generate_square_placeholderDirectSetup(mockres any) *generate_square_placeh
 	env := envOverride(map[string]any{
 		"IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID": map[string]any{},
 		"IMAGEPLACEHOLDERGENERATOR_TEST_LIVE":    "FALSE",
-		"IMAGEPLACEHOLDERGENERATOR_APIKEY":       "NONE",
 	})
 
 	live := env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["IMAGEPLACEHOLDERGENERATOR_APIKEY"],
 		}
 		client := sdk.NewImagePlaceholderGeneratorSDK(mergedOpts)
 

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GenerateCustomPlaceholder,
+  GenerateCustomPlaceholderLoadMatch,
+} from '../ImagePlaceholderGeneratorTypes'
 
 // TODO: needs Entity superclass
-class GenerateCustomPlaceholderEntity extends ImagePlaceholderGeneratorEntityBase {
+class GenerateCustomPlaceholderEntity extends ImagePlaceholderGeneratorEntityBase<GenerateCustomPlaceholder> {
 
   constructor(client: ImagePlaceholderGeneratorSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class GenerateCustomPlaceholderEntity extends ImagePlaceholderGeneratorEntityBas
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GenerateCustomPlaceholderLoadMatch, ctrl?: Control): Promise<GenerateCustomPlaceholder> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class GenerateCustomPlaceholderEntity extends ImagePlaceholderGeneratorEntityBas
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GenerateCustomPlaceholder> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

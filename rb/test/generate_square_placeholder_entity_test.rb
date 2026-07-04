@@ -42,8 +42,7 @@ class GenerateSquarePlaceholderEntityTest < Minitest::Test
     # LOAD
     generate_square_placeholder_ref01_ent = client.GenerateSquarePlaceholder(nil)
     generate_square_placeholder_ref01_match_dt0 = {}
-    generate_square_placeholder_ref01_data_dt0_loaded, err = generate_square_placeholder_ref01_ent.load(generate_square_placeholder_ref01_match_dt0, nil)
-    assert_nil err
+    generate_square_placeholder_ref01_data_dt0_loaded = generate_square_placeholder_ref01_ent.load(generate_square_placeholder_ref01_match_dt0, nil)
     assert !generate_square_placeholder_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def generate_square_placeholder_basic_setup(extra)
     "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID" => idmap,
     "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE" => "FALSE",
     "IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN" => "FALSE",
-    "IMAGEPLACEHOLDERGENERATOR_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def generate_square_placeholder_basic_setup(extra)
   if env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IMAGEPLACEHOLDERGENERATOR_APIKEY"],
       },
       extra || {},
     ])

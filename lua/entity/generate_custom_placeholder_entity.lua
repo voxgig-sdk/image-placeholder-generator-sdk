@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GenerateCustomPlaceholderLoadMatch
+---@param ctrl? table
+---@return GenerateCustomPlaceholder
+---@return string? err
 function GenerateCustomPlaceholderEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

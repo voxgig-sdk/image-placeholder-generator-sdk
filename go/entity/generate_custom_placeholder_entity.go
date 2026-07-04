@@ -85,6 +85,27 @@ func (e *GenerateCustomPlaceholderEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GenerateCustomPlaceholder; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GenerateCustomPlaceholderEntity) DataTyped(data ...GenerateCustomPlaceholder) GenerateCustomPlaceholder {
+	if len(data) > 0 {
+		return typedFrom[GenerateCustomPlaceholder](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GenerateCustomPlaceholder](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GenerateCustomPlaceholder (all fields
+// optional at the wire level).
+func (e *GenerateCustomPlaceholderEntity) MatchTyped(match ...GenerateCustomPlaceholder) GenerateCustomPlaceholder {
+	if len(match) > 0 {
+		return typedFrom[GenerateCustomPlaceholder](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GenerateCustomPlaceholder](e.Match())
+}
+
 
 func (e *GenerateCustomPlaceholderEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *GenerateCustomPlaceholderEntity) Load(reqmatch map[string]any, ctrl map
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// GenerateCustomPlaceholderLoadMatch and returns an GenerateCustomPlaceholder. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *GenerateCustomPlaceholderEntity) LoadTyped(reqmatch GenerateCustomPlaceholderLoadMatch, ctrl map[string]any) (GenerateCustomPlaceholder, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return GenerateCustomPlaceholder{}, err
+	}
+	return typedFrom[GenerateCustomPlaceholder](res), nil
 }
 
 

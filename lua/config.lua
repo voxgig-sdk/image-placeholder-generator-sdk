@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://bifindr.com/placeholder",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -47,6 +44,7 @@ local function make_config()
                       ["orig"] = "background",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -56,6 +54,7 @@ local function make_config()
                       ["orig"] = "height",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
+                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -65,6 +64,7 @@ local function make_config()
                       ["orig"] = "text_color",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 2,
                     },
                     {
                       ["active"] = true,
@@ -74,6 +74,7 @@ local function make_config()
                       ["orig"] = "width",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
+                      ["index$"] = 3,
                     },
                   },
                   ["query"] = {
@@ -139,6 +140,7 @@ local function make_config()
                       ["orig"] = "height",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
+                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -148,6 +150,7 @@ local function make_config()
                       ["orig"] = "width",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
+                      ["index$"] = 1,
                     },
                   },
                   ["query"] = {
@@ -209,6 +212,7 @@ local function make_config()
                       ["orig"] = "width",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {

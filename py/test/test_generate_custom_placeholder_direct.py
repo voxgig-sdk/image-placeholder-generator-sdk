@@ -33,7 +33,7 @@ class TestGenerateCustomPlaceholderDirect:
             params["text_color"] = "direct03"
             params["width"] = "direct04"
 
-        result, err = client.direct({
+        result = client.direct({
             "path": "{width}/{height}/{background}/{text_color}",
             "method": "GET",
             "params": params,
@@ -43,8 +43,8 @@ class TestGenerateCustomPlaceholderDirect:
             # Live mode is lenient: synthetic IDs frequently 4xx. Skip
             # rather than fail when the load endpoint isn't reachable
             # with the IDs we can construct from setup.idmap.
-            if err is not None:
-                pytest.skip(f"load call failed (likely synthetic IDs against live API): {err}")
+            if result.get("err") is not None:
+                pytest.skip(f"load call failed (likely synthetic IDs against live API): {result.get('err')}")
                 return
             if not result.get("ok"):
                 pytest.skip("load call not ok (likely synthetic IDs against live API)")
@@ -54,7 +54,6 @@ class TestGenerateCustomPlaceholderDirect:
                 pytest.skip(f"expected 2xx status, got {status}")
                 return
         else:
-            assert err is None
             assert result["ok"] is True
             assert helpers.to_int(result["status"]) == 200
             assert result["data"] is not None
@@ -72,14 +71,12 @@ def _generate_custom_placeholder_direct_setup(mockres):
     env = runner.env_override({
         "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID": {},
         "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE": "FALSE",
-        "IMAGEPLACEHOLDERGENERATOR_APIKEY": "NONE",
     })
 
     live = env.get("IMAGEPLACEHOLDERGENERATOR_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("IMAGEPLACEHOLDERGENERATOR_APIKEY"),
         }
         client = ImagePlaceholderGeneratorSDK(merged_opts)
         return {

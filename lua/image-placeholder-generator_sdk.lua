@@ -244,18 +244,57 @@ end
 
 
 
+-- Idiomatic facade: client:generate_custom_placeholder():list() / client:generate_custom_placeholder():load({ id = ... })
+function ImagePlaceholderGeneratorSDK:generate_custom_placeholder(data)
+  local EntityMod = require("entity.generate_custom_placeholder_entity")
+  if data == nil then
+    if self._generate_custom_placeholder == nil then
+      self._generate_custom_placeholder = EntityMod.new(self, nil)
+    end
+    return self._generate_custom_placeholder
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:generate_custom_placeholder() instead.
 function ImagePlaceholderGeneratorSDK:GenerateCustomPlaceholder(data)
   local EntityMod = require("entity.generate_custom_placeholder_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:generate_rectangular_placeholder():list() / client:generate_rectangular_placeholder():load({ id = ... })
+function ImagePlaceholderGeneratorSDK:generate_rectangular_placeholder(data)
+  local EntityMod = require("entity.generate_rectangular_placeholder_entity")
+  if data == nil then
+    if self._generate_rectangular_placeholder == nil then
+      self._generate_rectangular_placeholder = EntityMod.new(self, nil)
+    end
+    return self._generate_rectangular_placeholder
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:generate_rectangular_placeholder() instead.
 function ImagePlaceholderGeneratorSDK:GenerateRectangularPlaceholder(data)
   local EntityMod = require("entity.generate_rectangular_placeholder_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:generate_square_placeholder():list() / client:generate_square_placeholder():load({ id = ... })
+function ImagePlaceholderGeneratorSDK:generate_square_placeholder(data)
+  local EntityMod = require("entity.generate_square_placeholder_entity")
+  if data == nil then
+    if self._generate_square_placeholder == nil then
+      self._generate_square_placeholder = EntityMod.new(self, nil)
+    end
+    return self._generate_square_placeholder
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:generate_square_placeholder() instead.
 function ImagePlaceholderGeneratorSDK:GenerateSquarePlaceholder(data)
   local EntityMod = require("entity.generate_square_placeholder_entity")
   return EntityMod.new(self, data)
