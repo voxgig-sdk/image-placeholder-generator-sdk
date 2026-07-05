@@ -8,7 +8,7 @@ Complete API reference for the ImagePlaceholderGenerator PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/image-placeholder-generator_sdk.php';
+require_once __DIR__ . '/imageplaceholdergenerator_sdk.php';
 
 $client = new ImagePlaceholderGeneratorSDK($options);
 ```
@@ -53,11 +53,11 @@ Create a new `GenerateRectangularPlaceholderEntity` instance. Pass `null` for no
 
 Create a new `GenerateSquarePlaceholderEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): ImagePlaceholderGeneratorUtility`
 
 Return a copy of the SDK utility object.
 
@@ -103,24 +103,24 @@ $generate_custom_placeholder = $client->GenerateCustomPlaceholder();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GenerateCustomPlaceholder()->load(["id" => "generate_custom_placeholder_id"]);
+$result = $client->GenerateCustomPlaceholder()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -129,7 +129,7 @@ Set the entity match criteria.
 Create a new `GenerateCustomPlaceholderEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -149,24 +149,24 @@ $generate_rectangular_placeholder = $client->GenerateRectangularPlaceholder();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GenerateRectangularPlaceholder()->load(["id" => "generate_rectangular_placeholder_id"]);
+$result = $client->GenerateRectangularPlaceholder()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -175,7 +175,7 @@ Set the entity match criteria.
 Create a new `GenerateRectangularPlaceholderEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -200,19 +200,19 @@ $result = $client->GenerateSquarePlaceholder()->load(["id" => "generate_square_p
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -221,7 +221,7 @@ Set the entity match criteria.
 Create a new `GenerateSquarePlaceholderEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

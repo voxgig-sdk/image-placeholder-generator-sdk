@@ -108,7 +108,7 @@ generate_custom_placeholder := client.GenerateCustomPlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GenerateCustomPlaceholder(nil).Load(map[string]any{"id": "generate_custom_placeholder_id"}, nil)
+result, err := client.GenerateCustomPlaceholder(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ generate_rectangular_placeholder := client.GenerateRectangularPlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GenerateRectangularPlaceholder(nil).Load(map[string]any{"id": "generate_rectangular_placeholder_id"}, nil)
+result, err := client.GenerateRectangularPlaceholder(nil).Load(nil, nil)
 ```
 
 ### Common Methods

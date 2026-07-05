@@ -221,19 +221,19 @@ class ImagePlaceholderGeneratorSDK:
 
 
     def GenerateCustomPlaceholder(self, data=None) -> "GenerateCustomPlaceholderEntity":
-        """Entity factory: client.GenerateCustomPlaceholder().list({}) / client.GenerateCustomPlaceholder().load({"id": ...})."""
+        """Entity factory: client.GenerateCustomPlaceholder().list() / client.GenerateCustomPlaceholder().load({"id": ...})."""
         from entity.generate_custom_placeholder_entity import GenerateCustomPlaceholderEntity
         return GenerateCustomPlaceholderEntity(self, data)
 
 
     def GenerateRectangularPlaceholder(self, data=None) -> "GenerateRectangularPlaceholderEntity":
-        """Entity factory: client.GenerateRectangularPlaceholder().list({}) / client.GenerateRectangularPlaceholder().load({"id": ...})."""
+        """Entity factory: client.GenerateRectangularPlaceholder().list() / client.GenerateRectangularPlaceholder().load({"id": ...})."""
         from entity.generate_rectangular_placeholder_entity import GenerateRectangularPlaceholderEntity
         return GenerateRectangularPlaceholderEntity(self, data)
 
 
     def GenerateSquarePlaceholder(self, data=None) -> "GenerateSquarePlaceholderEntity":
-        """Entity factory: client.GenerateSquarePlaceholder().list({}) / client.GenerateSquarePlaceholder().load({"id": ...})."""
+        """Entity factory: client.GenerateSquarePlaceholder().list() / client.GenerateSquarePlaceholder().load({"id": ...})."""
         from entity.generate_square_placeholder_entity import GenerateSquarePlaceholderEntity
         return GenerateSquarePlaceholderEntity(self, data)
 

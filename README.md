@@ -6,6 +6,21 @@ This is an unofficial SDK for the Image Placeholder Generator public API, genera
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
+## Entities, not endpoints
+
+This SDK exposes the API as a small set of **semantic entities** — GenerateCustomPlaceholder, GenerateRectangularPlaceholder and GenerateSquarePlaceholder — that you
+call directly, instead of assembling URL paths and query strings. Entities are
+**Capitalised** to mark them as the primary surface, each with the operations they
+support (`load`):
+
+```ts
+const client = new ImagePlaceholderGeneratorSDK()
+const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load()
+```
+
+Thinking in entities keeps the mental model small — for people and AI agents alike —
+rather than reasoning about raw HTTP routes and query parameters.
+
 ## Packages
 
 | Language | Package | Install |
@@ -73,8 +88,8 @@ The API exposes 3 entities:
 | **GenerateRectangularPlaceholder** | The GenerateRectangularPlaceholder entity (load). | `/{width}/{height}` |
 | **GenerateSquarePlaceholder** | The GenerateSquarePlaceholder entity (load). | `/{width}` |
 
-Each entity supports the following operations where available: **load**,
-**list**, **create**, **update**, and **remove**.
+The operations available across these entities are **load** — see each entity's
+own list above for exactly which it supports.
 
 ## Quickstart in other languages
 
@@ -87,7 +102,7 @@ client = ImagePlaceholderGeneratorSDK()
 
 
 # Load a specific generatecustomplaceholder (returns the record, raises on error)
-generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"id": "example_id"})
+generatecustomplaceholder = client.GenerateCustomPlaceholder().load()
 print(generatecustomplaceholder)
 ```
 
@@ -101,7 +116,7 @@ $client = new ImagePlaceholderGeneratorSDK();
 
 
 // Load a specific generatecustomplaceholder (returns the bare record; throws on error)
-$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["id" => "example_id"]);
+$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load();
 print_r($generatecustomplaceholder);
 ```
 
@@ -126,7 +141,7 @@ client = ImagePlaceholderGeneratorSDK.new
 
 
 # Load a specific generatecustomplaceholder (returns the bare record; raises on error)
-generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "id" => "example_id" })
+generatecustomplaceholder = client.GenerateCustomPlaceholder.load()
 puts generatecustomplaceholder
 ```
 
@@ -139,7 +154,7 @@ local client = sdk.new()
 
 
 -- Load a specific generatecustomplaceholder
-local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load({ id = "example_id" })
+local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load()
 print(generatecustomplaceholder)
 ```
 
@@ -152,7 +167,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ImagePlaceholderGeneratorSDK.test()
-const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({ id: 'test01' })
+const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load()
 // generatecustomplaceholder is a bare GenerateCustomPlaceholder populated with mock data
 console.log(generatecustomplaceholder)
 ```
@@ -161,7 +176,7 @@ console.log(generatecustomplaceholder)
 
 ```python
 client = ImagePlaceholderGeneratorSDK.test()
-generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"id": "test01"})
+generatecustomplaceholder = client.GenerateCustomPlaceholder().load()
 print(generatecustomplaceholder)
 ```
 
@@ -170,9 +185,9 @@ print(generatecustomplaceholder)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = ImagePlaceholderGeneratorSDK::test([
-    "entity" => ["generatecustomplaceholder" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["generatecustomplaceholder" => ["test01" => []]],
 ]);
-$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["id" => "test01"]);
+$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load();
 ```
 
 ### Golang
@@ -180,7 +195,7 @@ $generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["id" =>
 ```go
 client := sdk.Test()
 result, err := client.GenerateCustomPlaceholder(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    nil, nil,
 )
 ```
 
@@ -189,41 +204,19 @@ result, err := client.GenerateCustomPlaceholder(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = ImagePlaceholderGeneratorSDK.test({
-  "entity" => { "generatecustomplaceholder" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "generatecustomplaceholder" => { "test01" => {} } },
 })
-generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "id" => "test01" })
+generatecustomplaceholder = client.GenerateCustomPlaceholder.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:GenerateCustomPlaceholder():load({ id = "test01" })
+local result, err = client:GenerateCustomPlaceholder():load()
 ```
 
-## How it works
-
-Every SDK call runs the same five-stage pipeline:
-
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), so features can inspect or modify the pipeline without
-forking the SDK.
-
-### Features
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-Pass custom features via the `extend` option at construction time.
-
-### Direct and Prepare
+## Direct and prepare
 
 For endpoints the entity model doesn't cover, use the low-level methods:
 
@@ -296,6 +289,31 @@ local result, err = client:direct({
   params = { id = "example" },
 })
 ```
+
+## Advanced
+
+> Everyday use only needs the sections above. This explains the internals
+> behind every call — relevant when writing custom features.
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
 
 ## Per-language documentation
 

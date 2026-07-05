@@ -8,7 +8,7 @@ Complete API reference for the ImagePlaceholderGenerator Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'image-placeholder-generator_sdk'
+require_relative 'ImagePlaceholderGenerator_sdk'
 
 client = ImagePlaceholderGeneratorSDK.new(options)
 ```
@@ -104,7 +104,7 @@ generate_custom_placeholder = client.GenerateCustomPlaceholder
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GenerateCustomPlaceholder.load({ "id" => "generate_custom_placeholder_id" })
+result = client.GenerateCustomPlaceholder.load()
 ```
 
 ### Common Methods
@@ -150,7 +150,7 @@ generate_rectangular_placeholder = client.GenerateRectangularPlaceholder
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GenerateRectangularPlaceholder.load({ "id" => "generate_rectangular_placeholder_id" })
+result = client.GenerateRectangularPlaceholder.load()
 ```
 
 ### Common Methods

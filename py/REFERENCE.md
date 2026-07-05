@@ -8,7 +8,7 @@ Complete API reference for the ImagePlaceholderGenerator Python SDK.
 ### Constructor
 
 ```python
-from image-placeholder-generator_sdk import ImagePlaceholderGeneratorSDK
+from imageplaceholdergenerator_sdk import ImagePlaceholderGeneratorSDK
 
 client = ImagePlaceholderGeneratorSDK(options)
 ```
@@ -98,7 +98,7 @@ generate_custom_placeholder = client.GenerateCustomPlaceholder()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GenerateCustomPlaceholder().load({"id": "generate_custom_placeholder_id"})
+result = client.GenerateCustomPlaceholder().load()
 ```
 
 ### Common Methods
@@ -143,7 +143,7 @@ generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GenerateRectangularPlaceholder().load({"id": "generate_rectangular_placeholder_id"})
+result = client.GenerateRectangularPlaceholder().load()
 ```
 
 ### Common Methods

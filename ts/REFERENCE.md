@@ -143,7 +143,7 @@ const generate_custom_placeholder = client.GenerateCustomPlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateCustomPlaceholder().load({ id: 'generate_custom_placeholder_id' })
+const result = await client.GenerateCustomPlaceholder().load()
 ```
 
 ### Common Methods
@@ -187,7 +187,7 @@ const generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateRectangularPlaceholder().load({ id: 'generate_rectangular_placeholder_id' })
+const result = await client.GenerateRectangularPlaceholder().load()
 ```
 
 ### Common Methods
@@ -231,7 +231,7 @@ const generate_square_placeholder = client.GenerateSquarePlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateSquarePlaceholder().load({ id: 'generate_square_placeholder_id' })
+const result = await client.GenerateSquarePlaceholder().load({ id: 1 })
 ```
 
 ### Common Methods
