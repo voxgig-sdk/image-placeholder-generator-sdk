@@ -35,7 +35,7 @@ client = ImagePlaceholderGeneratorSDK.new
 ```ruby
 begin
   # load returns the bare GenerateCustomPlaceholder record (raises on error).
-  generatecustomplaceholder = client.GenerateCustomPlaceholder.load()
+  generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "background" => "example_background", "height" => 1, "text_color" => "example_text_color", "width" => 1 })
   puts generatecustomplaceholder
 rescue => err
   warn "load failed: #{err}"
@@ -278,7 +278,7 @@ Create an instance: `generate_custom_placeholder = client.GenerateCustomPlacehol
 
 ```ruby
 # load returns the bare GenerateCustomPlaceholder record (raises on error).
-generate_custom_placeholder = client.GenerateCustomPlaceholder.load()
+generate_custom_placeholder = client.GenerateCustomPlaceholder.load({ "background" => "background", "height" => 1, "text_color" => "text_color", "width" => 1 })
 ```
 
 
@@ -296,7 +296,7 @@ Create an instance: `generate_rectangular_placeholder = client.GenerateRectangul
 
 ```ruby
 # load returns the bare GenerateRectangularPlaceholder record (raises on error).
-generate_rectangular_placeholder = client.GenerateRectangularPlaceholder.load()
+generate_rectangular_placeholder = client.GenerateRectangularPlaceholder.load({ "height" => 1, "width" => 1 })
 ```
 
 
@@ -314,7 +314,7 @@ Create an instance: `generate_square_placeholder = client.GenerateSquarePlacehol
 
 ```ruby
 # load returns the bare GenerateSquarePlaceholder record (raises on error).
-generate_square_placeholder = client.GenerateSquarePlaceholder.load({ "id" => "generate_square_placeholder_id" })
+generate_square_placeholder = client.GenerateSquarePlaceholder.load({ "id" => 1 })
 ```
 
 

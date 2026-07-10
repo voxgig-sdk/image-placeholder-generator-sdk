@@ -101,7 +101,7 @@ local generate_custom_placeholder = client:GenerateCustomPlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GenerateCustomPlaceholder():load()
+local result, err = client:GenerateCustomPlaceholder():load({ background = "background", height = 1, text_color = "text_color", width = 1 })
 ```
 
 ### Common Methods
@@ -147,7 +147,7 @@ local generate_rectangular_placeholder = client:GenerateRectangularPlaceholder(n
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GenerateRectangularPlaceholder():load()
+local result, err = client:GenerateRectangularPlaceholder():load({ height = 1, width = 1 })
 ```
 
 ### Common Methods
@@ -193,7 +193,7 @@ local generate_square_placeholder = client:GenerateSquarePlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GenerateSquarePlaceholder():load({ id = "generate_square_placeholder_id" })
+local result, err = client:GenerateSquarePlaceholder():load({ id = 1 })
 ```
 
 ### Common Methods

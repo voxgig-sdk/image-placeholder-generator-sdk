@@ -143,7 +143,7 @@ const generate_custom_placeholder = client.GenerateCustomPlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateCustomPlaceholder().load()
+const result = await client.GenerateCustomPlaceholder().load({ background: 'background', height: 1, text_color: 'text_color', width: 1 })
 ```
 
 ### Common Methods
@@ -187,7 +187,7 @@ const generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GenerateRectangularPlaceholder().load()
+const result = await client.GenerateRectangularPlaceholder().load({ height: 1, width: 1 })
 ```
 
 ### Common Methods

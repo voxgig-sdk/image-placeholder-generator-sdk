@@ -42,7 +42,7 @@ client = ImagePlaceholderGeneratorSDK()
 
 ```python
 try:
-    generatecustomplaceholder = client.GenerateCustomPlaceholder().load()
+    generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"background": "example_background", "height": 1, "text_color": "example_text_color", "width": 1})
     print(generatecustomplaceholder)
 except Exception as err:
     print(f"load failed: {err}")
@@ -283,7 +283,7 @@ Create an instance: `generate_custom_placeholder = client.GenerateCustomPlacehol
 #### Example: Load
 
 ```python
-generate_custom_placeholder = client.GenerateCustomPlaceholder().load()
+generate_custom_placeholder = client.GenerateCustomPlaceholder().load({"background": "background", "height": 1, "text_color": "text_color", "width": 1})
 ```
 
 
@@ -300,7 +300,7 @@ Create an instance: `generate_rectangular_placeholder = client.GenerateRectangul
 #### Example: Load
 
 ```python
-generate_rectangular_placeholder = client.GenerateRectangularPlaceholder().load()
+generate_rectangular_placeholder = client.GenerateRectangularPlaceholder().load({"height": 1, "width": 1})
 ```
 
 
@@ -317,7 +317,7 @@ Create an instance: `generate_square_placeholder = client.GenerateSquarePlacehol
 #### Example: Load
 
 ```python
-generate_square_placeholder = client.GenerateSquarePlaceholder().load({"id": "generate_square_placeholder_id"})
+generate_square_placeholder = client.GenerateSquarePlaceholder().load({"id": 1})
 ```
 
 

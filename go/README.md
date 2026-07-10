@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single generatecustomplaceholder — the value is the loaded record.
-    generatecustomplaceholder, err := client.GenerateCustomPlaceholder(nil).Load(nil, nil)
+    // Load a single generateCustomPlaceholder — the value is the loaded record.
+    generateCustomPlaceholder, err := client.GenerateCustomPlaceholder(nil).Load(map[string]any{"background": "example_background", "height": 1, "text_color": "example_text_color", "width": 1}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(generatecustomplaceholder)
+    fmt.Println(generateCustomPlaceholder)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-generatecustomplaceholder, err := client.GenerateCustomPlaceholder(nil).Load(
+generateCustomPlaceholder, err := client.GenerateCustomPlaceholder(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(generatecustomplaceholder) // the returned mock data
+fmt.Println(generateCustomPlaceholder) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -247,9 +247,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    generatecustomplaceholder, err := client.GenerateCustomPlaceholder(nil).Load(nil, nil)
+    generateCustomPlaceholder, err := client.GenerateCustomPlaceholder(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // generatecustomplaceholder is the returned record
+    // generateCustomPlaceholder is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -290,7 +290,7 @@ API path: `/{width}`
 
 ### GenerateCustomPlaceholder
 
-Create an instance: `generate_custom_placeholder := client.GenerateCustomPlaceholder(nil)`
+Create an instance: `generateCustomPlaceholder := client.GenerateCustomPlaceholder(nil)`
 
 #### Operations
 
@@ -301,17 +301,17 @@ Create an instance: `generate_custom_placeholder := client.GenerateCustomPlaceho
 #### Example: Load
 
 ```go
-generate_custom_placeholder, err := client.GenerateCustomPlaceholder(nil).Load(nil, nil)
+generateCustomPlaceholder, err := client.GenerateCustomPlaceholder(nil).Load(map[string]any{"background": "background", "height": 1, "text_color": "text_color", "width": 1}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(generate_custom_placeholder) // the loaded record
+fmt.Println(generateCustomPlaceholder) // the loaded record
 ```
 
 
 ### GenerateRectangularPlaceholder
 
-Create an instance: `generate_rectangular_placeholder := client.GenerateRectangularPlaceholder(nil)`
+Create an instance: `generateRectangularPlaceholder := client.GenerateRectangularPlaceholder(nil)`
 
 #### Operations
 
@@ -322,17 +322,17 @@ Create an instance: `generate_rectangular_placeholder := client.GenerateRectangu
 #### Example: Load
 
 ```go
-generate_rectangular_placeholder, err := client.GenerateRectangularPlaceholder(nil).Load(nil, nil)
+generateRectangularPlaceholder, err := client.GenerateRectangularPlaceholder(nil).Load(map[string]any{"height": 1, "width": 1}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(generate_rectangular_placeholder) // the loaded record
+fmt.Println(generateRectangularPlaceholder) // the loaded record
 ```
 
 
 ### GenerateSquarePlaceholder
 
-Create an instance: `generate_square_placeholder := client.GenerateSquarePlaceholder(nil)`
+Create an instance: `generateSquarePlaceholder := client.GenerateSquarePlaceholder(nil)`
 
 #### Operations
 
@@ -343,11 +343,11 @@ Create an instance: `generate_square_placeholder := client.GenerateSquarePlaceho
 #### Example: Load
 
 ```go
-generate_square_placeholder, err := client.GenerateSquarePlaceholder(nil).Load(map[string]any{"id": "generate_square_placeholder_id"}, nil)
+generateSquarePlaceholder, err := client.GenerateSquarePlaceholder(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(generate_square_placeholder) // the loaded record
+fmt.Println(generateSquarePlaceholder) // the loaded record
 ```
 
 

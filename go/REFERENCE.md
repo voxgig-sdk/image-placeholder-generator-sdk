@@ -98,7 +98,8 @@ same parameters as `Direct()`.
 ## GenerateCustomPlaceholderEntity
 
 ```go
-generate_custom_placeholder := client.GenerateCustomPlaceholder(nil)
+generateCustomPlaceholder := client.GenerateCustomPlaceholder(nil)
+fmt.Println(generateCustomPlaceholder.GetName()) // "generate_custom_placeholder"
 ```
 
 ### Operations
@@ -108,7 +109,11 @@ generate_custom_placeholder := client.GenerateCustomPlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GenerateCustomPlaceholder(nil).Load(nil, nil)
+result, err := client.GenerateCustomPlaceholder(nil).Load(map[string]any{"background": "background", "height": 1, "text_color": "text_color", "width": 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -138,7 +143,8 @@ Return the entity name.
 ## GenerateRectangularPlaceholderEntity
 
 ```go
-generate_rectangular_placeholder := client.GenerateRectangularPlaceholder(nil)
+generateRectangularPlaceholder := client.GenerateRectangularPlaceholder(nil)
+fmt.Println(generateRectangularPlaceholder.GetName()) // "generate_rectangular_placeholder"
 ```
 
 ### Operations
@@ -148,7 +154,11 @@ generate_rectangular_placeholder := client.GenerateRectangularPlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GenerateRectangularPlaceholder(nil).Load(nil, nil)
+result, err := client.GenerateRectangularPlaceholder(nil).Load(map[string]any{"height": 1, "width": 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -178,7 +188,8 @@ Return the entity name.
 ## GenerateSquarePlaceholderEntity
 
 ```go
-generate_square_placeholder := client.GenerateSquarePlaceholder(nil)
+generateSquarePlaceholder := client.GenerateSquarePlaceholder(nil)
+fmt.Println(generateSquarePlaceholder.GetName()) // "generate_square_placeholder"
 ```
 
 ### Operations
@@ -188,7 +199,11 @@ generate_square_placeholder := client.GenerateSquarePlaceholder(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GenerateSquarePlaceholder(nil).Load(map[string]any{"id": "generate_square_placeholder_id"}, nil)
+result, err := client.GenerateSquarePlaceholder(nil).Load(map[string]any{"id": 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

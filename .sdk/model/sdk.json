@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -461,14 +458,17 @@
           "name": "Free for Commercial Use",
           "url": "https://bifindr.com/placeholder/"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://bifindr.com/placeholder"
           }
         ],
+        "summary": "This API allows developers to create customizable SVG placeholder images for their web projects.",
         "title": "Image Placeholder Generator",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://bifindr.com/placeholder/"
       },
       "option": {},
       "target": {
@@ -521,6 +521,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -571,6 +574,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

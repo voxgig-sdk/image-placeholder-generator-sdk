@@ -98,7 +98,7 @@ generate_custom_placeholder = client.GenerateCustomPlaceholder()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GenerateCustomPlaceholder().load()
+result = client.GenerateCustomPlaceholder().load({"background": "background", "height": 1, "text_color": "text_color", "width": 1})
 ```
 
 ### Common Methods
@@ -143,7 +143,7 @@ generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GenerateRectangularPlaceholder().load()
+result = client.GenerateRectangularPlaceholder().load({"height": 1, "width": 1})
 ```
 
 ### Common Methods
@@ -188,7 +188,7 @@ generate_square_placeholder = client.GenerateSquarePlaceholder()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GenerateSquarePlaceholder().load({"id": "generate_square_placeholder_id"})
+result = client.GenerateSquarePlaceholder().load({"id": 1})
 ```
 
 ### Common Methods

@@ -39,7 +39,7 @@ const client = new ImagePlaceholderGeneratorSDK()
 
 ```ts
 try {
-  const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load()
+  const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({ background: 'example_background', height: 1, text_color: 'example_text_color', width: 1 })
   console.log(generatecustomplaceholder)
 } catch (err) {
   console.error('load failed:', err)
@@ -327,7 +327,7 @@ Create an instance: `const generate_custom_placeholder = client.GenerateCustomPl
 #### Example: Load
 
 ```ts
-const generate_custom_placeholder = await client.GenerateCustomPlaceholder().load()
+const generate_custom_placeholder = await client.GenerateCustomPlaceholder().load({ background: 'background', height: 1, text_color: 'text_color', width: 1 })
 ```
 
 
@@ -344,7 +344,7 @@ Create an instance: `const generate_rectangular_placeholder = client.GenerateRec
 #### Example: Load
 
 ```ts
-const generate_rectangular_placeholder = await client.GenerateRectangularPlaceholder().load()
+const generate_rectangular_placeholder = await client.GenerateRectangularPlaceholder().load({ height: 1, width: 1 })
 ```
 
 

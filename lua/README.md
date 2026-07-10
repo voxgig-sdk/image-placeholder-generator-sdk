@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a generatecustomplaceholder
 
 ```lua
-local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load()
+local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load({ background = "example_background", height = 1, text_color = "example_text_color", width = 1 })
 if err then error(err) end
 print(generatecustomplaceholder)
 ```
@@ -268,7 +268,7 @@ Create an instance: `local generate_custom_placeholder = client:GenerateCustomPl
 #### Example: Load
 
 ```lua
-local generate_custom_placeholder, err = client:GenerateCustomPlaceholder():load()
+local generate_custom_placeholder, err = client:GenerateCustomPlaceholder():load({ background = "background", height = 1, text_color = "text_color", width = 1 })
 ```
 
 
@@ -285,7 +285,7 @@ Create an instance: `local generate_rectangular_placeholder = client:GenerateRec
 #### Example: Load
 
 ```lua
-local generate_rectangular_placeholder, err = client:GenerateRectangularPlaceholder():load()
+local generate_rectangular_placeholder, err = client:GenerateRectangularPlaceholder():load({ height = 1, width = 1 })
 ```
 
 
@@ -302,7 +302,7 @@ Create an instance: `local generate_square_placeholder = client:GenerateSquarePl
 #### Example: Load
 
 ```lua
-local generate_square_placeholder, err = client:GenerateSquarePlaceholder():load({ id = "generate_square_placeholder_id" })
+local generate_square_placeholder, err = client:GenerateSquarePlaceholder():load({ id = 1 })
 ```
 
 
