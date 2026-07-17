@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- ImagePlaceholderGenerator SDK exists test
 
 local sdk = require("image-placeholder-generator_sdk")
 
