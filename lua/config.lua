@@ -89,6 +89,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{width}/{height}/{background}/{text_color}",
                 ["parts"] = {
@@ -165,6 +166,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{width}/{height}",
                 ["parts"] = {
@@ -227,6 +229,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{width}",
                 ["parts"] = {

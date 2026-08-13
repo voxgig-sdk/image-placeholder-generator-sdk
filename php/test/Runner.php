@@ -43,8 +43,8 @@ class ImagePlaceholderGeneratorTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('IMAGEPLACEHOLDERGENERATOR_TEST_LIVE');
-        $override = self::getenv('IMAGEPLACEHOLDERGENERATOR_TEST_OVERRIDE');
+        $live = self::getenv('IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE');
+        $override = self::getenv('IMAGE_PLACEHOLDER_GENERATOR_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class ImagePlaceholderGeneratorTestRunner
             }
         }
 
-        $explain = self::getenv('IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN');
+        $explain = self::getenv('IMAGE_PLACEHOLDER_GENERATOR_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN'] = $explain;
+            $m['IMAGE_PLACEHOLDER_GENERATOR_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

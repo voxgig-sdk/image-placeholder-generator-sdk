@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-generatecustomplaceholder, err := client.GenerateCustomPlaceholder(nil).Load(nil, nil)
+generatecustomplaceholder, err := client.GenerateCustomPlaceholder(nil).Load(map[string]any{"background": "example", "height": 1, "text_color": "example", "width": 1}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 generateCustomPlaceholder, err := client.GenerateCustomPlaceholder(nil).Load(
-    nil, nil,
+    map[string]any{"background": "example", "height": 1, "text_color": "example", "width": 1}, nil,
 )
 if err != nil {
     panic(err)
@@ -425,7 +425,7 @@ stores the returned data and match criteria internally.
 
 ```go
 generatecustomplaceholder := client.GenerateCustomPlaceholder(nil)
-generatecustomplaceholder.Load(nil, nil)
+generatecustomplaceholder.Load(map[string]any{"background": "example", "height": 1, "text_color": "example", "width": 1}, nil)
 
 // generatecustomplaceholder.Data() now returns the generatecustomplaceholder data from the last load
 // generatecustomplaceholder.Match() returns the last match criteria

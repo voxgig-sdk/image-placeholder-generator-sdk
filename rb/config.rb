@@ -90,6 +90,7 @@ module ImagePlaceholderGeneratorConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}/{height}/{background}/{text_color}",
                   "parts" => [
@@ -166,6 +167,7 @@ module ImagePlaceholderGeneratorConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}/{height}",
                   "parts" => [
@@ -228,6 +230,7 @@ module ImagePlaceholderGeneratorConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}",
                   "parts" => [

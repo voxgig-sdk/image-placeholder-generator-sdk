@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import ImagePlaceholderGeneratorSDK
-from core.error import ImagePlaceholderGeneratorError
-from core.result import ImagePlaceholderGeneratorResult
-from core.response import ImagePlaceholderGeneratorResponse
-from core.spec import ImagePlaceholderGeneratorSpec
-from feature.base_feature import ImagePlaceholderGeneratorBaseFeature
+from projectname_sdk.core.error import ImagePlaceholderGeneratorError
+from projectname_sdk.core.result import ImagePlaceholderGeneratorResult
+from projectname_sdk.core.response import ImagePlaceholderGeneratorResponse
+from projectname_sdk.core.spec import ImagePlaceholderGeneratorSpec
+from projectname_sdk.feature.base_feature import ImagePlaceholderGeneratorBaseFeature
 
 
 def _client():

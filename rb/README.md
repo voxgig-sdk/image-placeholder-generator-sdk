@@ -34,7 +34,7 @@ client = ImagePlaceholderGeneratorSDK.new
 
 ```ruby
 begin
-  # load returns the bare GenerateCustomPlaceholder record (raises on error).
+  # load returns the ENTITY — call data_get for the GenerateCustomPlaceholder record (raises on error).
   generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "background" => "example_background", "height" => 1, "text_color" => "example_text_color", "width" => 1 })
   puts generatecustomplaceholder
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  generatecustomplaceholder = client.GenerateCustomPlaceholder.load()
+  generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "background" => "example", "height" => 1, "text_color" => "example", "width" => 1 })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -117,8 +117,9 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ImagePlaceholderGeneratorSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-generatecustomplaceholder = client.GenerateCustomPlaceholder.load()
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "background" => "example", "height" => 1, "text_color" => "example", "width" => 1 })
 puts generatecustomplaceholder
 ```
 
@@ -277,7 +278,7 @@ Create an instance: `generate_custom_placeholder = client.GenerateCustomPlacehol
 #### Example: Load
 
 ```ruby
-# load returns the bare GenerateCustomPlaceholder record (raises on error).
+# load returns the ENTITY — call data_get for the GenerateCustomPlaceholder record (raises on error).
 generate_custom_placeholder = client.GenerateCustomPlaceholder.load({ "background" => "background", "height" => 1, "text_color" => "text_color", "width" => 1 })
 ```
 
@@ -295,7 +296,7 @@ Create an instance: `generate_rectangular_placeholder = client.GenerateRectangul
 #### Example: Load
 
 ```ruby
-# load returns the bare GenerateRectangularPlaceholder record (raises on error).
+# load returns the ENTITY — call data_get for the GenerateRectangularPlaceholder record (raises on error).
 generate_rectangular_placeholder = client.GenerateRectangularPlaceholder.load({ "height" => 1, "width" => 1 })
 ```
 
@@ -313,7 +314,7 @@ Create an instance: `generate_square_placeholder = client.GenerateSquarePlacehol
 #### Example: Load
 
 ```ruby
-# load returns the bare GenerateSquarePlaceholder record (raises on error).
+# load returns the ENTITY — call data_get for the GenerateSquarePlaceholder record (raises on error).
 generate_square_placeholder = client.GenerateSquarePlaceholder.load({ "id" => 1 })
 ```
 
@@ -395,7 +396,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 generatecustomplaceholder = client.GenerateCustomPlaceholder
-generatecustomplaceholder.load()
+generatecustomplaceholder.load({ "background" => "example", "height" => 1, "text_color" => "example", "width" => 1 })
 
 # generatecustomplaceholder.data_get now returns the generatecustomplaceholder data from the last load
 # generatecustomplaceholder.match_get returns the last match criteria

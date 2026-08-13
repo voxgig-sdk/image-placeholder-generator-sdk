@@ -26,7 +26,7 @@ class GenerateSquarePlaceholderEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -74,22 +74,22 @@ def generate_square_placeholder_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID"]
+  entid_env_raw = ENV["IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID" => idmap,
-    "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE" => "FALSE",
-    "IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN" => "FALSE",
+    "IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID" => idmap,
+    "IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE" => "FALSE",
+    "IMAGE_PLACEHOLDER_GENERATOR_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID"])
+    env["IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE"
+  if env["IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -98,13 +98,13 @@ def generate_square_placeholder_basic_setup(extra)
     client = ImagePlaceholderGeneratorSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE"
+  live = env["IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN"] == "TRUE",
+    explain: env["IMAGE_PLACEHOLDER_GENERATOR_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

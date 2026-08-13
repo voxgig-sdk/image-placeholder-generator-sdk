@@ -89,6 +89,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/{width}/{height}/{background}/{text_color}",
 								"parts": []any{
@@ -113,7 +114,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -165,6 +165,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/{width}/{height}",
 								"parts": []any{
@@ -185,7 +186,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -227,6 +227,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/{width}",
 								"parts": []any{
@@ -250,7 +251,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

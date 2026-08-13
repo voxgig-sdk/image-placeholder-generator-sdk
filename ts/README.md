@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load()
+  const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({ background: "example", height: 1, text_color: "example", width: 1 })
   console.log(generatecustomplaceholder)
 } catch (err) {
   console.error('load failed:', err)
@@ -120,8 +120,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ImagePlaceholderGeneratorSDK.test()
 
-const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load()
-// generatecustomplaceholder is a bare entity populated with mock response data
+const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({ background: 'example_background', height: 1, text_color: 'example_text_color', width: 1 })
+// generatecustomplaceholder is the entity, populated with mock response data
+// — call generatecustomplaceholder.data() for the record itself
 console.log(generatecustomplaceholder)
 ```
 
@@ -140,7 +141,7 @@ Entity instances remember their last match and data:
 const entity = client.GenerateCustomPlaceholder()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ background: 'example_background', height: 1, text_color: 'example_text_color', width: 1 })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -435,7 +436,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const generatecustomplaceholder = client.GenerateCustomPlaceholder()
-await generatecustomplaceholder.load()
+await generatecustomplaceholder.load({ background: "example", height: 1, text_color: "example", width: 1 })
 
 // generatecustomplaceholder.data() now returns the generatecustomplaceholder data from the last `load`
 // generatecustomplaceholder.match() returns the last match criteria

@@ -38,7 +38,7 @@ client = ImagePlaceholderGeneratorSDK()
 
 ### 3. Load a generatecustomplaceholder
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    generatecustomplaceholder = client.GenerateCustomPlaceholder().load()
+    generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"background": "example", "height": 1, "text_color": "example", "width": 1})
     print(generatecustomplaceholder)
 except Exception as err:
     print(f"load failed: {err}")
@@ -122,8 +122,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ImagePlaceholderGeneratorSDK.test()
 
-# Entity ops return the bare record and raise on error.
-generatecustomplaceholder = client.GenerateCustomPlaceholder().load()
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+generatecustomplaceholder = client.GenerateCustomPlaceholder().load({"background": "example", "height": 1, "text_color": "example", "width": 1})
 # generatecustomplaceholder contains the mock response record
 ```
 
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -397,7 +398,7 @@ stores the returned data and match criteria internally.
 
 ```python
 generatecustomplaceholder = client.GenerateCustomPlaceholder()
-generatecustomplaceholder.load()
+generatecustomplaceholder.load({"background": "example", "height": 1, "text_color": "example", "width": 1})
 
 # generatecustomplaceholder.data_get() now returns the generatecustomplaceholder data from the last load
 # generatecustomplaceholder.match_get() returns the last match criteria

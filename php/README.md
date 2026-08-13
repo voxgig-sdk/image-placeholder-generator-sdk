@@ -35,7 +35,7 @@ $client = new ImagePlaceholderGeneratorSDK();
 
 ```php
 try {
-    // load() returns the bare GenerateCustomPlaceholder record (throws on error).
+    // load() returns the ENTITY — call data_get() for the GenerateCustomPlaceholder record (throws on error).
     $generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["background" => "example_background", "height" => 1, "text_color" => "example_text_color", "width" => 1]);
     print_r($generatecustomplaceholder);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load();
+    $generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["background" => "example", "height" => 1, "text_color" => "example", "width" => 1]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -123,8 +123,9 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = ImagePlaceholderGeneratorSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load();
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["background" => "example", "height" => 1, "text_color" => "example", "width" => 1]);
 print_r($generatecustomplaceholder);
 ```
 
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -287,7 +288,7 @@ Create an instance: `$generate_custom_placeholder = $client->GenerateCustomPlace
 #### Example: Load
 
 ```php
-// load() returns the bare GenerateCustomPlaceholder record (throws on error).
+// load() returns the ENTITY — call data_get() for the GenerateCustomPlaceholder record (throws on error).
 $generate_custom_placeholder = $client->GenerateCustomPlaceholder()->load(["background" => "background", "height" => 1, "text_color" => "text_color", "width" => 1]);
 ```
 
@@ -305,7 +306,7 @@ Create an instance: `$generate_rectangular_placeholder = $client->GenerateRectan
 #### Example: Load
 
 ```php
-// load() returns the bare GenerateRectangularPlaceholder record (throws on error).
+// load() returns the ENTITY — call data_get() for the GenerateRectangularPlaceholder record (throws on error).
 $generate_rectangular_placeholder = $client->GenerateRectangularPlaceholder()->load(["height" => 1, "width" => 1]);
 ```
 
@@ -323,7 +324,7 @@ Create an instance: `$generate_square_placeholder = $client->GenerateSquarePlace
 #### Example: Load
 
 ```php
-// load() returns the bare GenerateSquarePlaceholder record (throws on error).
+// load() returns the ENTITY — call data_get() for the GenerateSquarePlaceholder record (throws on error).
 $generate_square_placeholder = $client->GenerateSquarePlaceholder()->load(["id" => 1]);
 ```
 
@@ -405,7 +406,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $generatecustomplaceholder = $client->GenerateCustomPlaceholder();
-$generatecustomplaceholder->load();
+$generatecustomplaceholder->load(["background" => "example", "height" => 1, "text_color" => "example", "width" => 1]);
 
 // $generatecustomplaceholder->data_get() now returns the generatecustomplaceholder data from the last load
 // $generatecustomplaceholder->match_get() returns the last match criteria

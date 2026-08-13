@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load()
+local generatecustomplaceholder, err = client:GenerateCustomPlaceholder():load({ background = "example", height = 1, text_color = "example", width = 1 })
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:GenerateCustomPlaceholder():load()
+local result, err = client:GenerateCustomPlaceholder():load({ background = "example", height = 1, text_color = "example", width = 1 })
 -- result is the returned data; err is set on failure
 ```
 
@@ -383,7 +383,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local generatecustomplaceholder = client:GenerateCustomPlaceholder()
-generatecustomplaceholder:load()
+generatecustomplaceholder:load({ background = "example", height = 1, text_color = "example", width = 1 })
 
 -- generatecustomplaceholder:data_get() now returns the generatecustomplaceholder data from the last load
 -- generatecustomplaceholder:match_get() returns the last match criteria

@@ -23,8 +23,8 @@ module ImagePlaceholderGeneratorTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("IMAGEPLACEHOLDERGENERATOR_TEST_LIVE")
-    override = getenv("IMAGEPLACEHOLDERGENERATOR_TEST_OVERRIDE")
+    live = getenv("IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE")
+    override = getenv("IMAGE_PLACEHOLDER_GENERATOR_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module ImagePlaceholderGeneratorTestRunner
       end
     end
 
-    explain = getenv("IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN")
-    m["IMAGEPLACEHOLDERGENERATOR_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("IMAGE_PLACEHOLDER_GENERATOR_TEST_EXPLAIN")
+    m["IMAGE_PLACEHOLDER_GENERATOR_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

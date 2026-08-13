@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new ImagePlaceholderGeneratorSDK()
-const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load()
+const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({ background: "example", height: 1, text_color: "example", width: 1 })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ImagePlaceholderGeneratorSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ImagePlaceholderGeneratorSDK.test({
+  entity: {
+    generate_custom_placeholder: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const generatecustomplaceholder = await client.GenerateCustomPlaceholder().load({ background: 'example_background', height: 1, text_color: 'example_text_color', width: 1 })
-// generatecustomplaceholder is a bare GenerateCustomPlaceholder populated with mock data
+// generatecustomplaceholder is the GenerateCustomPlaceholder entity, populated with mock data
+// — call generatecustomplaceholder.data() for the record itself
 console.log(generatecustomplaceholder)
 ```
 
@@ -184,7 +193,7 @@ require_once 'imageplaceholdergenerator_sdk.php';
 $client = new ImagePlaceholderGeneratorSDK();
 
 
-// Load a specific generatecustomplaceholder (returns the bare record; throws on error)
+// Load a specific generatecustomplaceholder (returns the ENTITY; call data_get() for the record; throws on error)
 $generatecustomplaceholder = $client->GenerateCustomPlaceholder()->load(["background" => "example_background", "height" => 1, "text_color" => "example_text_color", "width" => 1]);
 print_r($generatecustomplaceholder);
 ```
@@ -212,7 +221,7 @@ require_relative "ImagePlaceholderGenerator_sdk"
 client = ImagePlaceholderGeneratorSDK.new
 
 
-# Load a specific generatecustomplaceholder (returns the bare record; raises on error)
+# Load a specific generatecustomplaceholder (returns the ENTITY; call data_get for the record)
 generatecustomplaceholder = client.GenerateCustomPlaceholder.load({ "background" => "example_background", "height" => 1, "text_color" => "example_text_color", "width" => 1 })
 puts generatecustomplaceholder
 ```
@@ -346,6 +355,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://bifindr.com/placeholder/](https://bifindr.com/placeholder/)
 

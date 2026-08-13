@@ -67,11 +67,11 @@ def generate_square_placeholder_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "IMAGEPLACEHOLDERGENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID" => {},
-    "IMAGEPLACEHOLDERGENERATOR_TEST_LIVE" => "FALSE",
+    "IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID" => {},
+    "IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE" => "FALSE",
   })
 
-  live = env["IMAGEPLACEHOLDERGENERATOR_TEST_LIVE"] == "TRUE"
+  live = env["IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'ImagePlaceholderGenerator',
   }
 
 
@@ -123,6 +123,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/{width}/{height}/{background}/{text_color}",
               "parts": [
@@ -199,6 +200,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/{width}/{height}",
               "parts": [
@@ -261,6 +263,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/{width}",
               "parts": [

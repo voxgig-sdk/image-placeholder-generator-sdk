@@ -95,6 +95,7 @@ class ImagePlaceholderGeneratorConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{width}/{height}/{background}/{text_color}',
                   'parts' => [
@@ -171,6 +172,7 @@ class ImagePlaceholderGeneratorConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{width}/{height}',
                   'parts' => [
@@ -233,6 +235,7 @@ class ImagePlaceholderGeneratorConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{width}',
                   'parts' => [
