@@ -1,5 +1,8 @@
 -- ImagePlaceholderGenerator SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -33,58 +36,47 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["params"] = {
                     {
-                      ["active"] = true,
                       ["example"] = "2C3E50",
                       ["kind"] = "param",
                       ["name"] = "background",
                       ["orig"] = "background",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
-                      ["active"] = true,
                       ["example"] = 300,
                       ["kind"] = "param",
                       ["name"] = "height",
                       ["orig"] = "height",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 1,
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "ECF0F1",
                       ["kind"] = "param",
                       ["name"] = "text_color",
                       ["orig"] = "text_color",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                     {
-                      ["active"] = true,
                       ["example"] = 600,
                       ["kind"] = "param",
                       ["name"] = "width",
                       ["orig"] = "width",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 3,
                     },
                   },
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["example"] = "BiFindr+Placeholder+Image",
                       ["kind"] = "query",
                       ["name"] = "text",
                       ["orig"] = "text",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -111,10 +103,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {
@@ -130,38 +120,31 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["params"] = {
                     {
-                      ["active"] = true,
                       ["example"] = 300,
                       ["kind"] = "param",
                       ["name"] = "height",
                       ["orig"] = "height",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
-                      ["active"] = true,
                       ["example"] = 600,
                       ["kind"] = "param",
                       ["name"] = "width",
                       ["orig"] = "width",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 1,
                     },
                   },
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["example"] = "BiFindr+Placeholder+Image",
                       ["kind"] = "query",
                       ["name"] = "text",
                       ["orig"] = "text",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -184,10 +167,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {
@@ -203,28 +184,23 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["params"] = {
                     {
-                      ["active"] = true,
                       ["example"] = 400,
                       ["kind"] = "param",
                       ["name"] = "id",
                       ["orig"] = "width",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["example"] = "BiFindr+Placeholder+Image",
                       ["kind"] = "query",
                       ["name"] = "text",
                       ["orig"] = "text",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -250,10 +226,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {

@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://bifindr.com/placeholder',
+    base: "https://bifindr.com/placeholder",
 
     headers: {
       "content-type": "application/json"
@@ -67,58 +67,47 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": "2C3E50",
                     "kind": "param",
                     "name": "background",
                     "orig": "background",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 300,
                     "kind": "param",
                     "name": "height",
                     "orig": "height",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "index$": 1
+                    "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": "ECF0F1",
                     "kind": "param",
                     "name": "text_color",
                     "orig": "text_color",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 2
+                    "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 600,
                     "kind": "param",
                     "name": "width",
                     "orig": "width",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "index$": 3
+                    "type": "`$INTEGER`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "example": "BiFindr+Placeholder+Image",
                     "kind": "query",
                     "name": "text",
                     "orig": "text",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -144,11 +133,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -164,38 +151,31 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": 300,
                     "kind": "param",
                     "name": "height",
                     "orig": "height",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "index$": 0
+                    "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": 600,
                     "kind": "param",
                     "name": "width",
                     "orig": "width",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "index$": 1
+                    "type": "`$INTEGER`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "example": "BiFindr+Placeholder+Image",
                     "kind": "query",
                     "name": "text",
                     "orig": "text",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -217,11 +197,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -237,28 +215,23 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": 400,
                     "kind": "param",
                     "name": "id",
                     "orig": "width",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "index$": 0
+                    "type": "`$INTEGER`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "example": "BiFindr+Placeholder+Image",
                     "kind": "query",
                     "name": "text",
                     "orig": "text",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -283,11 +256,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

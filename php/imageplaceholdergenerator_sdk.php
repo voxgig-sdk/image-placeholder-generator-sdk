@@ -40,7 +40,7 @@ class ImagePlaceholderGeneratorSDK
         $utility = new ImagePlaceholderGeneratorUtility();
         $this->_utility = $utility;
 
-        $config = ImagePlaceholderGeneratorConfig::make_config();
+        $config = ImagePlaceholderGeneratorConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

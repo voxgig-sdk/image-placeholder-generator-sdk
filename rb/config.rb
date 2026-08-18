@@ -1,6 +1,20 @@
 # ImagePlaceholderGenerator SDK configuration
 
 module ImagePlaceholderGeneratorConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -34,58 +48,47 @@ module ImagePlaceholderGeneratorConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "2C3E50",
                         "kind" => "param",
                         "name" => "background",
                         "orig" => "background",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "example" => 300,
                         "kind" => "param",
                         "name" => "height",
                         "orig" => "height",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "example" => "ECF0F1",
                         "kind" => "param",
                         "name" => "text_color",
                         "orig" => "text_color",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 2,
                       },
                       {
-                        "active" => true,
                         "example" => 600,
                         "kind" => "param",
                         "name" => "width",
                         "orig" => "width",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 3,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "BiFindr+Placeholder+Image",
                         "kind" => "query",
                         "name" => "text",
                         "orig" => "text",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -112,10 +115,8 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -131,38 +132,31 @@ module ImagePlaceholderGeneratorConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => 300,
                         "kind" => "param",
                         "name" => "height",
                         "orig" => "height",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "example" => 600,
                         "kind" => "param",
                         "name" => "width",
                         "orig" => "width",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "BiFindr+Placeholder+Image",
                         "kind" => "query",
                         "name" => "text",
                         "orig" => "text",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -185,10 +179,8 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -204,28 +196,23 @@ module ImagePlaceholderGeneratorConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => 400,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "width",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "BiFindr+Placeholder+Image",
                         "kind" => "query",
                         "name" => "text",
                         "orig" => "text",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -251,10 +238,8 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
