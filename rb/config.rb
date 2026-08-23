@@ -19,6 +19,9 @@ module ImagePlaceholderGeneratorConfig
     {
       "main" => {
         "name" => "ImagePlaceholderGenerator",
+        "slug" => "image-placeholder-generator",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
