@@ -16,6 +16,7 @@ local function make_config()
         ["options"] = {
           ["active"] = false,
         },
+        ["transport"] = "base",
       },
     },
     options = {
@@ -179,7 +180,12 @@ local function make_config()
         },
       },
       ["generate_square_placeholder"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "generate_square_placeholder",
         ["op"] = {
           ["load"] = {

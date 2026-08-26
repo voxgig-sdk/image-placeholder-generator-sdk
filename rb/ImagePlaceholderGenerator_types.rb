@@ -51,8 +51,13 @@ GenerateRectangularPlaceholderLoadMatch = Struct.new(
 )
 
 # GenerateSquarePlaceholder entity data model.
-class GenerateSquarePlaceholder
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+GenerateSquarePlaceholder = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for GenerateSquarePlaceholder#load.
 #

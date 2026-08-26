@@ -44,10 +44,14 @@ describe("GenerateSquarePlaceholderEntity", function()
 
     -- LOAD
     local generate_square_placeholder_ref01_ent = client:GenerateSquarePlaceholder(nil)
-    local generate_square_placeholder_ref01_match_dt0 = {}
+    local generate_square_placeholder_ref01_match_dt0 = {
+      id = generate_square_placeholder_ref01_data["id"],
+    }
     local generate_square_placeholder_ref01_data_dt0_loaded, err = generate_square_placeholder_ref01_ent:load(generate_square_placeholder_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(generate_square_placeholder_ref01_data_dt0_loaded)
+    local generate_square_placeholder_ref01_data_dt0_load_result = helpers.to_map(type(generate_square_placeholder_ref01_data_dt0_loaded) == 'table' and generate_square_placeholder_ref01_data_dt0_loaded.data_get and generate_square_placeholder_ref01_data_dt0_loaded:data_get() or generate_square_placeholder_ref01_data_dt0_loaded)
+    assert.is_not_nil(generate_square_placeholder_ref01_data_dt0_load_result)
+    assert.are.equal(generate_square_placeholder_ref01_data_dt0_load_result["id"], generate_square_placeholder_ref01_data["id"])
 
   end)
 end)

@@ -188,6 +188,12 @@ Return the entity name.
 $generate_square_placeholder = $client->GenerateSquarePlaceholder();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`

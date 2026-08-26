@@ -61,13 +61,19 @@ func TestGenerateSquarePlaceholderEntity(t *testing.T) {
 
 		// LOAD
 		generateSquarePlaceholderRef01Ent := client.GenerateSquarePlaceholder(nil)
-		generateSquarePlaceholderRef01MatchDt0 := map[string]any{}
+		generateSquarePlaceholderRef01MatchDt0 := map[string]any{
+			"id": generateSquarePlaceholderRef01Data["id"],
+		}
 		generateSquarePlaceholderRef01DataDt0Loaded, err := generateSquarePlaceholderRef01Ent.Load(generateSquarePlaceholderRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if generateSquarePlaceholderRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		generateSquarePlaceholderRef01DataDt0LoadResult := core.ToMapAny(entityData(generateSquarePlaceholderRef01DataDt0Loaded))
+		if generateSquarePlaceholderRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if generateSquarePlaceholderRef01DataDt0LoadResult["id"] != generateSquarePlaceholderRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

@@ -28,6 +28,7 @@ module ImagePlaceholderGeneratorConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -191,7 +192,12 @@ module ImagePlaceholderGeneratorConfig
           },
         },
         "generate_square_placeholder" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "generate_square_placeholder",
           "op" => {
             "load" => {

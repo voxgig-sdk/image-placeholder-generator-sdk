@@ -24,6 +24,7 @@ export interface GenerateRectangularPlaceholderLoadMatch {
 }
 
 export interface GenerateSquarePlaceholder {
+  id?: string
 }
 
 export interface GenerateSquarePlaceholderLoadMatch {

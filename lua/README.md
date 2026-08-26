@@ -245,6 +245,7 @@ API path: `/{width}/{height}`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -298,6 +299,12 @@ Create an instance: `local generate_square_placeholder = client:GenerateSquarePl
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 

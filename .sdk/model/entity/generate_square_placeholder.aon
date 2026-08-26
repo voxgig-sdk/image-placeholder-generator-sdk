@@ -4,6 +4,19 @@ main: kit: entity: generate_square_placeholder: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
   name: "generate_square_placeholder"
   op: {
     load: {

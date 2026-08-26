@@ -189,6 +189,12 @@ Return the entity name.
 generate_square_placeholder = client.GenerateSquarePlaceholder
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`

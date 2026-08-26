@@ -41,6 +41,7 @@ class GenerateRectangularPlaceholderLoadMatch
 /** GenerateSquarePlaceholder entity data model. */
 class GenerateSquarePlaceholder
 {
+    public ?string $id = null;
 }
 
 /** Request payload for GenerateSquarePlaceholder#load. */

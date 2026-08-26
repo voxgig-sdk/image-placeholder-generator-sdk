@@ -186,6 +186,12 @@ Return the entity name.
 local generate_square_placeholder = client:GenerateSquarePlaceholder(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`

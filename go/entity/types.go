@@ -36,6 +36,7 @@ type GenerateRectangularPlaceholderLoadMatch struct {
 
 // GenerateSquarePlaceholder is the typed data model for the generate_square_placeholder entity.
 type GenerateSquarePlaceholder struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GenerateSquarePlaceholderLoadMatch is the typed request payload for GenerateSquarePlaceholder.LoadTyped.

@@ -21,6 +21,7 @@
 ---@field width number
 
 ---@class GenerateSquarePlaceholder
+---@field id? string
 
 ---@class GenerateSquarePlaceholderLoadMatch
 ---@field id number

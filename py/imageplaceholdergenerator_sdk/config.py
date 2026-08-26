@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -200,7 +201,12 @@ def make_config():
         },
       },
       "generate_square_placeholder": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "generate_square_placeholder",
         "op": {
           "load": {

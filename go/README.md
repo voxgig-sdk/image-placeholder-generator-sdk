@@ -278,6 +278,7 @@ API path: `/{width}/{height}`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: Load.
 
@@ -339,6 +340,12 @@ Create an instance: `generateSquarePlaceholder := client.GenerateSquarePlacehold
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 

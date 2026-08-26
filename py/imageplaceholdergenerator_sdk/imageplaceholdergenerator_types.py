@@ -36,8 +36,8 @@ class GenerateRectangularPlaceholderLoadMatch(TypedDict):
     width: int
 
 
-class GenerateSquarePlaceholder(TypedDict):
-    pass
+class GenerateSquarePlaceholder(TypedDict, total=False):
+    id: str
 
 
 class GenerateSquarePlaceholderLoadMatch(TypedDict):

@@ -224,6 +224,12 @@ Return a copy of the entity options.
 const generate_square_placeholder = client.GenerateSquarePlaceholder()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`

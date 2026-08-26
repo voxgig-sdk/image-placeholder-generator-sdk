@@ -48,9 +48,13 @@ class GenerateSquarePlaceholderEntityTest extends TestCase
 
         // LOAD
         $generate_square_placeholder_ref01_ent = $client->GenerateSquarePlaceholder(null);
-        $generate_square_placeholder_ref01_match_dt0 = [];
+        $generate_square_placeholder_ref01_match_dt0 = [
+            "id" => $generate_square_placeholder_ref01_data["id"],
+        ];
         $generate_square_placeholder_ref01_data_dt0_loaded = $generate_square_placeholder_ref01_ent->load($generate_square_placeholder_ref01_match_dt0, null);
-        $this->assertNotNull($generate_square_placeholder_ref01_data_dt0_loaded);
+        $generate_square_placeholder_ref01_data_dt0_load_result = Helpers::to_map(is_object($generate_square_placeholder_ref01_data_dt0_loaded) && method_exists($generate_square_placeholder_ref01_data_dt0_loaded, 'data_get') ? $generate_square_placeholder_ref01_data_dt0_loaded->data_get() : $generate_square_placeholder_ref01_data_dt0_loaded);
+        $this->assertNotNull($generate_square_placeholder_ref01_data_dt0_load_result);
+        $this->assertEquals($generate_square_placeholder_ref01_data_dt0_load_result["id"], $generate_square_placeholder_ref01_data["id"]);
 
     }
 }

@@ -255,6 +255,7 @@ API path: `/{width}/{height}`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -310,6 +311,12 @@ Create an instance: `generate_square_placeholder = client.GenerateSquarePlacehol
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `String` |  |
 
 #### Example: Load
 
