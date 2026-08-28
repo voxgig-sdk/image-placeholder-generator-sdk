@@ -22,6 +22,7 @@ type GenerateCustomPlaceholderLoadMatch struct {
 	Height int `json:"height"`
 	TextColor string `json:"text_color"`
 	Width int `json:"width"`
+	Text *string `json:"text,omitempty"`
 }
 
 // GenerateRectangularPlaceholder is the typed data model for the generate_rectangular_placeholder entity.
@@ -32,6 +33,7 @@ type GenerateRectangularPlaceholder struct {
 type GenerateRectangularPlaceholderLoadMatch struct {
 	Height int `json:"height"`
 	Width int `json:"width"`
+	Text *string `json:"text,omitempty"`
 }
 
 // GenerateSquarePlaceholder is the typed data model for the generate_square_placeholder entity.
@@ -42,6 +44,7 @@ type GenerateSquarePlaceholder struct {
 // GenerateSquarePlaceholderLoadMatch is the typed request payload for GenerateSquarePlaceholder.LoadTyped.
 type GenerateSquarePlaceholderLoadMatch struct {
 	Id int `json:"id"`
+	Text *string `json:"text,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

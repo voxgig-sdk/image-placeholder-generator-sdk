@@ -13,18 +13,21 @@
 ---@field height number
 ---@field text_color string
 ---@field width number
+---@field text? string
 
 ---@class GenerateRectangularPlaceholder
 
 ---@class GenerateRectangularPlaceholderLoadMatch
 ---@field height number
 ---@field width number
+---@field text? string
 
 ---@class GenerateSquarePlaceholder
 ---@field id? string
 
 ---@class GenerateSquarePlaceholderLoadMatch
 ---@field id number
+---@field text? string
 
 local M = {}
 

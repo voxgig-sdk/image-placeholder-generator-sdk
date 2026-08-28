@@ -24,6 +24,7 @@ class GenerateCustomPlaceholderLoadMatch
     public int $height;
     public string $text_color;
     public int $width;
+    public ?string $text = null;
 }
 
 /** GenerateRectangularPlaceholder entity data model. */
@@ -36,6 +37,7 @@ class GenerateRectangularPlaceholderLoadMatch
 {
     public int $height;
     public int $width;
+    public ?string $text = null;
 }
 
 /** GenerateSquarePlaceholder entity data model. */
@@ -48,5 +50,6 @@ class GenerateSquarePlaceholder
 class GenerateSquarePlaceholderLoadMatch
 {
     public int $id;
+    public ?string $text = null;
 }
 

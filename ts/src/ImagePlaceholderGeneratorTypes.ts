@@ -13,6 +13,7 @@ export interface GenerateCustomPlaceholderLoadMatch {
   height: number
   text_color: string
   width: number
+  text?: string
 }
 
 export interface GenerateRectangularPlaceholder {
@@ -21,6 +22,7 @@ export interface GenerateRectangularPlaceholder {
 export interface GenerateRectangularPlaceholderLoadMatch {
   height: number
   width: number
+  text?: string
 }
 
 export interface GenerateSquarePlaceholder {
@@ -29,5 +31,6 @@ export interface GenerateSquarePlaceholder {
 
 export interface GenerateSquarePlaceholderLoadMatch {
   id: number
+  text?: string
 }
 

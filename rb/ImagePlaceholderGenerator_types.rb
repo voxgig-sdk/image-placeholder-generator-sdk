@@ -25,11 +25,15 @@ end
 #
 # @!attribute [rw] width
 #   @return [Integer]
+#
+# @!attribute [rw] text
+#   @return [String, nil]
 GenerateCustomPlaceholderLoadMatch = Struct.new(
   :background,
   :height,
   :text_color,
   :width,
+  :text,
   keyword_init: true
 )
 
@@ -44,9 +48,13 @@ end
 #
 # @!attribute [rw] width
 #   @return [Integer]
+#
+# @!attribute [rw] text
+#   @return [String, nil]
 GenerateRectangularPlaceholderLoadMatch = Struct.new(
   :height,
   :width,
+  :text,
   keyword_init: true
 )
 
@@ -63,8 +71,12 @@ GenerateSquarePlaceholder = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [Integer]
+#
+# @!attribute [rw] text
+#   @return [String, nil]
 GenerateSquarePlaceholderLoadMatch = Struct.new(
   :id,
+  :text,
   keyword_init: true
 )
 

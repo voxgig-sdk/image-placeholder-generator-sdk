@@ -20,25 +20,37 @@ class GenerateCustomPlaceholder(TypedDict):
     pass
 
 
-class GenerateCustomPlaceholderLoadMatch(TypedDict):
+class GenerateCustomPlaceholderLoadMatchRequired(TypedDict):
     background: str
     height: int
     text_color: str
     width: int
 
 
+class GenerateCustomPlaceholderLoadMatch(GenerateCustomPlaceholderLoadMatchRequired, total=False):
+    text: str
+
+
 class GenerateRectangularPlaceholder(TypedDict):
     pass
 
 
-class GenerateRectangularPlaceholderLoadMatch(TypedDict):
+class GenerateRectangularPlaceholderLoadMatchRequired(TypedDict):
     height: int
     width: int
+
+
+class GenerateRectangularPlaceholderLoadMatch(GenerateRectangularPlaceholderLoadMatchRequired, total=False):
+    text: str
 
 
 class GenerateSquarePlaceholder(TypedDict, total=False):
     id: str
 
 
-class GenerateSquarePlaceholderLoadMatch(TypedDict):
+class GenerateSquarePlaceholderLoadMatchRequired(TypedDict):
     id: int
+
+
+class GenerateSquarePlaceholderLoadMatch(GenerateSquarePlaceholderLoadMatchRequired, total=False):
+    text: str
