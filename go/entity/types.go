@@ -14,6 +14,7 @@ import (
 
 // GenerateCustomPlaceholder is the typed data model for the generate_custom_placeholder entity.
 type GenerateCustomPlaceholder struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GenerateCustomPlaceholderLoadMatch is the typed request payload for GenerateCustomPlaceholder.LoadTyped.
@@ -27,6 +28,7 @@ type GenerateCustomPlaceholderLoadMatch struct {
 
 // GenerateRectangularPlaceholder is the typed data model for the generate_rectangular_placeholder entity.
 type GenerateRectangularPlaceholder struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GenerateRectangularPlaceholderLoadMatch is the typed request payload for GenerateRectangularPlaceholder.LoadTyped.

@@ -4,6 +4,24 @@ main: kit: entity: generate_rectangular_placeholder: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "width"
+      "height"
+    ]
+    sep: "/"
+  }
+
   name: "generate_rectangular_placeholder"
   op: {
     load: {
@@ -42,9 +60,13 @@ main: kit: entity: generate_rectangular_placeholder: {
           }
           method: "GET"
           orig: "/{width}/{height}"
-          parts: [
-            "{width}"
-            "{height}"
+          segments: [
+            {
+              var: "width"
+            }
+            {
+              var: "height"
+            }
           ]
           select: {
             exist: [

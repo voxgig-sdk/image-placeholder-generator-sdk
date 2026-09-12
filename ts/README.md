@@ -145,7 +145,7 @@ await entity.load({ background: 'example_background', height: 1, text_color: 'ex
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -287,6 +287,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: load.
 
@@ -296,6 +297,7 @@ API path: `/{width}/{height}/{background}/{text_color}`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: load.
 
@@ -326,6 +328,12 @@ Create an instance: `const generate_custom_placeholder = client.GenerateCustomPl
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 #### Example: Load
 
 ```ts
@@ -342,6 +350,12 @@ Create an instance: `const generate_rectangular_placeholder = client.GenerateRec
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 

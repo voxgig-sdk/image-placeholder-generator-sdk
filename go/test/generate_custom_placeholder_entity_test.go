@@ -50,7 +50,7 @@ func TestGenerateCustomPlaceholderEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		generateCustomPlaceholderRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.generate_custom_placeholder", setup.data)))
+		generateCustomPlaceholderRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.generate_custom_placeholder")))
 		var generateCustomPlaceholderRef01Data map[string]any
 		if len(generateCustomPlaceholderRef01DataRaw) > 0 {
 			generateCustomPlaceholderRef01Data = core.ToMapAny(generateCustomPlaceholderRef01DataRaw[0][1])
@@ -61,13 +61,19 @@ func TestGenerateCustomPlaceholderEntity(t *testing.T) {
 
 		// LOAD
 		generateCustomPlaceholderRef01Ent := client.GenerateCustomPlaceholder(nil)
-		generateCustomPlaceholderRef01MatchDt0 := map[string]any{}
+		generateCustomPlaceholderRef01MatchDt0 := map[string]any{
+			"id": generateCustomPlaceholderRef01Data["id"],
+		}
 		generateCustomPlaceholderRef01DataDt0Loaded, err := generateCustomPlaceholderRef01Ent.Load(generateCustomPlaceholderRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if generateCustomPlaceholderRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		generateCustomPlaceholderRef01DataDt0LoadResult := core.ToMapAny(entityData(generateCustomPlaceholderRef01DataDt0Loaded))
+		if generateCustomPlaceholderRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if generateCustomPlaceholderRef01DataDt0LoadResult["id"] != generateCustomPlaceholderRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
@@ -97,7 +103,7 @@ func generate_custom_placeholderBasicSetup(extra map[string]any) *entityTestSetu
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"generate_custom_placeholder01", "generate_custom_placeholder02", "generate_custom_placeholder03", "background01", "height01", "width01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -125,10 +131,22 @@ func generate_custom_placeholderBasicSetup(extra map[string]any) *entityTestSetu
 	}
 
 	if env["IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewImagePlaceholderGeneratorSDK(core.ToMapAny(mergedOpts))
 	}

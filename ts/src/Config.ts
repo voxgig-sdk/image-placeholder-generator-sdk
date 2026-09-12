@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -71,7 +82,23 @@ class Config {
 
   entity = {
     "generate_custom_placeholder": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
+      "id": {
+        "field": "id",
+        "name": "id",
+        "parts": [
+          "width",
+          "height",
+          "background",
+          "text_color"
+        ],
+        "sep": "/"
+      },
       "name": "generate_custom_placeholder",
       "op": {
         "load": {
@@ -127,11 +154,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/{width}/{height}/{background}/{text_color}",
-              "parts": [
-                "{width}",
-                "{height}",
-                "{background}",
-                "{text_color}"
+              "segments": [
+                {
+                  "var": "width"
+                },
+                {
+                  "var": "height"
+                },
+                {
+                  "var": "background"
+                },
+                {
+                  "var": "text_color"
+                }
               ],
               "select": {
                 "exist": [
@@ -145,7 +180,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "{width}",
+                "{height}",
+                "{background}",
+                "{text_color}"
+              ]
             }
           ]
         }
@@ -155,7 +196,21 @@ class Config {
       }
     },
     "generate_rectangular_placeholder": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
+      "id": {
+        "field": "id",
+        "name": "id",
+        "parts": [
+          "width",
+          "height"
+        ],
+        "sep": "/"
+      },
       "name": "generate_rectangular_placeholder",
       "op": {
         "load": {
@@ -195,9 +250,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/{width}/{height}",
-              "parts": [
-                "{width}",
-                "{height}"
+              "segments": [
+                {
+                  "var": "width"
+                },
+                {
+                  "var": "height"
+                }
               ],
               "select": {
                 "exist": [
@@ -209,7 +268,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "{width}",
+                "{height}"
+              ]
             }
           ]
         }
@@ -225,6 +288,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "generate_square_placeholder",
       "op": {
         "load": {
@@ -256,14 +323,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/{width}",
-              "parts": [
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "width": "id"
                 }
               },
+              "segments": [
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id",
@@ -273,7 +342,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "{id}"
+              ]
             }
           ]
         }
@@ -289,6 +361,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

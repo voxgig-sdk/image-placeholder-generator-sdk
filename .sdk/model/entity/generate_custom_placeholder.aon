@@ -4,6 +4,26 @@ main: kit: entity: generate_custom_placeholder: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "width"
+      "height"
+      "background"
+      "text_color"
+    ]
+    sep: "/"
+  }
+
   name: "generate_custom_placeholder"
   op: {
     load: {
@@ -58,11 +78,19 @@ main: kit: entity: generate_custom_placeholder: {
           }
           method: "GET"
           orig: "/{width}/{height}/{background}/{text_color}"
-          parts: [
-            "{width}"
-            "{height}"
-            "{background}"
-            "{text_color}"
+          segments: [
+            {
+              var: "width"
+            }
+            {
+              var: "height"
+            }
+            {
+              var: "background"
+            }
+            {
+              var: "text_color"
+            }
           ]
           select: {
             exist: [

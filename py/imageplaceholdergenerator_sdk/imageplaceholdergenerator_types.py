@@ -16,8 +16,8 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class GenerateCustomPlaceholder(TypedDict):
-    pass
+class GenerateCustomPlaceholder(TypedDict, total=False):
+    id: str
 
 
 class GenerateCustomPlaceholderLoadMatchRequired(TypedDict):
@@ -31,8 +31,8 @@ class GenerateCustomPlaceholderLoadMatch(GenerateCustomPlaceholderLoadMatchRequi
     text: str
 
 
-class GenerateRectangularPlaceholder(TypedDict):
-    pass
+class GenerateRectangularPlaceholder(TypedDict, total=False):
+    id: str
 
 
 class GenerateRectangularPlaceholderLoadMatchRequired(TypedDict):

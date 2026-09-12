@@ -6,6 +6,7 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface GenerateCustomPlaceholder {
+  id?: string
 }
 
 export interface GenerateCustomPlaceholderLoadMatch {
@@ -17,6 +18,7 @@ export interface GenerateCustomPlaceholderLoadMatch {
 }
 
 export interface GenerateRectangularPlaceholder {
+  id?: string
 }
 
 export interface GenerateRectangularPlaceholderLoadMatch {

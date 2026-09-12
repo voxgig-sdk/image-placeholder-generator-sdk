@@ -136,6 +136,12 @@ Alias for `ImagePlaceholderGeneratorSDK.test()`.
 const generate_custom_placeholder = client.GenerateCustomPlaceholder()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -179,6 +185,12 @@ Return a copy of the entity options.
 ```ts
 const generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

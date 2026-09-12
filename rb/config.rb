@@ -44,7 +44,23 @@ module ImagePlaceholderGeneratorConfig
       },
       "entity" => {
         "generate_custom_placeholder" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+            "parts" => [
+              "width",
+              "height",
+              "background",
+              "text_color",
+            ],
+            "sep" => "/",
+          },
           "name" => "generate_custom_placeholder",
           "op" => {
             "load" => {
@@ -100,11 +116,19 @@ module ImagePlaceholderGeneratorConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}/{height}/{background}/{text_color}",
-                  "parts" => [
-                    "{width}",
-                    "{height}",
-                    "{background}",
-                    "{text_color}",
+                  "segments" => [
+                    {
+                      "var" => "width",
+                    },
+                    {
+                      "var" => "height",
+                    },
+                    {
+                      "var" => "background",
+                    },
+                    {
+                      "var" => "text_color",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -119,6 +143,12 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "{width}",
+                    "{height}",
+                    "{background}",
+                    "{text_color}",
+                  ],
                 },
               ],
             },
@@ -128,7 +158,21 @@ module ImagePlaceholderGeneratorConfig
           },
         },
         "generate_rectangular_placeholder" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+            "parts" => [
+              "width",
+              "height",
+            ],
+            "sep" => "/",
+          },
           "name" => "generate_rectangular_placeholder",
           "op" => {
             "load" => {
@@ -168,9 +212,13 @@ module ImagePlaceholderGeneratorConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}/{height}",
-                  "parts" => [
-                    "{width}",
-                    "{height}",
+                  "segments" => [
+                    {
+                      "var" => "width",
+                    },
+                    {
+                      "var" => "height",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -183,6 +231,10 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "{width}",
+                    "{height}",
+                  ],
                 },
               ],
             },
@@ -198,6 +250,10 @@ module ImagePlaceholderGeneratorConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "generate_square_placeholder",
           "op" => {
             "load" => {
@@ -229,14 +285,16 @@ module ImagePlaceholderGeneratorConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}",
-                  "parts" => [
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "width" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -247,6 +305,9 @@ module ImagePlaceholderGeneratorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "{id}",
+                  ],
                 },
               ],
             },

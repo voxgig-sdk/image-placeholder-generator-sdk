@@ -7,6 +7,7 @@
 -- edit by hand.
 
 ---@class GenerateCustomPlaceholder
+---@field id? string
 
 ---@class GenerateCustomPlaceholderLoadMatch
 ---@field background string
@@ -16,6 +17,7 @@
 ---@field text? string
 
 ---@class GenerateRectangularPlaceholder
+---@field id? string
 
 ---@class GenerateRectangularPlaceholderLoadMatch
 ---@field height number

@@ -50,7 +50,7 @@ func TestGenerateRectangularPlaceholderEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		generateRectangularPlaceholderRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.generate_rectangular_placeholder", setup.data)))
+		generateRectangularPlaceholderRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.generate_rectangular_placeholder")))
 		var generateRectangularPlaceholderRef01Data map[string]any
 		if len(generateRectangularPlaceholderRef01DataRaw) > 0 {
 			generateRectangularPlaceholderRef01Data = core.ToMapAny(generateRectangularPlaceholderRef01DataRaw[0][1])
@@ -61,13 +61,19 @@ func TestGenerateRectangularPlaceholderEntity(t *testing.T) {
 
 		// LOAD
 		generateRectangularPlaceholderRef01Ent := client.GenerateRectangularPlaceholder(nil)
-		generateRectangularPlaceholderRef01MatchDt0 := map[string]any{}
+		generateRectangularPlaceholderRef01MatchDt0 := map[string]any{
+			"id": generateRectangularPlaceholderRef01Data["id"],
+		}
 		generateRectangularPlaceholderRef01DataDt0Loaded, err := generateRectangularPlaceholderRef01Ent.Load(generateRectangularPlaceholderRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if generateRectangularPlaceholderRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		generateRectangularPlaceholderRef01DataDt0LoadResult := core.ToMapAny(entityData(generateRectangularPlaceholderRef01DataDt0Loaded))
+		if generateRectangularPlaceholderRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if generateRectangularPlaceholderRef01DataDt0LoadResult["id"] != generateRectangularPlaceholderRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
@@ -97,7 +103,7 @@ func generate_rectangular_placeholderBasicSetup(extra map[string]any) *entityTes
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"generate_rectangular_placeholder01", "generate_rectangular_placeholder02", "generate_rectangular_placeholder03", "width01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -125,10 +131,22 @@ func generate_rectangular_placeholderBasicSetup(extra map[string]any) *entityTes
 	}
 
 	if env["IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewImagePlaceholderGeneratorSDK(core.ToMapAny(mergedOpts))
 	}

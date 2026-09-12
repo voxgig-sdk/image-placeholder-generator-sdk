@@ -41,9 +41,13 @@ class GenerateRectangularPlaceholderEntityTest < Minitest::Test
 
     # LOAD
     generate_rectangular_placeholder_ref01_ent = client.GenerateRectangularPlaceholder(nil)
-    generate_rectangular_placeholder_ref01_match_dt0 = {}
+    generate_rectangular_placeholder_ref01_match_dt0 = {
+      "id" => generate_rectangular_placeholder_ref01_data["id"],
+    }
     generate_rectangular_placeholder_ref01_data_dt0_loaded = generate_rectangular_placeholder_ref01_ent.load(generate_rectangular_placeholder_ref01_match_dt0, nil)
-    assert !generate_rectangular_placeholder_ref01_data_dt0_loaded.nil?
+    generate_rectangular_placeholder_ref01_data_dt0_load_result = Helpers.to_map(generate_rectangular_placeholder_ref01_data_dt0_loaded.respond_to?(:data_get) ? generate_rectangular_placeholder_ref01_data_dt0_loaded.data_get : generate_rectangular_placeholder_ref01_data_dt0_loaded)
+    assert !generate_rectangular_placeholder_ref01_data_dt0_load_result.nil?
+    assert_equal generate_rectangular_placeholder_ref01_data_dt0_load_result["id"], generate_rectangular_placeholder_ref01_data["id"]
 
   end
 end
@@ -91,6 +95,9 @@ def generate_rectangular_placeholder_basic_setup(extra)
 
   if env["IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
       },
       extra || {},

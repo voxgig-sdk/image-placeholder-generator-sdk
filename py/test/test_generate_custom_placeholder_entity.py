@@ -48,9 +48,13 @@ class TestGenerateCustomPlaceholderEntity:
 
         # LOAD
         generate_custom_placeholder_ref01_ent = client.GenerateCustomPlaceholder(None)
-        generate_custom_placeholder_ref01_match_dt0 = {}
+        generate_custom_placeholder_ref01_match_dt0 = {
+            "id": generate_custom_placeholder_ref01_data["id"],
+        }
         generate_custom_placeholder_ref01_data_dt0_loaded = generate_custom_placeholder_ref01_ent.load(generate_custom_placeholder_ref01_match_dt0, None)
-        assert generate_custom_placeholder_ref01_data_dt0_loaded is not None
+        generate_custom_placeholder_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(generate_custom_placeholder_ref01_data_dt0_loaded))
+        assert generate_custom_placeholder_ref01_data_dt0_load_result is not None
+        assert generate_custom_placeholder_ref01_data_dt0_load_result["id"] == generate_custom_placeholder_ref01_data["id"]
 
 
 
@@ -99,6 +103,10 @@ def _generate_custom_placeholder_basic_setup(extra):
 
     if env.get("IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
             },
             extra or {},

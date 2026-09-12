@@ -96,6 +96,12 @@ Prepare a fetch definition without sending the request. Returns the
 $generate_custom_placeholder = $client->GenerateCustomPlaceholder();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -141,6 +147,12 @@ Return the entity name.
 ```php
 $generate_rectangular_placeholder = $client->GenerateRectangularPlaceholder();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

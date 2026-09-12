@@ -1,6 +1,14 @@
 # ImagePlaceholderGenerator SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -53,7 +61,23 @@ def make_config():
         },
         "entity": {
       "generate_custom_placeholder": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "width",
+            "height",
+            "background",
+            "text_color",
+          ],
+          "sep": "/",
+        },
         "name": "generate_custom_placeholder",
         "op": {
           "load": {
@@ -109,11 +133,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/{width}/{height}/{background}/{text_color}",
-                "parts": [
-                  "{width}",
-                  "{height}",
-                  "{background}",
-                  "{text_color}",
+                "segments": [
+                  {
+                    "var": "width",
+                  },
+                  {
+                    "var": "height",
+                  },
+                  {
+                    "var": "background",
+                  },
+                  {
+                    "var": "text_color",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -128,6 +160,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "{width}",
+                  "{height}",
+                  "{background}",
+                  "{text_color}",
+                ],
               },
             ],
           },
@@ -137,7 +175,21 @@ def make_config():
         },
       },
       "generate_rectangular_placeholder": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "width",
+            "height",
+          ],
+          "sep": "/",
+        },
         "name": "generate_rectangular_placeholder",
         "op": {
           "load": {
@@ -177,9 +229,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/{width}/{height}",
-                "parts": [
-                  "{width}",
-                  "{height}",
+                "segments": [
+                  {
+                    "var": "width",
+                  },
+                  {
+                    "var": "height",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -192,6 +248,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "{width}",
+                  "{height}",
+                ],
               },
             ],
           },
@@ -207,6 +267,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "generate_square_placeholder",
         "op": {
           "load": {
@@ -238,14 +302,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/{width}",
-                "parts": [
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "width": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -256,6 +322,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "{id}",
+                ],
               },
             ],
           },

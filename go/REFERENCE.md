@@ -102,6 +102,12 @@ generateCustomPlaceholder := client.GenerateCustomPlaceholder(nil)
 fmt.Println(generateCustomPlaceholder.GetName()) // "generate_custom_placeholder"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -146,6 +152,12 @@ Return the entity name.
 generateRectangularPlaceholder := client.GenerateRectangularPlaceholder(nil)
 fmt.Println(generateRectangularPlaceholder.GetName()) // "generate_rectangular_placeholder"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

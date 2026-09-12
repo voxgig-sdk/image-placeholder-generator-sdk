@@ -32,7 +32,23 @@ local function make_config()
     },
     entity = {
       ["generate_custom_placeholder"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+          ["parts"] = {
+            "width",
+            "height",
+            "background",
+            "text_color",
+          },
+          ["sep"] = "/",
+        },
         ["name"] = "generate_custom_placeholder",
         ["op"] = {
           ["load"] = {
@@ -88,11 +104,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{width}/{height}/{background}/{text_color}",
-                ["parts"] = {
-                  "{width}",
-                  "{height}",
-                  "{background}",
-                  "{text_color}",
+                ["segments"] = {
+                  {
+                    ["var"] = "width",
+                  },
+                  {
+                    ["var"] = "height",
+                  },
+                  {
+                    ["var"] = "background",
+                  },
+                  {
+                    ["var"] = "text_color",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -107,6 +131,12 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "{width}",
+                  "{height}",
+                  "{background}",
+                  "{text_color}",
+                },
               },
             },
           },
@@ -116,7 +146,21 @@ local function make_config()
         },
       },
       ["generate_rectangular_placeholder"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+          ["parts"] = {
+            "width",
+            "height",
+          },
+          ["sep"] = "/",
+        },
         ["name"] = "generate_rectangular_placeholder",
         ["op"] = {
           ["load"] = {
@@ -156,9 +200,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{width}/{height}",
-                ["parts"] = {
-                  "{width}",
-                  "{height}",
+                ["segments"] = {
+                  {
+                    ["var"] = "width",
+                  },
+                  {
+                    ["var"] = "height",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -170,6 +218,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "{width}",
+                  "{height}",
                 },
               },
             },
@@ -185,6 +237,10 @@ local function make_config()
             ["name"] = "id",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "generate_square_placeholder",
         ["op"] = {
@@ -217,12 +273,14 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{width}",
-                ["parts"] = {
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["width"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -234,6 +292,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "{id}",
                 },
               },
             },

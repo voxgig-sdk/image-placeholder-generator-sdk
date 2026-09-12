@@ -91,6 +91,12 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 generate_custom_placeholder = client.GenerateCustomPlaceholder()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -135,6 +141,12 @@ Return the entity name.
 ```python
 generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 

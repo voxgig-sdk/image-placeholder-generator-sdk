@@ -9,8 +9,13 @@
 # annotations document the shapes. Do not edit by hand.
 
 # GenerateCustomPlaceholder entity data model.
-class GenerateCustomPlaceholder
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+GenerateCustomPlaceholder = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for GenerateCustomPlaceholder#load.
 #
@@ -38,8 +43,13 @@ GenerateCustomPlaceholderLoadMatch = Struct.new(
 )
 
 # GenerateRectangularPlaceholder entity data model.
-class GenerateRectangularPlaceholder
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+GenerateRectangularPlaceholder = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for GenerateRectangularPlaceholder#load.
 #

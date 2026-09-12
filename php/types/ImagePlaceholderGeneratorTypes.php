@@ -15,6 +15,7 @@ declare(strict_types=1);
 /** GenerateCustomPlaceholder entity data model. */
 class GenerateCustomPlaceholder
 {
+    public ?string $id = null;
 }
 
 /** Request payload for GenerateCustomPlaceholder#load. */
@@ -30,6 +31,7 @@ class GenerateCustomPlaceholderLoadMatch
 /** GenerateRectangularPlaceholder entity data model. */
 class GenerateRectangularPlaceholder
 {
+    public ?string $id = null;
 }
 
 /** Request payload for GenerateRectangularPlaceholder#load. */

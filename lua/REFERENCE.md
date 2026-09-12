@@ -94,6 +94,12 @@ same parameters as `direct()`.
 local generate_custom_placeholder = client:GenerateCustomPlaceholder(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -139,6 +145,12 @@ Return the entity name.
 ```lua
 local generate_rectangular_placeholder = client:GenerateRectangularPlaceholder(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

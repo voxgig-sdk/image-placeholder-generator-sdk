@@ -97,6 +97,12 @@ same parameters as `direct()`. Raises on error.
 generate_custom_placeholder = client.GenerateCustomPlaceholder
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -142,6 +148,12 @@ Return the entity name.
 ```ruby
 generate_rectangular_placeholder = client.GenerateRectangularPlaceholder
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 

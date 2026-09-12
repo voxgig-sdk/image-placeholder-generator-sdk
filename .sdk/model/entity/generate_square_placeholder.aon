@@ -47,14 +47,16 @@ main: kit: entity: generate_square_placeholder: {
           }
           method: "GET"
           orig: "/{width}"
-          parts: [
-            "{id}"
-          ]
           rename: {
             param: {
               width: "id"
             }
           }
+          segments: [
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
