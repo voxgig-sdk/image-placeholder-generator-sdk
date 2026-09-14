@@ -105,7 +105,7 @@ local result, err = client:GenerateCustomPlaceholder():load({ background = "exam
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
+| TypeScript | `@voxgig-sdk/image-placeholder-generator-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
 | Python | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
 | PHP | `voxgig-sdk/image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/image-placeholder-generator-sdk/go` | `go get github.com/voxgig-sdk/image-placeholder-generator-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:GenerateCustomPlaceholder():load({ background = "exam
 ### TypeScript
 
 ```ts
-import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator'
+import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator-sdk'
 
 const client = new ImagePlaceholderGeneratorSDK()
 

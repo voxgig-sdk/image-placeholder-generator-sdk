@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator'
+import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator-sdk'
 
 const client = new ImagePlaceholderGeneratorSDK()
 ```
@@ -469,7 +469,7 @@ image-placeholder-generator/
 Import the SDK from the package root:
 
 ```ts
-import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator'
+import { ImagePlaceholderGeneratorSDK } from '@voxgig-sdk/image-placeholder-generator-sdk'
 ```
 
 ### Entity state
