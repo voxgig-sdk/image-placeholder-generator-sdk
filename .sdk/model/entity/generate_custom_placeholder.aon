@@ -76,6 +76,12 @@ main: kit: entity: generate_custom_placeholder: {
               }
             ]
           }
+          contract: {
+            id: "GET /{width}/{height}/{background}/{text_color}"
+            json: "{\"operationId\":\"generateCustomPlaceholder\",\"parameters\":[{\"description\":\"The width of the image in pixels\",\"in\":\"path\",\"name\":\"width\",\"required\":true,\"schema\":{\"example\":600,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"The height of the image in pixels\",\"in\":\"path\",\"name\":\"height\",\"required\":true,\"schema\":{\"example\":300,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Background color as HEX code without the # symbol\",\"in\":\"path\",\"name\":\"background\",\"required\":true,\"schema\":{\"example\":\"2C3E50\",\"pattern\":\"^[0-9A-Fa-f]{6}$\",\"type\":\"string\"}},{\"description\":\"Text color as HEX code without the # symbol\",\"in\":\"path\",\"name\":\"text_color\",\"required\":true,\"schema\":{\"example\":\"ECF0F1\",\"pattern\":\"^[0-9A-Fa-f]{6}$\",\"type\":\"string\"}},{\"description\":\"Custom text to display on the image. URL encoded strings supported (use + for spaces)\",\"in\":\"query\",\"name\":\"text\",\"required\":false,\"schema\":{\"example\":\"BiFindr+Placeholder+Image\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"image/svg+xml\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}}},\"description\":\"Successfully generated SVG placeholder image\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/{width}/{height}/{background}/{text_color}"
           segments: [

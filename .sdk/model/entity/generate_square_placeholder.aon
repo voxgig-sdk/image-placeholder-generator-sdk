@@ -45,6 +45,12 @@ main: kit: entity: generate_square_placeholder: {
               }
             ]
           }
+          contract: {
+            id: "GET /{width}"
+            json: "{\"operationId\":\"generateSquarePlaceholder\",\"parameters\":[{\"description\":\"The width (and height) of the square image in pixels\",\"in\":\"path\",\"name\":\"width\",\"required\":true,\"schema\":{\"example\":400,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Custom text to display on the image. URL encoded strings supported (use + for spaces)\",\"in\":\"query\",\"name\":\"text\",\"required\":false,\"schema\":{\"example\":\"BiFindr+Placeholder+Image\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"image/svg+xml\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}}},\"description\":\"Successfully generated SVG placeholder image\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/{width}"
           rename: {

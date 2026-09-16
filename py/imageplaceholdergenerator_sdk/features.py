@@ -1,12 +1,18 @@
 # ImagePlaceholderGenerator SDK feature factory
 
 from imageplaceholdergenerator_sdk.feature.base_feature import ImagePlaceholderGeneratorBaseFeature
+from imageplaceholdergenerator_sdk.feature.ratelimit_feature import ImagePlaceholderGeneratorRatelimitFeature
+from imageplaceholdergenerator_sdk.feature.retry_feature import ImagePlaceholderGeneratorRetryFeature
 from imageplaceholdergenerator_sdk.feature.test_feature import ImagePlaceholderGeneratorTestFeature
+from imageplaceholdergenerator_sdk.feature.timeout_feature import ImagePlaceholderGeneratorTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ImagePlaceholderGeneratorBaseFeature(),
+    "ratelimit": lambda: ImagePlaceholderGeneratorRatelimitFeature(),
+    "retry": lambda: ImagePlaceholderGeneratorRetryFeature(),
     "test": lambda: ImagePlaceholderGeneratorTestFeature(),
+    "timeout": lambda: ImagePlaceholderGeneratorTimeoutFeature(),
 }
 
 

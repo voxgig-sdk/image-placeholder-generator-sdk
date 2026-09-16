@@ -4,7 +4,10 @@ declare(strict_types=1);
 // ImagePlaceholderGenerator SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class ImagePlaceholderGeneratorFeatures
@@ -14,8 +17,14 @@ class ImagePlaceholderGeneratorFeatures
         switch ($name) {
             case "base":
                 return new ImagePlaceholderGeneratorBaseFeature();
+            case "ratelimit":
+                return new ImagePlaceholderGeneratorRatelimitFeature();
+            case "retry":
+                return new ImagePlaceholderGeneratorRetryFeature();
             case "test":
                 return new ImagePlaceholderGeneratorTestFeature();
+            case "timeout":
+                return new ImagePlaceholderGeneratorTimeoutFeature();
             default:
                 return new ImagePlaceholderGeneratorBaseFeature();
         }
@@ -31,7 +40,10 @@ class ImagePlaceholderGeneratorFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

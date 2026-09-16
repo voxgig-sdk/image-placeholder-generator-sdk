@@ -16,5 +16,51 @@
     "generate_square_placeholder": {
       "generate_square_placeholder_ref01": {}
     }
+  },
+  "requests": {
+    "GET /{width}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "generateSquarePlaceholder",
+        "parameters": [
+          {
+            "description": "The width (and height) of the square image in pixels",
+            "in": "path",
+            "name": "width",
+            "required": true,
+            "schema": {
+              "example": 400,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)",
+            "in": "query",
+            "name": "text",
+            "required": false,
+            "schema": {
+              "example": "BiFindr+Placeholder+Image",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "image/svg+xml": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Successfully generated SVG placeholder image"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
