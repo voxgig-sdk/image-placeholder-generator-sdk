@@ -1,5 +1,5 @@
 # Entity Models
 
-@"generate_custom_placeholder.aon"
-@"generate_rectangular_placeholder.aon"
-@"generate_square_placeholder.aon"
+@"./generate_custom_placeholder.aon"
+@"./generate_rectangular_placeholder.aon"
+@"./generate_square_placeholder.aon"

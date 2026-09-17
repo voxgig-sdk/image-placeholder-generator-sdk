@@ -127,15 +127,15 @@ class Config {
 
     entity: {
       
-      generate_custom_placeholder: {
-      },
-
-      generate_rectangular_placeholder: {
-      },
-
-      generate_square_placeholder: {
-      },
-
+        generate_custom_placeholder: {
+        },
+  
+        generate_rectangular_placeholder: {
+        },
+  
+        generate_square_placeholder: {
+        },
+  
     }
   }
 

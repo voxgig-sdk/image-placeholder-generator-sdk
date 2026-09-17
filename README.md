@@ -105,12 +105,12 @@ local result, err = client:GenerateCustomPlaceholder():load({ background = "exam
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/image-placeholder-generator-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
-| Python | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
-| PHP | `voxgig-sdk/image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
+| TypeScript | `@voxgig-sdk/image-placeholder-generator-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/tags) |
+| Python | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/tags) |
+| PHP | `voxgig-sdk/image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/image-placeholder-generator-sdk/go` | `go get github.com/voxgig-sdk/image-placeholder-generator-sdk/go@latest` |
-| Ruby | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
-| Lua | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/releases) |
+| Ruby | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/tags) |
+| Lua | `voxgig-sdk-image-placeholder-generator` | publish pending — [install from git tag](https://github.com/voxgig-sdk/image-placeholder-generator-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/image-placeholder-generator-sdk/go-cli` | `go install github.com/voxgig-sdk/image-placeholder-generator-sdk/go-cli/cmd/image-placeholder-generator@latest` |
 | Go MCP server | `github.com/voxgig-sdk/image-placeholder-generator-sdk/go-mcp` | `go get github.com/voxgig-sdk/image-placeholder-generator-sdk/go-mcp@latest` |
 
