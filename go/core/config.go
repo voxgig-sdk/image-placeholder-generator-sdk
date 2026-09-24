@@ -93,6 +93,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 				},
@@ -114,51 +115,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "2C3E50",
-											"kind": "param",
-											"name": "background",
-											"orig": "background",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 300,
-											"kind": "param",
-											"name": "height",
-											"orig": "height",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "ECF0F1",
-											"kind": "param",
-											"name": "text_color",
-											"orig": "text_color",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 600,
-											"kind": "param",
-											"name": "width",
-											"orig": "width",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": "BiFindr+Placeholder+Image",
-											"kind": "query",
-											"name": "text",
-											"orig": "text",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/{width}/{height}/{background}/{text_color}",
@@ -176,6 +132,62 @@ func MakeConfig() map[string]any {
 										"var": "text_color",
 									},
 								},
+								"parts": []any{
+									"{width}",
+									"{height}",
+									"{background}",
+									"{text_color}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "background",
+											"orig": "background",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "2C3E50",
+										},
+										map[string]any{
+											"name": "height",
+											"orig": "height",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": 300,
+										},
+										map[string]any{
+											"name": "text_color",
+											"orig": "text_color",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "ECF0F1",
+										},
+										map[string]any{
+											"name": "width",
+											"orig": "width",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": 600,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "text",
+											"orig": "text",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "BiFindr+Placeholder+Image",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"background",
@@ -184,16 +196,6 @@ func MakeConfig() map[string]any {
 										"text_color",
 										"width",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"{width}",
-									"{height}",
-									"{background}",
-									"{text_color}",
 								},
 							},
 						},
@@ -207,6 +209,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 				},
@@ -226,35 +229,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": 300,
-											"kind": "param",
-											"name": "height",
-											"orig": "height",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 600,
-											"kind": "param",
-											"name": "width",
-											"orig": "width",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": "BiFindr+Placeholder+Image",
-											"kind": "query",
-											"name": "text",
-											"orig": "text",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/{width}/{height}",
@@ -266,20 +240,50 @@ func MakeConfig() map[string]any {
 										"var": "height",
 									},
 								},
+								"parts": []any{
+									"{width}",
+									"{height}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "height",
+											"orig": "height",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": 300,
+										},
+										map[string]any{
+											"name": "width",
+											"orig": "width",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": 600,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "text",
+											"orig": "text",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "BiFindr+Placeholder+Image",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"height",
 										"text",
 										"width",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"{width}",
-									"{height}",
 								},
 							},
 						},
@@ -293,6 +297,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 				},
@@ -307,38 +312,45 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": 400,
-											"kind": "param",
-											"name": "id",
-											"orig": "width",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": "BiFindr+Placeholder+Image",
-											"kind": "query",
-											"name": "text",
-											"orig": "text",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/{width}",
+								"segments": []any{
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"{id}",
+								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"width": "id",
 									},
 								},
-								"segments": []any{
-									map[string]any{
-										"var": "id",
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "width",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": 400,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "text",
+											"orig": "text",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "BiFindr+Placeholder+Image",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -346,13 +358,6 @@ func MakeConfig() map[string]any {
 										"id",
 										"text",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"{id}",
 								},
 							},
 						},

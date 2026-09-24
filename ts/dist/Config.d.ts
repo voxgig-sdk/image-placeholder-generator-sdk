@@ -78,6 +78,7 @@ declare class Config {
         generate_custom_placeholder: {
             fields: {
                 name: string;
+                title: string;
                 type: string;
             }[];
             id: {
@@ -92,44 +93,45 @@ declare class Config {
                     input: string;
                     name: string;
                     points: {
-                        args: {
-                            params: ({
-                                example: string;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            } | {
-                                example: number;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            })[];
-                            query: {
-                                example: string;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                type: string;
-                            }[];
-                        };
                         kind: string;
                         method: string;
                         orig: string;
                         segments: {
                             var: string;
                         }[];
-                        select: {
-                            exist: string[];
-                        };
+                        parts: string[];
+                        rename: {};
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
+                        args: {
+                            params: ({
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: string;
+                            } | {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: number;
+                            })[];
+                            query: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                example: string;
+                            }[];
+                        };
+                        select: {
+                            exist: string[];
+                        };
                     }[];
                 };
             };
@@ -140,6 +142,7 @@ declare class Config {
         generate_rectangular_placeholder: {
             fields: {
                 name: string;
+                title: string;
                 type: string;
             }[];
             id: {
@@ -154,37 +157,38 @@ declare class Config {
                     input: string;
                     name: string;
                     points: {
-                        args: {
-                            params: {
-                                example: number;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            }[];
-                            query: {
-                                example: string;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                type: string;
-                            }[];
-                        };
                         kind: string;
                         method: string;
                         orig: string;
                         segments: {
                             var: string;
                         }[];
-                        select: {
-                            exist: string[];
-                        };
+                        parts: string[];
+                        rename: {};
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
+                        args: {
+                            params: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: number;
+                            }[];
+                            query: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                example: string;
+                            }[];
+                        };
+                        select: {
+                            exist: string[];
+                        };
                     }[];
                 };
             };
@@ -195,6 +199,7 @@ declare class Config {
         generate_square_placeholder: {
             fields: {
                 name: string;
+                title: string;
                 type: string;
             }[];
             id: {
@@ -207,42 +212,42 @@ declare class Config {
                     input: string;
                     name: string;
                     points: {
-                        args: {
-                            params: {
-                                example: number;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            }[];
-                            query: {
-                                example: string;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                type: string;
-                            }[];
-                        };
                         kind: string;
                         method: string;
                         orig: string;
+                        segments: {
+                            var: string;
+                        }[];
+                        parts: string[];
                         rename: {
                             param: {
                                 width: string;
                             };
                         };
-                        segments: {
-                            var: string;
-                        }[];
-                        select: {
-                            exist: string[];
-                        };
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
+                        args: {
+                            params: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: number;
+                            }[];
+                            query: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                example: string;
+                            }[];
+                        };
+                        select: {
+                            exist: string[];
+                        };
                     }[];
                 };
             };

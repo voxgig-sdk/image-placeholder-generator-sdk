@@ -1,0 +1,121 @@
+# Entity: generate_custom_placeholder
+
+main: kit: entity: generate_custom_placeholder: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "width"
+      "height"
+      "background"
+      "text_color"
+    ]
+    sep: "/"
+  }
+
+  name: "generate_custom_placeholder"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /{width}/{height}/{background}/{text_color}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "2C3E50"
+                k: "param"
+                n: "background"
+                or: "background"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: 300
+                k: "param"
+                n: "height"
+                or: "height"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "ECF0F1"
+                k: "param"
+                n: "text_color"
+                or: "text_color"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: 600
+                k: "param"
+                n: "width"
+                or: "width"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: "BiFindr+Placeholder+Image"
+                k: "query"
+                n: "text"
+                or: "text"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{width}/{height}/{background}/{text_color}"
+          q: {
+            exist: [
+              "background"
+              "height"
+              "text"
+              "text_color"
+              "width"
+            ]
+          }
+          s: [
+            {
+              var: "width"
+            }
+            {
+              var: "height"
+            }
+            {
+              var: "background"
+            }
+            {
+              var: "text_color"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

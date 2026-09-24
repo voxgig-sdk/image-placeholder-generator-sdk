@@ -1,7 +1,7 @@
 // Typed models for the ImagePlaceholderGenerator SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,7 +14,6 @@ import (
 
 // GenerateCustomPlaceholder is the typed data model for the generate_custom_placeholder entity.
 type GenerateCustomPlaceholder struct {
-	Id *string `json:"id,omitempty"`
 }
 
 // GenerateCustomPlaceholderLoadMatch is the typed request payload for GenerateCustomPlaceholder.LoadTyped.
@@ -28,7 +27,6 @@ type GenerateCustomPlaceholderLoadMatch struct {
 
 // GenerateRectangularPlaceholder is the typed data model for the generate_rectangular_placeholder entity.
 type GenerateRectangularPlaceholder struct {
-	Id *string `json:"id,omitempty"`
 }
 
 // GenerateRectangularPlaceholderLoadMatch is the typed request payload for GenerateRectangularPlaceholder.LoadTyped.
@@ -40,7 +38,6 @@ type GenerateRectangularPlaceholderLoadMatch struct {
 
 // GenerateSquarePlaceholder is the typed data model for the generate_square_placeholder entity.
 type GenerateSquarePlaceholder struct {
-	Id *string `json:"id,omitempty"`
 }
 
 // GenerateSquarePlaceholderLoadMatch is the typed request payload for GenerateSquarePlaceholder.LoadTyped.

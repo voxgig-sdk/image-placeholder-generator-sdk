@@ -1,0 +1,32 @@
+# BasicGenerateSquarePlaceholderFlow
+
+main: kit: flow: BasicGenerateSquarePlaceholderFlow:
+{
+  entity: "generate_square_placeholder",
+  kind: "basic",
+  name: "BasicGenerateSquarePlaceholderFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_square_placeholder_ref01",
+        srcdatavar: "generate_square_placeholder_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "generate_square_placeholder01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-generate_square_placeholder_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGenerateSquarePlaceholderFlow"
+}

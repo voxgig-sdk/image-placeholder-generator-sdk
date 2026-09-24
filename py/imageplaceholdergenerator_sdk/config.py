@@ -118,6 +118,7 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
         ],
@@ -139,51 +140,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "2C3E50",
-                      "kind": "param",
-                      "name": "background",
-                      "orig": "background",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 300,
-                      "kind": "param",
-                      "name": "height",
-                      "orig": "height",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": "ECF0F1",
-                      "kind": "param",
-                      "name": "text_color",
-                      "orig": "text_color",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 600,
-                      "kind": "param",
-                      "name": "width",
-                      "orig": "width",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": "BiFindr+Placeholder+Image",
-                      "kind": "query",
-                      "name": "text",
-                      "orig": "text",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/{width}/{height}/{background}/{text_color}",
@@ -201,6 +157,62 @@ def make_config():
                     "var": "text_color",
                   },
                 ],
+                "parts": [
+                  "{width}",
+                  "{height}",
+                  "{background}",
+                  "{text_color}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "background",
+                      "orig": "background",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "2C3E50",
+                    },
+                    {
+                      "name": "height",
+                      "orig": "height",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": 300,
+                    },
+                    {
+                      "name": "text_color",
+                      "orig": "text_color",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "ECF0F1",
+                    },
+                    {
+                      "name": "width",
+                      "orig": "width",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": 600,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "text",
+                      "orig": "text",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "BiFindr+Placeholder+Image",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "background",
@@ -210,16 +222,6 @@ def make_config():
                     "width",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "{width}",
-                  "{height}",
-                  "{background}",
-                  "{text_color}",
-                ],
               },
             ],
           },
@@ -232,6 +234,7 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
         ],
@@ -251,35 +254,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": 300,
-                      "kind": "param",
-                      "name": "height",
-                      "orig": "height",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 600,
-                      "kind": "param",
-                      "name": "width",
-                      "orig": "width",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": "BiFindr+Placeholder+Image",
-                      "kind": "query",
-                      "name": "text",
-                      "orig": "text",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/{width}/{height}",
@@ -291,6 +265,44 @@ def make_config():
                     "var": "height",
                   },
                 ],
+                "parts": [
+                  "{width}",
+                  "{height}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "height",
+                      "orig": "height",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": 300,
+                    },
+                    {
+                      "name": "width",
+                      "orig": "width",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": 600,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "text",
+                      "orig": "text",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "BiFindr+Placeholder+Image",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "height",
@@ -298,14 +310,6 @@ def make_config():
                     "width",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "{width}",
-                  "{height}",
-                ],
               },
             ],
           },
@@ -318,6 +322,7 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
         ],
@@ -332,53 +337,53 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": 400,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "width",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": "BiFindr+Placeholder+Image",
-                      "kind": "query",
-                      "name": "text",
-                      "orig": "text",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/{width}",
-                "rename": {
-                  "param": {
-                    "width": "id",
-                  },
-                },
                 "segments": [
                   {
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "{id}",
+                ],
+                "rename": {
+                  "param": {
+                    "width": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "width",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": 400,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "text",
+                      "orig": "text",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "BiFindr+Placeholder+Image",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                     "text",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "{id}",
-                ],
               },
             ],
           },

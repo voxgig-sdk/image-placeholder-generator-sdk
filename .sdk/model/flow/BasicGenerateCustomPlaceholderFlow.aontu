@@ -1,0 +1,35 @@
+# BasicGenerateCustomPlaceholderFlow
+
+main: kit: flow: BasicGenerateCustomPlaceholderFlow:
+{
+  entity: "generate_custom_placeholder",
+  kind: "basic",
+  name: "BasicGenerateCustomPlaceholderFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_custom_placeholder_ref01",
+        srcdatavar: "generate_custom_placeholder_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        background: "background01",
+        height: "height01",
+        id: "generate_custom_placeholder01",
+        width: "width01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-generate_custom_placeholder_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGenerateCustomPlaceholderFlow"
+}

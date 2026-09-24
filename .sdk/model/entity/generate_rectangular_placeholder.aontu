@@ -1,0 +1,95 @@
+# Entity: generate_rectangular_placeholder
+
+main: kit: entity: generate_rectangular_placeholder: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "width"
+      "height"
+    ]
+    sep: "/"
+  }
+
+  name: "generate_rectangular_placeholder"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /{width}/{height}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: 300
+                k: "param"
+                n: "height"
+                or: "height"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 600
+                k: "param"
+                n: "width"
+                or: "width"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: "BiFindr+Placeholder+Image"
+                k: "query"
+                n: "text"
+                or: "text"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{width}/{height}"
+          q: {
+            exist: [
+              "height"
+              "text"
+              "width"
+            ]
+          }
+          s: [
+            {
+              var: "width"
+            }
+            {
+              var: "height"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

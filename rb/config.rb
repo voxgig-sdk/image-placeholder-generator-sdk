@@ -101,6 +101,7 @@ module ImagePlaceholderGeneratorConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
               "type" => "`$STRING`",
             },
           ],
@@ -122,51 +123,6 @@ module ImagePlaceholderGeneratorConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "example" => "2C3E50",
-                        "kind" => "param",
-                        "name" => "background",
-                        "orig" => "background",
-                        "reqd" => true,
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 300,
-                        "kind" => "param",
-                        "name" => "height",
-                        "orig" => "height",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => "ECF0F1",
-                        "kind" => "param",
-                        "name" => "text_color",
-                        "orig" => "text_color",
-                        "reqd" => true,
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 600,
-                        "kind" => "param",
-                        "name" => "width",
-                        "orig" => "width",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                    "query" => [
-                      {
-                        "example" => "BiFindr+Placeholder+Image",
-                        "kind" => "query",
-                        "name" => "text",
-                        "orig" => "text",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}/{height}/{background}/{text_color}",
@@ -184,6 +140,62 @@ module ImagePlaceholderGeneratorConfig
                       "var" => "text_color",
                     },
                   ],
+                  "parts" => [
+                    "{width}",
+                    "{height}",
+                    "{background}",
+                    "{text_color}",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "background",
+                        "orig" => "background",
+                        "type" => "`$STRING`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => "2C3E50",
+                      },
+                      {
+                        "name" => "height",
+                        "orig" => "height",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => 300,
+                      },
+                      {
+                        "name" => "text_color",
+                        "orig" => "text_color",
+                        "type" => "`$STRING`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => "ECF0F1",
+                      },
+                      {
+                        "name" => "width",
+                        "orig" => "width",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => 600,
+                      },
+                    ],
+                    "query" => [
+                      {
+                        "name" => "text",
+                        "orig" => "text",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "BiFindr+Placeholder+Image",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "background",
@@ -193,16 +205,6 @@ module ImagePlaceholderGeneratorConfig
                       "width",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "{width}",
-                    "{height}",
-                    "{background}",
-                    "{text_color}",
-                  ],
                 },
               ],
             },
@@ -215,6 +217,7 @@ module ImagePlaceholderGeneratorConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
               "type" => "`$STRING`",
             },
           ],
@@ -234,35 +237,6 @@ module ImagePlaceholderGeneratorConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "example" => 300,
-                        "kind" => "param",
-                        "name" => "height",
-                        "orig" => "height",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 600,
-                        "kind" => "param",
-                        "name" => "width",
-                        "orig" => "width",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                    "query" => [
-                      {
-                        "example" => "BiFindr+Placeholder+Image",
-                        "kind" => "query",
-                        "name" => "text",
-                        "orig" => "text",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}/{height}",
@@ -274,6 +248,44 @@ module ImagePlaceholderGeneratorConfig
                       "var" => "height",
                     },
                   ],
+                  "parts" => [
+                    "{width}",
+                    "{height}",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "height",
+                        "orig" => "height",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => 300,
+                      },
+                      {
+                        "name" => "width",
+                        "orig" => "width",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => 600,
+                      },
+                    ],
+                    "query" => [
+                      {
+                        "name" => "text",
+                        "orig" => "text",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "BiFindr+Placeholder+Image",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "height",
@@ -281,14 +293,6 @@ module ImagePlaceholderGeneratorConfig
                       "width",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "{width}",
-                    "{height}",
-                  ],
                 },
               ],
             },
@@ -301,6 +305,7 @@ module ImagePlaceholderGeneratorConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
               "type" => "`$STRING`",
             },
           ],
@@ -315,53 +320,53 @@ module ImagePlaceholderGeneratorConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "example" => 400,
-                        "kind" => "param",
-                        "name" => "id",
-                        "orig" => "width",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                    "query" => [
-                      {
-                        "example" => "BiFindr+Placeholder+Image",
-                        "kind" => "query",
-                        "name" => "text",
-                        "orig" => "text",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{width}",
-                  "rename" => {
-                    "param" => {
-                      "width" => "id",
-                    },
-                  },
                   "segments" => [
                     {
                       "var" => "id",
                     },
                   ],
+                  "parts" => [
+                    "{id}",
+                  ],
+                  "rename" => {
+                    "param" => {
+                      "width" => "id",
+                    },
+                  },
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "id",
+                        "orig" => "width",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => 400,
+                      },
+                    ],
+                    "query" => [
+                      {
+                        "name" => "text",
+                        "orig" => "text",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "BiFindr+Placeholder+Image",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "id",
                       "text",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "{id}",
-                  ],
                 },
               ],
             },

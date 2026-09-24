@@ -24,20 +24,87 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "generate_custom_placeholder": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id",
@@ -56,68 +123,77 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /{width}/{height}/{background}/{text_color}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "2C3E50",
-                        "kind": "param",
-                        "name": "background",
-                        "orig": "background",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "2C3E50",
+                        "k": "param",
+                        "n": "background",
+                        "or": "background",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 300,
-                        "kind": "param",
-                        "name": "height",
-                        "orig": "height",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 300,
+                        "k": "param",
+                        "n": "height",
+                        "or": "height",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "ECF0F1",
-                        "kind": "param",
-                        "name": "text_color",
-                        "orig": "text_color",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "ECF0F1",
+                        "k": "param",
+                        "n": "text_color",
+                        "or": "text_color",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 600,
-                        "kind": "param",
-                        "name": "width",
-                        "orig": "width",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 600,
+                        "k": "param",
+                        "n": "width",
+                        "or": "width",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": "BiFindr+Placeholder+Image",
-                        "kind": "query",
-                        "name": "text",
-                        "orig": "text",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "BiFindr+Placeholder+Image",
+                        "k": "query",
+                        "n": "text",
+                        "or": "text",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /{width}/{height}/{background}/{text_color}",
-                    "json": "{\"operationId\":\"generateCustomPlaceholder\",\"parameters\":[{\"description\":\"The width of the image in pixels\",\"in\":\"path\",\"name\":\"width\",\"required\":true,\"schema\":{\"example\":600,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"The height of the image in pixels\",\"in\":\"path\",\"name\":\"height\",\"required\":true,\"schema\":{\"example\":300,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Background color as HEX code without the # symbol\",\"in\":\"path\",\"name\":\"background\",\"required\":true,\"schema\":{\"example\":\"2C3E50\",\"pattern\":\"^[0-9A-Fa-f]{6}$\",\"type\":\"string\"}},{\"description\":\"Text color as HEX code without the # symbol\",\"in\":\"path\",\"name\":\"text_color\",\"required\":true,\"schema\":{\"example\":\"ECF0F1\",\"pattern\":\"^[0-9A-Fa-f]{6}$\",\"type\":\"string\"}},{\"description\":\"Custom text to display on the image. URL encoded strings supported (use + for spaces)\",\"in\":\"query\",\"name\":\"text\",\"required\":false,\"schema\":{\"example\":\"BiFindr+Placeholder+Image\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"image/svg+xml\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}}},\"description\":\"Successfully generated SVG placeholder image\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/{width}/{height}/{background}/{text_color}",
+                  "q": {
+                    "exist": [
+                      "background",
+                      "height",
+                      "text",
+                      "text_color",
+                      "width"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/{width}/{height}/{background}/{text_color}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "var": "width"
                     },
@@ -131,16 +207,7 @@
                       "var": "text_color"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "background",
-                      "height",
-                      "text",
-                      "text_color",
-                      "width"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -157,14 +224,15 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id",
@@ -181,50 +249,57 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /{width}/{height}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": 300,
-                        "kind": "param",
-                        "name": "height",
-                        "orig": "height",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 300,
+                        "k": "param",
+                        "n": "height",
+                        "or": "height",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 600,
-                        "kind": "param",
-                        "name": "width",
-                        "orig": "width",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 600,
+                        "k": "param",
+                        "n": "width",
+                        "or": "width",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": "BiFindr+Placeholder+Image",
-                        "kind": "query",
-                        "name": "text",
-                        "orig": "text",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "BiFindr+Placeholder+Image",
+                        "k": "query",
+                        "n": "text",
+                        "or": "text",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /{width}/{height}",
-                    "json": "{\"operationId\":\"generateRectangularPlaceholder\",\"parameters\":[{\"description\":\"The width of the image in pixels\",\"in\":\"path\",\"name\":\"width\",\"required\":true,\"schema\":{\"example\":600,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"The height of the image in pixels\",\"in\":\"path\",\"name\":\"height\",\"required\":true,\"schema\":{\"example\":300,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Custom text to display on the image. URL encoded strings supported (use + for spaces)\",\"in\":\"query\",\"name\":\"text\",\"required\":false,\"schema\":{\"example\":\"BiFindr+Placeholder+Image\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"image/svg+xml\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}}},\"description\":\"Successfully generated SVG placeholder image\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/{width}/{height}",
+                  "q": {
+                    "exist": [
+                      "height",
+                      "text",
+                      "width"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/{width}/{height}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "var": "width"
                     },
@@ -232,14 +307,7 @@
                       "var": "height"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "height",
-                      "text",
-                      "width"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -256,14 +324,15 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -275,57 +344,56 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /{width}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": 400,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "width",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 400,
+                        "k": "param",
+                        "n": "id",
+                        "or": "width",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": "BiFindr+Placeholder+Image",
-                        "kind": "query",
-                        "name": "text",
-                        "orig": "text",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "BiFindr+Placeholder+Image",
+                        "k": "query",
+                        "n": "text",
+                        "or": "text",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /{width}",
-                    "json": "{\"operationId\":\"generateSquarePlaceholder\",\"parameters\":[{\"description\":\"The width (and height) of the square image in pixels\",\"in\":\"path\",\"name\":\"width\",\"required\":true,\"schema\":{\"example\":400,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Custom text to display on the image. URL encoded strings supported (use + for spaces)\",\"in\":\"query\",\"name\":\"text\",\"required\":false,\"schema\":{\"example\":\"BiFindr+Placeholder+Image\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"image/svg+xml\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}}},\"description\":\"Successfully generated SVG placeholder image\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/{width}",
-                  "rename": {
-                    "param": {
-                      "width": "id"
-                    }
-                  },
-                  "segments": [
-                    {
-                      "var": "id"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/{width}",
+                  "q": {
                     "exist": [
                       "id",
                       "text"
                     ]
                   },
-                  "transform": {
+                  "r": {
+                    "param": {
+                      "width": "id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -754,22 +822,22 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "generate_custom_placeholder_ref01",
                 "srcdatavar": "generate_custom_placeholder_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "background": "background01",
                 "height": "height01",
                 "id": "generate_custom_placeholder01",
                 "width": "width01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -789,20 +857,20 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "generate_rectangular_placeholder_ref01",
                 "srcdatavar": "generate_rectangular_placeholder_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "generate_rectangular_placeholder01",
                 "width": "width01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -822,19 +890,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "generate_square_placeholder_ref01",
                 "srcdatavar": "generate_square_placeholder_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "generate_square_placeholder01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
