@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 ImagePlaceholderGeneratorUtility::setRegistrar(function (ImagePlaceholderGeneratorUtility $u): void {
     $u->clean = [ImagePlaceholderGeneratorClean::class, 'call'];
+    $u->clean_add = [ImagePlaceholderGeneratorClean::class, 'add'];
+    $u->clean_explain = [ImagePlaceholderGeneratorDone::class, 'clean_explain'];
     $u->done = [ImagePlaceholderGeneratorDone::class, 'call'];
     $u->make_error = [ImagePlaceholderGeneratorMakeError::class, 'call'];
     $u->feature_add = [ImagePlaceholderGeneratorFeatureAdd::class, 'call'];

@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 ImagePlaceholderGeneratorUtility.registrar = ->(u) {
   u.clean = ImagePlaceholderGeneratorUtilities::Clean
+  u.clean_add = ImagePlaceholderGeneratorUtilities::CleanAdd
+  u.clean_explain = ImagePlaceholderGeneratorUtilities::CleanExplain
   u.done = ImagePlaceholderGeneratorUtilities::Done
   u.make_error = ImagePlaceholderGeneratorUtilities::MakeError
   u.feature_add = ImagePlaceholderGeneratorUtilities::FeatureAdd
