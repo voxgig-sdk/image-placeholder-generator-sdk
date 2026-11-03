@@ -47,15 +47,15 @@ client := sdk.TestSDK(testopts, sdkopts)
 
 ### Instance Methods
 
-#### `GenerateCustomPlaceholder(data map[string]any) ImagePlaceholderGeneratorEntity`
+#### `GenerateCustomPlaceholder(data map[string]any) ImagePlaceholderGeneratorEntityBase`
 
 Create a new `GenerateCustomPlaceholder` entity instance. Pass `nil` for no initial data.
 
-#### `GenerateRectangularPlaceholder(data map[string]any) ImagePlaceholderGeneratorEntity`
+#### `GenerateRectangularPlaceholder(data map[string]any) ImagePlaceholderGeneratorEntityBase`
 
 Create a new `GenerateRectangularPlaceholder` entity instance. Pass `nil` for no initial data.
 
-#### `GenerateSquarePlaceholder(data map[string]any) ImagePlaceholderGeneratorEntity`
+#### `GenerateSquarePlaceholder(data map[string]any) ImagePlaceholderGeneratorEntityBase`
 
 Create a new `GenerateSquarePlaceholder` entity instance. Pass `nil` for no initial data.
 
@@ -112,14 +112,14 @@ fmt.Println(generateCustomPlaceholder.GetName()) // "generate_custom_placeholder
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `Data()` reads; `err` is non-nil on failure.
 
 ```go
 result, err := client.GenerateCustomPlaceholder(nil).Load(map[string]any{"background": "background", "height": 1, "text_color": "text_color", "width": 1}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(result)
+fmt.Println(result.(sdk.Entity).Data())
 ```
 
 ### Common Methods
@@ -138,6 +138,14 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 Create a new `GenerateCustomPlaceholderEntity` instance with the same client and
 options.
+
+#### `Stream(action string, args map[string]any, callopts map[string]any) <-chan StreamItem`
+
+Run an operation through the pipeline and send its result items on the
+returned channel, which closes when the stream ends. A `StreamItem` holds
+one item in `Item`, or in `Err` the error that ended the stream: the
+error the operation itself would return, sent as the last value. Under
+`throw: false` in `callopts["ctrl"]`, no error is sent.
 
 #### `GetName() string`
 
@@ -163,14 +171,14 @@ fmt.Println(generateRectangularPlaceholder.GetName()) // "generate_rectangular_p
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `Data()` reads; `err` is non-nil on failure.
 
 ```go
 result, err := client.GenerateRectangularPlaceholder(nil).Load(map[string]any{"height": 1, "width": 1}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(result)
+fmt.Println(result.(sdk.Entity).Data())
 ```
 
 ### Common Methods
@@ -189,6 +197,14 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 Create a new `GenerateRectangularPlaceholderEntity` instance with the same client and
 options.
+
+#### `Stream(action string, args map[string]any, callopts map[string]any) <-chan StreamItem`
+
+Run an operation through the pipeline and send its result items on the
+returned channel, which closes when the stream ends. A `StreamItem` holds
+one item in `Item`, or in `Err` the error that ended the stream: the
+error the operation itself would return, sent as the last value. Under
+`throw: false` in `callopts["ctrl"]`, no error is sent.
 
 #### `GetName() string`
 
@@ -214,14 +230,14 @@ fmt.Println(generateSquarePlaceholder.GetName()) // "generate_square_placeholder
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `Data()` reads; `err` is non-nil on failure.
 
 ```go
 result, err := client.GenerateSquarePlaceholder(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(result)
+fmt.Println(result.(sdk.Entity).Data())
 ```
 
 ### Common Methods
@@ -240,6 +256,14 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 Create a new `GenerateSquarePlaceholderEntity` instance with the same client and
 options.
+
+#### `Stream(action string, args map[string]any, callopts map[string]any) <-chan StreamItem`
+
+Run an operation through the pipeline and send its result items on the
+returned channel, which closes when the stream ends. A `StreamItem` holds
+one item in `Item`, or in `Err` the error that ended the stream: the
+error the operation itself would return, sent as the last value. Under
+`throw: false` in `callopts["ctrl"]`, no error is sent.
 
 #### `GetName() string`
 
@@ -405,6 +429,7 @@ Timeout.
 | Option | Type |
 |---|---|
 | `clearTimer` | function |
+| `now` | function |
 | `setTimer` | function |
 
 These take no default: the feature behaves one way when you supply them and

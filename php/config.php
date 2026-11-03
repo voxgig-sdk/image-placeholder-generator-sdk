@@ -93,6 +93,7 @@ class ImagePlaceholderGeneratorConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -214,10 +215,14 @@ class ImagePlaceholderGeneratorConfig
                     'exist' => [
                       'background',
                       'height',
-                      'text',
                       'text_color',
                       'width',
                     ],
+                  ],
+                  'response' => [
+                    'binary' => true,
+                    'kind' => 'raw',
+                    'media' => 'image/svg+xml',
                   ],
                 ],
               ],
@@ -303,9 +308,13 @@ class ImagePlaceholderGeneratorConfig
                   'select' => [
                     'exist' => [
                       'height',
-                      'text',
                       'width',
                     ],
+                  ],
+                  'response' => [
+                    'binary' => true,
+                    'kind' => 'raw',
+                    'media' => 'image/svg+xml',
                   ],
                 ],
               ],
@@ -378,8 +387,12 @@ class ImagePlaceholderGeneratorConfig
                   'select' => [
                     'exist' => [
                       'id',
-                      'text',
                     ],
+                  ],
+                  'response' => [
+                    'binary' => true,
+                    'kind' => 'raw',
+                    'media' => 'image/svg+xml',
                   ],
                 ],
               ],

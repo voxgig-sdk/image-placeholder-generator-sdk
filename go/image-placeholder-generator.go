@@ -13,7 +13,12 @@ type Context = core.Context
 type Utility = core.Utility
 type Feature = core.Feature
 type Entity = core.Entity
-type ImagePlaceholderGeneratorEntity = core.ImagePlaceholderGeneratorEntity
+type ImagePlaceholderGeneratorEntityBase = core.ImagePlaceholderGeneratorEntityBase
+
+// Deprecated: use ImagePlaceholderGeneratorEntityBase.
+type ImagePlaceholderGeneratorEntity = core.ImagePlaceholderGeneratorEntityBase
+
+type StreamItem = core.StreamItem
 type FetcherFunc = core.FetcherFunc
 type Spec = core.Spec
 type Result = core.Result
@@ -41,13 +46,13 @@ func init() {
 	core.NewTimeoutFeatureFunc = func() core.Feature {
 		return feature.NewTimeoutFeature()
 	}
-	core.NewGenerateCustomPlaceholderEntityFunc = func(client *core.ImagePlaceholderGeneratorSDK, entopts map[string]any) core.ImagePlaceholderGeneratorEntity {
+	core.NewGenerateCustomPlaceholderEntityFunc = func(client *core.ImagePlaceholderGeneratorSDK, entopts map[string]any) core.ImagePlaceholderGeneratorEntityBase {
 		return entity.NewGenerateCustomPlaceholderEntity(client, entopts)
 	}
-	core.NewGenerateRectangularPlaceholderEntityFunc = func(client *core.ImagePlaceholderGeneratorSDK, entopts map[string]any) core.ImagePlaceholderGeneratorEntity {
+	core.NewGenerateRectangularPlaceholderEntityFunc = func(client *core.ImagePlaceholderGeneratorSDK, entopts map[string]any) core.ImagePlaceholderGeneratorEntityBase {
 		return entity.NewGenerateRectangularPlaceholderEntity(client, entopts)
 	}
-	core.NewGenerateSquarePlaceholderEntityFunc = func(client *core.ImagePlaceholderGeneratorSDK, entopts map[string]any) core.ImagePlaceholderGeneratorEntity {
+	core.NewGenerateSquarePlaceholderEntityFunc = func(client *core.ImagePlaceholderGeneratorSDK, entopts map[string]any) core.ImagePlaceholderGeneratorEntityBase {
 		return entity.NewGenerateSquarePlaceholderEntity(client, entopts)
 	}
 }

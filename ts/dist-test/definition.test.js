@@ -40,8 +40,18 @@ const PLAN = [
             "text": "BiFindr+Placeholder+Image"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "image/svg+xml"
+        ],
         "query": [
             "text"
+        ],
+        "queryArgs": [
+            {
+                "name": "text",
+                "wire": "text"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -70,8 +80,18 @@ const PLAN = [
             "text": "BiFindr+Placeholder+Image"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "image/svg+xml"
+        ],
         "query": [
             "text"
+        ],
+        "queryArgs": [
+            {
+                "name": "text",
+                "wire": "text"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -95,8 +115,18 @@ const PLAN = [
             "text": "BiFindr+Placeholder+Image"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "image/svg+xml"
+        ],
         "query": [
             "text"
+        ],
+        "queryArgs": [
+            {
+                "name": "text",
+                "wire": "text"
+            }
         ],
         "auth": null,
         "status": 200,

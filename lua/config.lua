@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -188,10 +189,14 @@ local function make_config()
                   ["exist"] = {
                     "background",
                     "height",
-                    "text",
                     "text_color",
                     "width",
                   },
+                },
+                ["response"] = {
+                  ["binary"] = true,
+                  ["kind"] = "raw",
+                  ["media"] = "image/svg+xml",
                 },
               },
             },
@@ -277,9 +282,13 @@ local function make_config()
                 ["select"] = {
                   ["exist"] = {
                     "height",
-                    "text",
                     "width",
                   },
+                },
+                ["response"] = {
+                  ["binary"] = true,
+                  ["kind"] = "raw",
+                  ["media"] = "image/svg+xml",
                 },
               },
             },
@@ -352,8 +361,12 @@ local function make_config()
                 ["select"] = {
                   ["exist"] = {
                     "id",
-                    "text",
                   },
+                },
+                ["response"] = {
+                  ["binary"] = true,
+                  ["kind"] = "raw",
+                  ["media"] = "image/svg+xml",
                 },
               },
             },

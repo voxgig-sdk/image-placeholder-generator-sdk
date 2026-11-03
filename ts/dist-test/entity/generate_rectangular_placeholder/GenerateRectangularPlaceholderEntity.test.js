@@ -54,29 +54,36 @@ const utility_1 = require("../../utility");
         const ent = testsdk.GenerateRectangularPlaceholder();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.ImagePlaceholderGeneratorSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.GenerateRectangularPlaceholder().load({ "height": "x", "width": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE;
-        for (const op of ['load']) {
+        for (const op of []) {
             if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'generate_rectangular_placeholder.' + op, live))
                 return;
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 0 } }, "id": { "field": "id", "name": "id", "parts": ["width", "height"], "sep": "/" }, "name": "generate_rectangular_placeholder", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /{width}/{height}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": 300, "k": "param", "n": "height", "or": "height", "r": true, "t": "`$INTEGER`", "index$": 0 }, { "a": true, "ex": 600, "k": "param", "n": "width", "or": "width", "r": true, "t": "`$INTEGER`", "index$": 1 }], "query": [{ "a": true, "ex": "BiFindr+Placeholder+Image", "k": "query", "n": "text", "or": "text", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/{width}/{height}", "q": { "exist": ["height", "text", "width"] }, "r": {}, "s": [{ "var": "width" }, { "var": "height" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "generate_rectangular_placeholder", "name__orig": "generate_rectangular_placeholder", "Name": "GenerateRectangularPlaceholder", "name_": "generate_rectangular_placeholder", "name-": "generate-rectangular-placeholder", "NAME": "GENERATE_RECTANGULAR_PLACEHOLDER", "index$": 1 }, { "active": true, "entity": "generate_rectangular_placeholder", "key$": "BasicGenerateRectangularPlaceholderFlow", "kind": "basic", "name": "BasicGenerateRectangularPlaceholderFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "generate_rectangular_placeholder_ref01", "srcdatavar": "generate_rectangular_placeholder_ref01_data", "suffix": "_dt0" }, "m": { "id": "generate_rectangular_placeholder01", "width": "width01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-generate_rectangular_placeholder_ref01" } }], "index$": 0 }] }, 'GenerateRectangularPlaceholder', { "GET /{width}/{height}": { "protocol": "http", "parameters": [{ "name": "width", "in": "path", "required": true, "description": "The width of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 600 }, "index$": 0 }, { "name": "height", "in": "path", "required": true, "description": "The height of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 300 }, "index$": 1 }, { "name": "text", "in": "query", "required": false, "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)", "schema": { "type": "string", "example": "BiFindr+Placeholder+Image" }, "index$": 2 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 0 } }, "id": { "field": "id", "name": "id", "parts": ["width", "height"], "sep": "/" }, "name": "generate_rectangular_placeholder", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /{width}/{height}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": 300, "k": "param", "n": "height", "or": "height", "r": true, "t": "`$INTEGER`", "index$": 0 }, { "a": true, "ex": 600, "k": "param", "n": "width", "or": "width", "r": true, "t": "`$INTEGER`", "index$": 1 }], "query": [{ "a": true, "ex": "BiFindr+Placeholder+Image", "k": "query", "n": "text", "or": "text", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/{width}/{height}", "q": { "exist": ["height", "width"] }, "r": {}, "rs": { "binary": true, "kind": "raw", "media": "image/svg+xml" }, "s": [{ "var": "width" }, { "var": "height" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "generate_rectangular_placeholder", "name__orig": "generate_rectangular_placeholder", "Name": "GenerateRectangularPlaceholder", "name_": "generate_rectangular_placeholder", "name-": "generate-rectangular-placeholder", "NAME": "GENERATE_RECTANGULAR_PLACEHOLDER", "index$": 1 }, { "active": true, "entity": "generate_rectangular_placeholder", "key$": "BasicGenerateRectangularPlaceholderFlow", "kind": "basic", "name": "BasicGenerateRectangularPlaceholderFlow", "param": {}, "step": [{ "a": false, "d": {}, "i": { "ref": "generate_rectangular_placeholder_ref01", "srcdatavar": "generate_rectangular_placeholder_ref01_data", "suffix": "_dt0" }, "m": { "id": "generate_rectangular_placeholder01", "width": "width01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-generate_rectangular_placeholder_ref01" } }], "unreachable": true }] }, 'GenerateRectangularPlaceholder', { "GET /{width}/{height}": { "protocol": "http", "parameters": [{ "name": "width", "in": "path", "required": true, "description": "The width of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 600 }, "index$": 0 }, { "name": "height", "in": "path", "required": true, "description": "The height of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 300 }, "index$": 1 }, { "name": "text", "in": "query", "required": false, "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)", "schema": { "type": "string", "example": "BiFindr+Placeholder+Image" }, "index$": 2 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
         const isempty = struct.isempty;
         const select = struct.select;
         let generate_rectangular_placeholder_ref01_data = Object.values(setup.data.existing.generate_rectangular_placeholder)[0];
-        // LOAD
-        const generate_rectangular_placeholder_ref01_ent = client.GenerateRectangularPlaceholder();
-        const generate_rectangular_placeholder_ref01_match_dt0 = {};
-        generate_rectangular_placeholder_ref01_match_dt0.id = generate_rectangular_placeholder_ref01_data.id;
-        const generate_rectangular_placeholder_ref01_data_dt0 = (await generate_rectangular_placeholder_ref01_ent.load(generate_rectangular_placeholder_ref01_match_dt0)).data();
-        (0, node_assert_1.default)(generate_rectangular_placeholder_ref01_data_dt0.id === generate_rectangular_placeholder_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null
@@ -91,7 +98,7 @@ function basicSetup(extra) {
     const struct = client.utility().struct;
     const merge = struct.merge;
     const transform = struct.transform;
-    let idmap = transform(['generate_rectangular_placeholder01', 'generate_rectangular_placeholder02', 'generate_rectangular_placeholder03', 'width01'], {
+    let idmap = transform(['generate_rectangular_placeholder01', 'generate_rectangular_placeholder02', 'generate_rectangular_placeholder03'], {
         '`$PACK`': ['', {
                 '`$KEY`': '`$COPY`',
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']

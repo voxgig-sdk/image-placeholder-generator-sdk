@@ -10,6 +10,12 @@ import (
 	"github.com/voxgig-sdk/image-placeholder-generator-sdk/go/core"
 )
 
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const generate_custom_placeholderDirectLiveStrict = true
+
 func TestGenerateCustomPlaceholderDirect(t *testing.T) {
 	t.Run("direct-load-generate_custom_placeholder", func(t *testing.T) {
 		setup := generate_custom_placeholderDirectSetup(map[string]any{"id": "direct01"})
@@ -47,19 +53,14 @@ func TestGenerateCustomPlaceholderDirect(t *testing.T) {
 			"query":  query,
 		})
 		if setup.live {
-			// Live mode is lenient: synthetic IDs frequently 4xx. Skip
-			// rather than fail when the load endpoint isn't reachable with
-			// the IDs we can construct from setup.idmap — unless the model
-			// sets main.kit.test.live.strict.
 			if err != nil {
-				t.Fatalf("load call failed (likely synthetic IDs against live API): %v", err)
+				liveMiss(t, generate_custom_placeholderDirectLiveStrict, "Live load failed: %v", err)
 			}
-			if result["ok"] != true {
-				t.Fatalf("load call not ok (likely synthetic IDs against live API): %v", result)
+			if status := core.ToInt(result["status"]); result["ok"] != true || status < 200 || status >= 300 {
+				liveMiss(t, generate_custom_placeholderDirectLiveStrict, "Live load failed: %s", liveDescribe(result))
 			}
-			status := core.ToInt(result["status"])
-			if status < 200 || status >= 300 {
-				t.Fatalf("expected 2xx status, got %v", result["status"])
+			if result["data"] == nil {
+				liveMiss(t, generate_custom_placeholderDirectLiveStrict, "Live load returned no data: %s", liveDescribe(result))
 			}
 		} else {
 			if err != nil {
@@ -149,6 +150,12 @@ func generate_custom_placeholderDirectSetup(mockres any) *generate_custom_placeh
 				json.Unmarshal([]byte(entidStr), &idmap)
 			} else if entidMap, ok := entidRaw.(map[string]any); ok {
 				idmap = entidMap
+			}
+		}
+		// A path parameter's example stands in for an id *_ENTID does not give.
+		for k, v := range map[string]any{"background01": "2C3E50", "height01": 300, "text_color01": "ECF0F1", "width01": 600} {
+			if idmap[k] == nil {
+				idmap[k] = v
 			}
 		}
 

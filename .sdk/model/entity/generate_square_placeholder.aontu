@@ -56,13 +56,17 @@ main: kit: entity: generate_square_placeholder: {
           q: {
             exist: [
               "id"
-              "text"
             ]
           }
           r: {
             param: {
               width: "id"
             }
+          }
+          rs: {
+            binary: true
+            kind: "raw"
+            media: "image/svg+xml"
           }
           s: [
             {

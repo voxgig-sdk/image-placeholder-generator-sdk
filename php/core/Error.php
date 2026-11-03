@@ -54,6 +54,11 @@ class ImagePlaceholderGeneratorError extends \Exception implements \JsonSerializ
         return $this->msg;
     }
 
+    public function notFound(): bool
+    {
+        return 404 === $this->status;
+    }
+
     public function __toString(): string
     {
         return $this->msg;

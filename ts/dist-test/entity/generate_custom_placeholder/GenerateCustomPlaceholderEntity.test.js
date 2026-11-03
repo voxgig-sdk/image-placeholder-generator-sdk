@@ -54,29 +54,36 @@ const utility_1 = require("../../utility");
         const ent = testsdk.GenerateCustomPlaceholder();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.ImagePlaceholderGeneratorSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.GenerateCustomPlaceholder().load({ "background": 1, "height": 1, "text_color": "x", "width": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE;
-        for (const op of ['load']) {
+        for (const op of []) {
             if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'generate_custom_placeholder.' + op, live))
                 return;
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 0 } }, "id": { "field": "id", "name": "id", "parts": ["width", "height", "background", "text_color"], "sep": "/" }, "name": "generate_custom_placeholder", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /{width}/{height}/{background}/{text_color}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "2C3E50", "k": "param", "n": "background", "or": "background", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "ex": 300, "k": "param", "n": "height", "or": "height", "r": true, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "ex": "ECF0F1", "k": "param", "n": "text_color", "or": "text_color", "r": true, "t": "`$STRING`", "index$": 2 }, { "a": true, "ex": 600, "k": "param", "n": "width", "or": "width", "r": true, "t": "`$INTEGER`", "index$": 3 }], "query": [{ "a": true, "ex": "BiFindr+Placeholder+Image", "k": "query", "n": "text", "or": "text", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/{width}/{height}/{background}/{text_color}", "q": { "exist": ["background", "height", "text", "text_color", "width"] }, "r": {}, "s": [{ "var": "width" }, { "var": "height" }, { "var": "background" }, { "var": "text_color" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "generate_custom_placeholder", "name__orig": "generate_custom_placeholder", "Name": "GenerateCustomPlaceholder", "name_": "generate_custom_placeholder", "name-": "generate-custom-placeholder", "NAME": "GENERATE_CUSTOM_PLACEHOLDER", "index$": 0 }, { "active": true, "entity": "generate_custom_placeholder", "key$": "BasicGenerateCustomPlaceholderFlow", "kind": "basic", "name": "BasicGenerateCustomPlaceholderFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "generate_custom_placeholder_ref01", "srcdatavar": "generate_custom_placeholder_ref01_data", "suffix": "_dt0" }, "m": { "background": "background01", "height": "height01", "id": "generate_custom_placeholder01", "width": "width01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-generate_custom_placeholder_ref01" } }], "index$": 0 }] }, 'GenerateCustomPlaceholder', { "GET /{width}/{height}/{background}/{text_color}": { "protocol": "http", "parameters": [{ "name": "width", "in": "path", "required": true, "description": "The width of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 600 }, "index$": 0 }, { "name": "height", "in": "path", "required": true, "description": "The height of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 300 }, "index$": 1 }, { "name": "background", "in": "path", "required": true, "description": "Background color as HEX code without the # symbol", "schema": { "type": "string", "pattern": "^[0-9A-Fa-f]{6}$", "example": "2C3E50" }, "index$": 2 }, { "name": "text_color", "in": "path", "required": true, "description": "Text color as HEX code without the # symbol", "schema": { "type": "string", "pattern": "^[0-9A-Fa-f]{6}$", "example": "ECF0F1" }, "index$": 3 }, { "name": "text", "in": "query", "required": false, "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)", "schema": { "type": "string", "example": "BiFindr+Placeholder+Image" }, "index$": 4 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 0 } }, "id": { "field": "id", "name": "id", "parts": ["width", "height", "background", "text_color"], "sep": "/" }, "name": "generate_custom_placeholder", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /{width}/{height}/{background}/{text_color}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "2C3E50", "k": "param", "n": "background", "or": "background", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "ex": 300, "k": "param", "n": "height", "or": "height", "r": true, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "ex": "ECF0F1", "k": "param", "n": "text_color", "or": "text_color", "r": true, "t": "`$STRING`", "index$": 2 }, { "a": true, "ex": 600, "k": "param", "n": "width", "or": "width", "r": true, "t": "`$INTEGER`", "index$": 3 }], "query": [{ "a": true, "ex": "BiFindr+Placeholder+Image", "k": "query", "n": "text", "or": "text", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/{width}/{height}/{background}/{text_color}", "q": { "exist": ["background", "height", "text_color", "width"] }, "r": {}, "rs": { "binary": true, "kind": "raw", "media": "image/svg+xml" }, "s": [{ "var": "width" }, { "var": "height" }, { "var": "background" }, { "var": "text_color" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "generate_custom_placeholder", "name__orig": "generate_custom_placeholder", "Name": "GenerateCustomPlaceholder", "name_": "generate_custom_placeholder", "name-": "generate-custom-placeholder", "NAME": "GENERATE_CUSTOM_PLACEHOLDER", "index$": 0 }, { "active": true, "entity": "generate_custom_placeholder", "key$": "BasicGenerateCustomPlaceholderFlow", "kind": "basic", "name": "BasicGenerateCustomPlaceholderFlow", "param": {}, "step": [{ "a": false, "d": {}, "i": { "ref": "generate_custom_placeholder_ref01", "srcdatavar": "generate_custom_placeholder_ref01_data", "suffix": "_dt0" }, "m": { "background": "background01", "height": "height01", "id": "generate_custom_placeholder01", "width": "width01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-generate_custom_placeholder_ref01" } }], "unreachable": true }] }, 'GenerateCustomPlaceholder', { "GET /{width}/{height}/{background}/{text_color}": { "protocol": "http", "parameters": [{ "name": "width", "in": "path", "required": true, "description": "The width of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 600 }, "index$": 0 }, { "name": "height", "in": "path", "required": true, "description": "The height of the image in pixels", "schema": { "type": "integer", "minimum": 1, "example": 300 }, "index$": 1 }, { "name": "background", "in": "path", "required": true, "description": "Background color as HEX code without the # symbol", "schema": { "type": "string", "pattern": "^[0-9A-Fa-f]{6}$", "example": "2C3E50" }, "index$": 2 }, { "name": "text_color", "in": "path", "required": true, "description": "Text color as HEX code without the # symbol", "schema": { "type": "string", "pattern": "^[0-9A-Fa-f]{6}$", "example": "ECF0F1" }, "index$": 3 }, { "name": "text", "in": "query", "required": false, "description": "Custom text to display on the image. URL encoded strings supported (use + for spaces)", "schema": { "type": "string", "example": "BiFindr+Placeholder+Image" }, "index$": 4 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
         const isempty = struct.isempty;
         const select = struct.select;
         let generate_custom_placeholder_ref01_data = Object.values(setup.data.existing.generate_custom_placeholder)[0];
-        // LOAD
-        const generate_custom_placeholder_ref01_ent = client.GenerateCustomPlaceholder();
-        const generate_custom_placeholder_ref01_match_dt0 = {};
-        generate_custom_placeholder_ref01_match_dt0.id = generate_custom_placeholder_ref01_data.id;
-        const generate_custom_placeholder_ref01_data_dt0 = (await generate_custom_placeholder_ref01_ent.load(generate_custom_placeholder_ref01_match_dt0)).data();
-        (0, node_assert_1.default)(generate_custom_placeholder_ref01_data_dt0.id === generate_custom_placeholder_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null
@@ -91,7 +98,7 @@ function basicSetup(extra) {
     const struct = client.utility().struct;
     const merge = struct.merge;
     const transform = struct.transform;
-    let idmap = transform(['generate_custom_placeholder01', 'generate_custom_placeholder02', 'generate_custom_placeholder03', 'background01', 'height01', 'width01'], {
+    let idmap = transform(['generate_custom_placeholder01', 'generate_custom_placeholder02', 'generate_custom_placeholder03'], {
         '`$PACK`': ['', {
                 '`$KEY`': '`$COPY`',
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']

@@ -11,6 +11,12 @@ use Voxgig\Struct\Struct as Vs;
 
 class GenerateCustomPlaceholderEntityTest extends TestCase
 {
+    // main.kit.test.live.strict is true (the default is true): a live
+    // request that fails, or a live test missing an input it needs,
+    // fails the test.
+    // An account with no record for a test to read skips it either way.
+    private const LIVE_STRICT = true;
+
     public function test_create_instance(): void
     {
         $testsdk = ImagePlaceholderGeneratorSDK::test(null, null);
@@ -18,24 +24,38 @@ class GenerateCustomPlaceholderEntityTest extends TestCase
         $this->assertNotNull($ent);
     }
 
+    public function test_validate(): void
+    {
+        $cfg = ImagePlaceholderGeneratorConfig::shared_config();
+        if (!isset($cfg["feature"]["validate"])) {
+            $this->markTestSkipped('feature not present in this SDK: validate');
+        }
+        $client = ImagePlaceholderGeneratorSDK::test(null, ["feature" => ["validate" => ["active" => true]]]);
+        $err = null;
+        try {
+            $client->GenerateCustomPlaceholder(null)->load(["background" => 1, "height" => 1, "text_color" => 'x', "width" => 1], null);
+        } catch (\Throwable $e) {
+            $err = $e;
+        }
+        $this->assertSame('validate_failed', $err->sdk_code ?? null);
+    }
+
     public function test_basic_flow(): void
     {
         $setup = generate_custom_placeholder_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["load"] as $_op) {
+        foreach ([] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "generate_custom_placeholder." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
                 return;
             }
         }
-        // The basic flow consumes synthetic IDs from the fixture. In live mode
-        // without an *_ENTID env override, those IDs hit the live API and 4xx.
-        if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID JSON to run live");
-            return;
+        if (!empty($setup["live"])) {
+            $this->markTestSkipped('Live coverage incomplete: the flow has no step to run');
         }
+
         $client = $setup["client"];
 
         // Bootstrap entity data from existing test data.
@@ -45,16 +65,6 @@ class GenerateCustomPlaceholderEntityTest extends TestCase
         if (count($generate_custom_placeholder_ref01_data_raw) > 0) {
             $generate_custom_placeholder_ref01_data = Helpers::to_map($generate_custom_placeholder_ref01_data_raw[0][1]);
         }
-
-        // LOAD
-        $generate_custom_placeholder_ref01_ent = $client->GenerateCustomPlaceholder(null);
-        $generate_custom_placeholder_ref01_match_dt0 = [
-            "id" => $generate_custom_placeholder_ref01_data["id"],
-        ];
-        $generate_custom_placeholder_ref01_data_dt0_loaded = $generate_custom_placeholder_ref01_ent->load($generate_custom_placeholder_ref01_match_dt0, null);
-        $generate_custom_placeholder_ref01_data_dt0_load_result = Helpers::to_map(is_object($generate_custom_placeholder_ref01_data_dt0_loaded) && method_exists($generate_custom_placeholder_ref01_data_dt0_loaded, 'data_get') ? $generate_custom_placeholder_ref01_data_dt0_loaded->data_get() : $generate_custom_placeholder_ref01_data_dt0_loaded);
-        $this->assertNotNull($generate_custom_placeholder_ref01_data_dt0_load_result);
-        $this->assertEquals($generate_custom_placeholder_ref01_data_dt0_load_result["id"], $generate_custom_placeholder_ref01_data["id"]);
 
     }
 }
@@ -74,13 +84,12 @@ function generate_custom_placeholder_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["generate_custom_placeholder01", "generate_custom_placeholder02", "generate_custom_placeholder03", "background01", "height01", "width01"] as $k) {
+    foreach (["generate_custom_placeholder01", "generate_custom_placeholder02", "generate_custom_placeholder03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 
-    // Detect ENTID env override before envOverride consumes it. When live
-    // mode is on without a real override, the basic test runs against synthetic
-    // IDs from the fixture and 4xx's. Surface this so the test can skip.
+    // Whether *_ENTID supplied the idmap, read before env_override consumes
+    // it: without it, the ids a live flow binds are the fixture's synthetic ones.
     $entid_env_raw = getenv("IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 

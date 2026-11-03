@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -217,10 +218,14 @@ def make_config():
                   "exist": [
                     "background",
                     "height",
-                    "text",
                     "text_color",
                     "width",
                   ],
+                },
+                "response": {
+                  "binary": True,
+                  "kind": "raw",
+                  "media": "image/svg+xml",
                 },
               },
             ],
@@ -306,9 +311,13 @@ def make_config():
                 "select": {
                   "exist": [
                     "height",
-                    "text",
                     "width",
                   ],
+                },
+                "response": {
+                  "binary": True,
+                  "kind": "raw",
+                  "media": "image/svg+xml",
                 },
               },
             ],
@@ -381,8 +390,12 @@ def make_config():
                 "select": {
                   "exist": [
                     "id",
-                    "text",
                   ],
+                },
+                "response": {
+                  "binary": True,
+                  "kind": "raw",
+                  "media": "image/svg+xml",
                 },
               },
             ],

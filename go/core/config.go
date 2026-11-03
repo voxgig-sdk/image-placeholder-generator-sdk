@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -192,10 +193,14 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"background",
 										"height",
-										"text",
 										"text_color",
 										"width",
 									},
+								},
+								"response": map[string]any{
+									"binary": true,
+									"kind": "raw",
+									"media": "image/svg+xml",
 								},
 							},
 						},
@@ -281,9 +286,13 @@ func MakeConfig() map[string]any {
 								"select": map[string]any{
 									"exist": []any{
 										"height",
-										"text",
 										"width",
 									},
+								},
+								"response": map[string]any{
+									"binary": true,
+									"kind": "raw",
+									"media": "image/svg+xml",
 								},
 							},
 						},
@@ -356,8 +365,12 @@ func MakeConfig() map[string]any {
 								"select": map[string]any{
 									"exist": []any{
 										"id",
-										"text",
 									},
+								},
+								"response": map[string]any{
+									"binary": true,
+									"kind": "raw",
+									"media": "image/svg+xml",
 								},
 							},
 						},

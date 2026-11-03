@@ -87,6 +87,7 @@ class Config {
             },
             "optspec": {
                 "clearTimer": "`$FUNCTION`",
+                "now": "`$FUNCTION`",
                 "setTimer": "`$FUNCTION`"
             },
             "strict": false,
@@ -208,10 +209,14 @@ class Config {
                                 "exist": [
                                     "background",
                                     "height",
-                                    "text",
                                     "text_color",
                                     "width"
                                 ]
+                            },
+                            "response": {
+                                "binary": true,
+                                "kind": "raw",
+                                "media": "image/svg+xml"
                             }
                         }
                     ]
@@ -297,9 +302,13 @@ class Config {
                             "select": {
                                 "exist": [
                                     "height",
-                                    "text",
                                     "width"
                                 ]
+                            },
+                            "response": {
+                                "binary": true,
+                                "kind": "raw",
+                                "media": "image/svg+xml"
                             }
                         }
                     ]
@@ -371,9 +380,13 @@ class Config {
                             },
                             "select": {
                                 "exist": [
-                                    "id",
-                                    "text"
+                                    "id"
                                 ]
+                            },
+                            "response": {
+                                "binary": true,
+                                "kind": "raw",
+                                "media": "image/svg+xml"
                             }
                         }
                     ]

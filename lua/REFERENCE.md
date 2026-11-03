@@ -104,7 +104,7 @@ local generate_custom_placeholder = client:GenerateCustomPlaceholder(nil)
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:GenerateCustomPlaceholder():load({ background = "background", height = 1, text_color = "text_color", width = 1 })
@@ -156,7 +156,7 @@ local generate_rectangular_placeholder = client:GenerateRectangularPlaceholder(n
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:GenerateRectangularPlaceholder():load({ height = 1, width = 1 })
@@ -208,7 +208,7 @@ local generate_square_placeholder = client:GenerateSquarePlaceholder(nil)
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:GenerateSquarePlaceholder():load({ id = 1 })
@@ -401,6 +401,7 @@ Timeout.
 | Option | Type |
 |---|---|
 | `clearTimer` | function |
+| `now` | function |
 | `setTimer` | function |
 
 These take no default: the feature behaves one way when you supply them and

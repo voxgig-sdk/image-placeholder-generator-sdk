@@ -99,9 +99,9 @@ generate_custom_placeholder = client.GenerateCustomPlaceholder()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> dict`
+#### `load(reqmatch, ctrl=None) -> GenerateCustomPlaceholderEntity`
 
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and raises on error.
 
 ```python
 result = client.GenerateCustomPlaceholder().load({"background": "background", "height": 1, "text_color": "text_color", "width": 1})
@@ -150,9 +150,9 @@ generate_rectangular_placeholder = client.GenerateRectangularPlaceholder()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> dict`
+#### `load(reqmatch, ctrl=None) -> GenerateRectangularPlaceholderEntity`
 
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and raises on error.
 
 ```python
 result = client.GenerateRectangularPlaceholder().load({"height": 1, "width": 1})
@@ -201,9 +201,9 @@ generate_square_placeholder = client.GenerateSquarePlaceholder()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> dict`
+#### `load(reqmatch, ctrl=None) -> GenerateSquarePlaceholderEntity`
 
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and raises on error.
 
 ```python
 result = client.GenerateSquarePlaceholder().load({"id": 1})
@@ -395,6 +395,7 @@ Timeout.
 | Option | Type |
 |---|---|
 | `clearTimer` | function |
+| `now` | function |
 | `setTimer` | function |
 
 These take no default: the feature behaves one way when you supply them and

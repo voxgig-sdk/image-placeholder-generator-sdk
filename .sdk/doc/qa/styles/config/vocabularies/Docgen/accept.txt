@@ -298,6 +298,7 @@ initialiser
 [Bb][Aa][Cc][Kk][Gg][Rr][Oo][Uu][Nn][Dd]
 [Tt][Ee][Xx][Tt]
 [Cc][Oo][Ll][Oo][Rr]
+[Tt][Ee][Xx][Tt]_[Cc][Oo][Ll][Oo][Rr]
 [Ii][Dd]
 [Tt][Hh][Ii][Ss]
 [Aa][Pp][Ii]

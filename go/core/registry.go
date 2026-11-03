@@ -12,9 +12,9 @@ var NewTestFeatureFunc func() Feature
 
 var NewTimeoutFeatureFunc func() Feature
 
-var NewGenerateCustomPlaceholderEntityFunc func(client *ImagePlaceholderGeneratorSDK, entopts map[string]any) ImagePlaceholderGeneratorEntity
+var NewGenerateCustomPlaceholderEntityFunc func(client *ImagePlaceholderGeneratorSDK, entopts map[string]any) ImagePlaceholderGeneratorEntityBase
 
-var NewGenerateRectangularPlaceholderEntityFunc func(client *ImagePlaceholderGeneratorSDK, entopts map[string]any) ImagePlaceholderGeneratorEntity
+var NewGenerateRectangularPlaceholderEntityFunc func(client *ImagePlaceholderGeneratorSDK, entopts map[string]any) ImagePlaceholderGeneratorEntityBase
 
-var NewGenerateSquarePlaceholderEntityFunc func(client *ImagePlaceholderGeneratorSDK, entopts map[string]any) ImagePlaceholderGeneratorEntity
+var NewGenerateSquarePlaceholderEntityFunc func(client *ImagePlaceholderGeneratorSDK, entopts map[string]any) ImagePlaceholderGeneratorEntityBase
 

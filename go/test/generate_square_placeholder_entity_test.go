@@ -15,6 +15,13 @@ import (
 	vs "github.com/voxgig-sdk/image-placeholder-generator-sdk/go/utility/struct"
 )
 
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const generate_square_placeholderEntityLiveStrict = true
+
+
 func TestGenerateSquarePlaceholderEntity(t *testing.T) {
 	t.Run("instance", func(t *testing.T) {
 		testsdk := sdk.TestSDK(nil, nil)
@@ -24,7 +31,21 @@ func TestGenerateSquarePlaceholderEntity(t *testing.T) {
 		}
 	})
 
-	t.Run("basic", func(t *testing.T) {
+	t.Run("validate", func(t *testing.T) {
+		if !fhHasFeature("validate") {
+			t.Skip("feature not present in this SDK: validate")
+		}
+		client := sdk.TestSDK(nil, map[string]any{
+			"feature": map[string]any{"validate": map[string]any{"active": true}},
+		})
+		_, err := client.GenerateSquarePlaceholder(nil).Load(map[string]any{"id": "x"}, nil)
+		if sdkerr, ok := err.(*core.ImagePlaceholderGeneratorError); !ok || "validate_failed" != sdkerr.Code {
+			t.Fatalf("expected validate_failed, got %v", err)
+		}
+	})
+
+	t.Run("basic", func(tt *testing.T) {
+		var t testing.TB = tt
 		setup := generate_square_placeholderBasicSetup(nil)
 		// Per-op sdk-test-control.json skip — basic test exercises a flow
 		// with multiple ops; skipping any op skips the whole flow.
@@ -41,13 +62,20 @@ func TestGenerateSquarePlaceholderEntity(t *testing.T) {
 				return
 			}
 		}
-		// The basic flow consumes synthetic IDs from the fixture. In live mode
-		// without an *_ENTID env override, those IDs hit the live API and 4xx.
-		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID JSON to run live")
-			return
+		if setup.live {
+			for _liveKey, _liveEx := range map[string]any{"generate_square_placeholder01": float64(400)} {
+				if setup.syntheticOnly || setup.idmap[_liveKey] == nil {
+					setup.idmap[_liveKey] = _liveEx
+				}
+			}
 		}
 		client := setup.client
+		_ = client
+		if setup.live {
+			liveExisting(t, generate_square_placeholderEntityLiveStrict, setup.data, "generate_square_placeholder", func() (any, error) {
+				return []any{map[string]any{"id": setup.idmap["generate_square_placeholder01"]}}, nil
+			})
+		}
 
 		// Bootstrap entity data from existing test data (no create step in flow).
 		generateSquarePlaceholderRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.generate_square_placeholder")))
@@ -113,9 +141,8 @@ func generate_square_placeholderBasicSetup(extra map[string]any) *entityTestSetu
 		},
 	)
 
-	// Detect ENTID env override before envOverride consumes it. When live
-	// mode is on without a real override, the basic test runs against synthetic
-	// IDs from the fixture and 4xx's. Surface this so the test can skip.
+	// Whether *_ENTID supplied the idmap, read before envOverride consumes it:
+	// without it, the ids a live flow binds are the fixture's synthetic ones.
 	entidEnvRaw := os.Getenv("IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_SQUARE_PLACEHOLDER_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 

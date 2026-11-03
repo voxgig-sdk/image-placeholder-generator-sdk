@@ -8,6 +8,13 @@ local runner = require("test.runner")
 
 local _test_dir = debug.getinfo(1, "S").source:match("^@(.+/)")  or "./"
 
+-- main.kit.test.live.strict is true (the default is true): a live
+-- request that fails, or a live test missing an input it needs,
+-- fails the test.
+-- An account with no record for a test to read skips it either way.
+local LIVE_STRICT = true
+
+
 describe("GenerateCustomPlaceholderEntity", function()
   it("should create instance", function()
     local testsdk = sdk.test(nil, nil)
@@ -15,23 +22,33 @@ describe("GenerateCustomPlaceholderEntity", function()
     assert.is_not_nil(ent)
   end)
 
+  it("should refuse an invalid request", function()
+    local config = require("config_shared")()
+    if type(config.feature) ~= "table" or config.feature.validate == nil then
+      pending("feature not present in this SDK: validate")
+      return
+    end
+    local client = sdk.test(nil, { feature = { validate = { active = true } } })
+    local _, err = client:GenerateCustomPlaceholder(nil):load({ ["background"] = 1, ["height"] = 1, ["text_color"] = "x", ["width"] = 1 }, nil)
+    assert.are.equal("validate_failed", type(err) == "table" and err.code or nil)
+  end)
+
   it("should run basic flow", function()
     local setup = generate_custom_placeholder_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"load"}) do
+    for _, _op in ipairs({}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "generate_custom_placeholder." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
         return
       end
     end
-    -- The basic flow consumes synthetic IDs from the fixture. In live mode
-    -- without an *_ENTID env override, those IDs hit the live API and 4xx.
-    if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID JSON to run live")
+    if setup.live then
+      pending("Live coverage incomplete: the flow has no step to run")
       return
     end
+
     local client = setup.client
 
     -- Bootstrap entity data from existing test data.
@@ -41,17 +58,6 @@ describe("GenerateCustomPlaceholderEntity", function()
     if #generate_custom_placeholder_ref01_data_raw > 0 then
       generate_custom_placeholder_ref01_data = helpers.to_map(generate_custom_placeholder_ref01_data_raw[1][2])
     end
-
-    -- LOAD
-    local generate_custom_placeholder_ref01_ent = client:GenerateCustomPlaceholder(nil)
-    local generate_custom_placeholder_ref01_match_dt0 = {
-      id = generate_custom_placeholder_ref01_data["id"],
-    }
-    local generate_custom_placeholder_ref01_data_dt0_loaded, err = generate_custom_placeholder_ref01_ent:load(generate_custom_placeholder_ref01_match_dt0, nil)
-    assert.is_nil(err)
-    local generate_custom_placeholder_ref01_data_dt0_load_result = helpers.to_map(type(generate_custom_placeholder_ref01_data_dt0_loaded) == 'table' and generate_custom_placeholder_ref01_data_dt0_loaded.data_get and generate_custom_placeholder_ref01_data_dt0_loaded:data_get() or generate_custom_placeholder_ref01_data_dt0_loaded)
-    assert.is_not_nil(generate_custom_placeholder_ref01_data_dt0_load_result)
-    assert.are.equal(generate_custom_placeholder_ref01_data_dt0_load_result["id"], generate_custom_placeholder_ref01_data["id"])
 
   end)
 end)
@@ -76,7 +82,7 @@ function generate_custom_placeholder_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "generate_custom_placeholder01", "generate_custom_placeholder02", "generate_custom_placeholder03", "background01", "height01", "width01" },
+    { "generate_custom_placeholder01", "generate_custom_placeholder02", "generate_custom_placeholder03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",
@@ -85,9 +91,8 @@ function generate_custom_placeholder_basic_setup(extra)
     }
   )
 
-  -- Detect ENTID env override before envOverride consumes it. When live
-  -- mode is on without a real override, the basic test runs against synthetic
-  -- IDs from the fixture and 4xx's. Surface this so the test can skip.
+  -- Whether *_ENTID supplied the idmap, read before env_override consumes
+  -- it: without it, the ids a live flow binds are the fixture's synthetic ones.
   local entid_env_raw = os.getenv("IMAGE_PLACEHOLDER_GENERATOR_TEST_GENERATE_CUSTOM_PLACEHOLDER_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 

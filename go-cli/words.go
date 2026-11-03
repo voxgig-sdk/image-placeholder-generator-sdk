@@ -75,7 +75,7 @@ func runOp(client *sdk.ImagePlaceholderGeneratorSDK, op string, query *eng.Value
 
 // entityFor dispatches on the lowercase entity name. The generator
 // emits one `case "<name>":` per entity defined in the SDK model.
-func entityFor(client *sdk.ImagePlaceholderGeneratorSDK, name string) (sdk.ImagePlaceholderGeneratorEntity, error) {
+func entityFor(client *sdk.ImagePlaceholderGeneratorSDK, name string) (sdk.ImagePlaceholderGeneratorEntityBase, error) {
 	switch strings.ToLower(name) {
 	case "generate_custom_placeholder":
 		return client.GenerateCustomPlaceholder(nil), nil

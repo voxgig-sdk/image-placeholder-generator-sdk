@@ -88,10 +88,14 @@ main: kit: entity: generate_custom_placeholder: {
             exist: [
               "background"
               "height"
-              "text"
               "text_color"
               "width"
             ]
+          }
+          rs: {
+            binary: true
+            kind: "raw"
+            media: "image/svg+xml"
           }
           s: [
             {

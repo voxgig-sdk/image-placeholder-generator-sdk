@@ -69,9 +69,13 @@ main: kit: entity: generate_rectangular_placeholder: {
           q: {
             exist: [
               "height"
-              "text"
               "width"
             ]
+          }
+          rs: {
+            binary: true
+            kind: "raw"
+            media: "image/svg+xml"
           }
           s: [
             {

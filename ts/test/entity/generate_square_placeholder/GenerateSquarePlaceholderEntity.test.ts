@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { ImagePlaceholderGeneratorSDK, BaseFeature, stdutil } from '../../..'
+import { ImagePlaceholderGeneratorSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('GenerateSquarePlaceholderEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = ImagePlaceholderGeneratorSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.GenerateSquarePlaceholder().load({"id":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.IMAGE_PLACEHOLDER_GENERATOR_TEST_LIVE
@@ -51,7 +63,7 @@ describe('GenerateSquarePlaceholderEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0}},"id":{"field":"id","name":"id"},"name":"generate_square_placeholder","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /{width}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":400,"k":"param","n":"id","or":"width","r":true,"t":"`$INTEGER`","index$":0}],"query":[{"a":true,"ex":"BiFindr+Placeholder+Image","k":"query","n":"text","or":"text","r":false,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/{width}","q":{"exist":["id","text"]},"r":{"param":{"width":"id"}},"s":[{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"generate_square_placeholder","name__orig":"generate_square_placeholder","Name":"GenerateSquarePlaceholder","name_":"generate_square_placeholder","name-":"generate-square-placeholder","NAME":"GENERATE_SQUARE_PLACEHOLDER","index$":2}, {"active":true,"entity":"generate_square_placeholder","key$":"BasicGenerateSquarePlaceholderFlow","kind":"basic","name":"BasicGenerateSquarePlaceholderFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"generate_square_placeholder_ref01","srcdatavar":"generate_square_placeholder_ref01_data","suffix":"_dt0"},"m":{"id":"generate_square_placeholder01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-generate_square_placeholder_ref01"}}],"index$":0}]}, 'GenerateSquarePlaceholder', {"GET /{width}":{"protocol":"http","parameters":[{"name":"width","in":"path","required":true,"description":"The width (and height) of the square image in pixels","schema":{"type":"integer","minimum":1,"example":400},"index$":0},{"name":"text","in":"query","required":false,"description":"Custom text to display on the image. URL encoded strings supported (use + for spaces)","schema":{"type":"string","example":"BiFindr+Placeholder+Image"},"index$":1}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0}},"id":{"field":"id","name":"id"},"name":"generate_square_placeholder","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /{width}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":400,"k":"param","n":"id","or":"width","r":true,"t":"`$INTEGER`","index$":0}],"query":[{"a":true,"ex":"BiFindr+Placeholder+Image","k":"query","n":"text","or":"text","r":false,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/{width}","q":{"exist":["id"]},"r":{"param":{"width":"id"}},"rs":{"binary":true,"kind":"raw","media":"image/svg+xml"},"s":[{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"generate_square_placeholder","name__orig":"generate_square_placeholder","Name":"GenerateSquarePlaceholder","name_":"generate_square_placeholder","name-":"generate-square-placeholder","NAME":"GENERATE_SQUARE_PLACEHOLDER","index$":2}, {"active":true,"entity":"generate_square_placeholder","key$":"BasicGenerateSquarePlaceholderFlow","kind":"basic","name":"BasicGenerateSquarePlaceholderFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"generate_square_placeholder_ref01","srcdatavar":"generate_square_placeholder_ref01_data","suffix":"_dt0"},"m":{"id":"generate_square_placeholder01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-generate_square_placeholder_ref01"}}],"index$":0,"route":"GET /{width}","record":{}}]}, 'GenerateSquarePlaceholder', {"GET /{width}":{"protocol":"http","parameters":[{"name":"width","in":"path","required":true,"description":"The width (and height) of the square image in pixels","schema":{"type":"integer","minimum":1,"example":400},"index$":0},{"name":"text","in":"query","required":false,"description":"Custom text to display on the image. URL encoded strings supported (use + for spaces)","schema":{"type":"string","example":"BiFindr+Placeholder+Image"},"index$":1}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -73,6 +85,12 @@ describe('GenerateSquarePlaceholderEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options
